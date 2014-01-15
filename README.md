@@ -1,7 +1,7 @@
-fotec
+Fotec
 =====
 
-fotec agency website.
+Fotec agency website.
 
 * Check out http://fotec.wendellpbarreto.com/ for a non-update beta version of this project
 
