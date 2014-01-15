@@ -3,7 +3,7 @@ Fotec
 
 Fotec agency website.
 
-* Check out http://fotec.wendellpbarreto.com/ for a non-update beta version of this project
+* Check out http://fotec.wendellpbarreto.com/
 
 The MIT License (MIT)
 
