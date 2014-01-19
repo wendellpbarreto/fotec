@@ -22,6 +22,7 @@ class ImageInline(admin.StackedInline):
 	max_num = 8
 	classes = ('grp-collapse grp-open',)
 	inline_classes = ('grp-collapse grp-open',)
+	readonly_fields = ('image_tag',)
 
 class NewsAdmin(admin.ModelAdmin):
 	inlines = (ImageInline,)
@@ -34,7 +35,8 @@ class NewsAdmin(admin.ModelAdmin):
 			_('Informations'), {
 				'fields' : (
 					('active', 'featured',),
-					('editorial', 'date',),
+					'date',
+					'editorial',
 					'title', 
 					'subtitle', 
 					'body',
@@ -42,9 +44,36 @@ class NewsAdmin(admin.ModelAdmin):
 			}
 		),
 	)
-	list_display = ('title', 'date', 'editorial', 'featured', 'active',)
+	list_display = ('title', 'date', 'date_modified', 'editorial', 'featured', 'active',)
 	list_filter = ('date', 'editorial__name', 'featured', 'active',)
-	search_fields = ('date', 'editorial__name', 'featured', 'active',)
-	ordering = ('date', 'editorial', 'active', 'featured')
+	search_fields = ('date', 'date_modified', 'editorial__name', 'featured', 'active',)
+	ordering = ('date_modified', 'date', 'editorial', 'active', 'featured')
 
 admin.site.register(News, NewsAdmin)
+
+class PodcastAdmin(admin.ModelAdmin):
+	model = Podcast
+	form = PodcastAdminForm
+	classes = ('grp-collapse grp-open',)
+	inline_classes = ('grp-collapse grp-open',)
+	fieldsets = (
+		(
+			_('Informations'), {
+				'fields' : (
+					('active', 'date',),
+					'download_url',
+					'title', 
+					'subtitle', 
+					'body',
+					'image',
+				)
+			}
+		),
+	)
+	list_display = ('title', 'date', 'date_modified', 'active',)
+	list_filter = ('date', 'active',)
+	search_fields = ('date', 'date_modified', 'active',)
+	ordering = ('date_modified', 'date', 'active',)
+	readonly_fields = ('image_tag',)
+
+admin.site.register(Podcast, PodcastAdmin)

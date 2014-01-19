@@ -36,7 +36,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = (
-    'grappelli.dashboard',
+    # 'grappelli.dashboard',
     'grappelli',
     'redactor',
 
@@ -143,7 +143,7 @@ GRAPPELLI_ADMIN_TITLE = u'FOTEC - Agência de Fotojornalismo Experimental'
 
 # Dashboard
 
-GRAPPELLI_INDEX_DASHBOARD = 'fotec.dashboard.CustomIndexDashboard'
+# GRAPPELLI_INDEX_DASHBOARD = 'fotec.dashboard.CustomIndexDashboard'
 
 
 # Redactor config
