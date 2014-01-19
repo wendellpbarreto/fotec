@@ -16,7 +16,6 @@ while true; do
 			sudo -u postgres psql -c 'CREATE DATABASE fotec_db'
 			sudo -u postgres psql -c 'CREATE USER fotec_admin'
 			sudo -u postgres psql -c 'GRANT ALL PRIVILEGES ON DATABASE fotec_db TO fotec_admin'
-			sudo -u postgres psql -c "ALTER USER fotec_admin WITH PASSWORD 'q1IUilS14,747Qx'"
 			# sudo -u postgres psql -d fotec_db -c 'CREATE EXTENSION hstore' 
 
 			break;;
