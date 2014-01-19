@@ -8,5 +8,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'fotec.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^grappelli/', include('grappelli.urls')),
+    url(r'^redactor/', include('redactor.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

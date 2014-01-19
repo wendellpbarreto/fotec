@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 Django settings for fotec project.
 
@@ -26,19 +29,26 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    '.wendellpbarreto.com',
+    'fotec.wendellpbarreto.com',
 ]
 
 
 # Application definition
 
 INSTALLED_APPS = (
+    'grappelli.dashboard',
+    'grappelli',
+    'redactor',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'fotec.apps.core',
+    'fotec.apps.accounts',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -48,6 +58,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.request",
+    "django.core.context_processors.i18n",
+    'django.contrib.messages.context_processors.messages',
 )
 
 ROOT_URLCONF = 'fotec.urls'
@@ -83,7 +100,53 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Additional locations of template files
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR, 'fotec/templates'),
+)
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+# Additional locations of static files
+
+STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR, 'fotec/assets'),
+)
+
+
+# Media files
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Media news files
+
+MEDIA_NEWS_ROOT = os.path.join(MEDIA_ROOT, 'news')
+
+# Admin tittle
+
+GRAPPELLI_ADMIN_TITLE = u'FOTEC - Agência de Fotojornalismo Experimental'
+
+
+# Dashboard
+
+GRAPPELLI_INDEX_DASHBOARD = 'fotec.dashboard.CustomIndexDashboard'
+
+
+# Redactor config
+
+REDACTOR_OPTIONS = {'lang': 'en'} 
+REDACTOR_UPLOAD = os.path.join(MEDIA_ROOT, 'upload')
