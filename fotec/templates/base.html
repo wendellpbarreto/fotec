@@ -1,0 +1,33 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<title>{% block title %} {% endblock %}</title>
+
+        <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.png">
+		<link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/app.css" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}fonts/opensans.css" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}fonts/icomoon.css" />
+		
+		<script src="{{ STATIC_URL }}bower_components/modernizr/modernizr.js"></script>
+	</head>
+	<body>
+		<!-- -  -   -    -     -      -      -       -        -        Header -->        
+		{% block header %} {% endblock %}
+
+		<!-- -  -   -    -     -      -      -       -        -        Menu -->
+		{% block menu %} {% endblock %} 
+
+		<!-- -  -   -    -     -      -      -       -        -        Container -->
+		{% block container %} {% endblock %} 
+
+		<!-- -  -   -    -     -      -      -       -        -        Footer -->
+		{% block footer %} {% endblock %} 
+
+		<script src="{{ STATIC_URL }}bower_components/jquery/jquery.js"></script>
+		<script src="{{ STATIC_URL }}bower_components/foundation/js/foundation.min.js"></script>
+		<script src="{{ STATIC_URL }}js/app.js"></script>
+	</body>
+</html>

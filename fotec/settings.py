@@ -36,7 +36,8 @@ INSTALLED_APPS = (
     # 'grappelli.dashboard',
     'grappelli',
     'redactor',
-
+    'sorl.thumbnail',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +47,7 @@ INSTALLED_APPS = (
 
     'fotec.apps.core',
     'fotec.apps.accounts',
+    'fotec.apps.frontend',
 
     'gunicorn',
 )
@@ -64,6 +66,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
     "django.core.context_processors.i18n",
     'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.static',
 )
 
 ROOT_URLCONF = 'fotec.urls'
@@ -105,7 +108,8 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'fotec/templates'),
+    os.path.join(BASE_DIR, 'fotec', 'templates'),
+
 )
 
 
@@ -122,7 +126,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'fotec/assets'),
+    os.path.join(BASE_DIR, 'fotec', 'assets'),
 )
 
 
@@ -134,10 +138,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Media news files
 
 MEDIA_NEWS_ROOT = os.path.join(MEDIA_ROOT, 'news')
+MEDIA_PHOTOGALLERY_ROOT = os.path.join(MEDIA_ROOT, 'photogallery')
+MEDIA_VIDEO_LIBRARY_ROOT = os.path.join(MEDIA_ROOT, 'video_library')
 
 # Admin tittle
 
-GRAPPELLI_ADMIN_TITLE = u'FOTEC - Agência de Fotojornalismo Experimental'
+GRAPPELLI_ADMIN_TITLE = u'Agência fotec - Comunicação experimental multimídia'
 
 
 # Dashboard
@@ -149,3 +155,64 @@ GRAPPELLI_ADMIN_TITLE = u'FOTEC - Agência de Fotojornalismo Experimental'
 
 REDACTOR_OPTIONS = {'lang': 'en'} 
 REDACTOR_UPLOAD = os.path.join(MEDIA_ROOT, 'upload')
+
+
+# A sample logging configuration. The only tangible logging
+# performed by this configuration is to send an email to
+# the site admins on every HTTP 500 error when DEBUG=False.
+# See http://docs.djangoproject.com/en/dev/topics/logging for
+# more details on how to customize your logging configuration.
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'standard': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+    },
+    'handlers': {
+        'null': {
+            'level':'DEBUG',
+            'class':'django.utils.log.NullHandler',
+        },
+        'logfile': {
+            'level':'DEBUG',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(BASE_DIR, 'media', 'django.log'),
+            'maxBytes': 50000,
+            'backupCount': 2,
+            'formatter': 'standard',
+        },
+        'console':{
+            'level':'INFO',
+            'class':'logging.StreamHandler',
+            'formatter': 'standard'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['console'],
+            'propagate': True,
+            'level':'WARN',
+        },
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'fotec.apps.accounts': {
+            'handlers': ['console', 'logfile'],
+            'level': 'DEBUG',
+        },
+        'fotec.apps.core': {
+            'handlers': ['console', 'logfile'],
+            'level': 'DEBUG',
+        },
+        'fotec.apps.frontend': {
+            'handlers': ['console', 'logfile'],
+            'level': 'DEBUG',
+        },
+    }
+}
