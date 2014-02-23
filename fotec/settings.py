@@ -91,7 +91,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LOCALE = 'pt_BR'
+
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 
@@ -101,6 +103,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 # Additional locations of template files
 
@@ -180,7 +185,7 @@ LOGGING = {
         'logfile': {
             'level':'DEBUG',
             'class':'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'media', 'django.log'),
+            'filename': os.path.join(BASE_DIR, 'logs', 'django.log'),
             'maxBytes': 50000,
             'backupCount': 2,
             'formatter': 'standard',

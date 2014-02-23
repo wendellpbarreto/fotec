@@ -1,0 +1,5 @@
+[22/Feb/2014 14:16:21] INFO [fotec.apps.core.views:171] Template loaded: frontend/nonajax/home.html
+[23/Feb/2014 15:01:28] INFO [fotec.apps.core.views:171] Template loaded: frontend/nonajax/home.html
+[23/Feb/2014 15:03:31] INFO [fotec.apps.core.models:170] News matching query does not exist.
+[23/Feb/2014 15:52:23] INFO [fotec.apps.core.models:170] New matching query does not exist.
+[23/Feb/2014 15:52:37] INFO [fotec.apps.core.models:170] New matching query does not exist.

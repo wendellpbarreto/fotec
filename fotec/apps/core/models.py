@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import Image
 import logging 
 import os
 import sys
 import uuid
 
+from PIL import Image
 from django.conf import settings
 from django.db import models
 from django.db.models import signals
@@ -64,12 +64,34 @@ def create_resized_photos(sender, instance):
 	small.paste(photo, ((conf['small']['w'] - photo.size[0]) / 2, (conf['small']['h'] - photo.size[1]) / 2))
 	small.save(os.path.join(directory, file_name + "-small.png"), 'PNG', quality=100)
 
+def delete_photos(photo):
+	photo_path = unicode(photo.path)
+	filename = photo_path.rsplit('/', 1)[1].rsplit('.')[0]
+	directory = photo_path.rsplit('/', 1)[0]
+	
+	try:
+		os.remove(photo_path)
+	except Exception, e:
+		logger.warning(str(e))
+	try:
+		os.remove(os.path.join(directory, filename + '-big.png'))
+	except Exception, e:
+		logger.warning(str(e))
+	try:
+		os.remove(os.path.join(directory, filename + '-medium.png'))
+	except Exception, e:
+		logger.warning(str(e))
+	try:
+		os.remove(os.path.join(directory, filename + '-small.png'))
+	except Exception, e:
+		logger.warning(str(e))
+
 def validate_video(value):
 	if not (value.name.lower().endswith('.mp4') or value.name.lower().endswith('.webm') or value.name.lower().endswith('.ogg')):
 		raise ValidationError(u'Formato não suportado. Por favor, envie um arquivo no formato .mp4, .webm ou .ogg.')	
 
 class Editorial(models.Model):
-	name = models.CharField(_('Name'), max_length=32, help_text=_('Editorial name'))
+	name = models.CharField(_('Editorial'), max_length=32, help_text=_('Editorial name'))
 
 	class Meta:
 		verbose_name = _('Editorial')
@@ -78,15 +100,15 @@ class Editorial(models.Model):
 	def __unicode__(self):
 		return '%s' % (self.name.capitalize())
 		
-class News(models.Model):
-	active = models.BooleanField(_('Active'), default=True, help_text=_('News is active?'))
-	featured = models.BooleanField(_('Featured'), default=False, help_text=_('News is in featured session?'))
-	date = models.DateField(_('Date'), help_text=_('News date'))
+class New(models.Model):
+	active = models.BooleanField(_('Active'), default=True, help_text=_('New is active?'))
+	featured = models.BooleanField(_('Featured'), default=False, help_text=_('New is in featured session?'))
+	date = models.DateField(_('Date'), help_text=_('New date'))
 	date_modified = models.DateTimeField(_('Last modified'), auto_now=True)
-	title = models.CharField(_('Title'), max_length=64, help_text=_('News title'))
-	subtitle = models.CharField(_('Subtitle'), max_length=128, blank=True, help_text=_('News subtitle'))
-	body = models.TextField(_('Body'), max_length=1024, help_text=_('News body'))
-	editorial = models.ForeignKey(Editorial, verbose_name=_('Editorial'), help_text=_('News editorial'))
+	title = models.CharField(_('Title'), max_length=64, help_text=_('New title'))
+	subtitle = models.CharField(_('Subtitle'), max_length=128, blank=True, help_text=_('New subtitle'))
+	body = models.TextField(_('Body'), max_length=1024, help_text=_('New body'))
+	editorial = models.ForeignKey(Editorial, verbose_name=_('Editorial'), help_text=_('New editorial'))
 	
 	def create_path(self, filename):
 		try:
@@ -110,24 +132,53 @@ class News(models.Model):
 		except Exception, e:
 			logger.error(str(e))
 
-	photo = ImageField(upload_to=create_path, verbose_name=_('Photo'), max_length=256, validators=[validate_photo], help_text=_('News photo'))
+	photo = ImageField(upload_to=create_path, verbose_name=_('Photo'), max_length=256, validators=[validate_photo], help_text=_('New photo'))
 
 	class Meta:
-		verbose_name = _('News')
+		verbose_name = _('New')
 		verbose_name_plural = _('News')
 
 	def __unicode__(self):
 		return '%s' % (self.title.capitalize())
 	
-	def photo_tag(self):
-		return '<img src="%s"/>' % (self.photo)
+	def small(self):
+		extension = self.photo.url.rsplit('.', 1)[1]
+		photo_name = self.photo.url.rsplit('fotec', 1)[1]
+		return photo_name.replace('.' + extension, '-small.png')
 
-	photo_tag.short_description = 'Photo'
+	def medium(self):
+		extension = self.photo.url.rsplit('.', 1)[1]
+		photo_name = self.photo.url.rsplit('fotec', 1)[1]
+		return photo_name.replace('.' + extension, '-medium.png')
+
+	def big(self):
+		extension = self.photo.url.rsplit('.', 1)[1]
+		photo_name = self.photo.url.rsplit('fotec', 1)[1]
+		return photo_name.replace('.' + extension, '-big.png')
+
+	def photo_tag(self):
+		return '<img src="%s"/>' % (self.small())
+
+	photo_tag.short_description = _('Current photo')
 	photo_tag.allow_tags = True
 
-@receiver(signals.post_save, sender=News)
+@receiver(signals.pre_save, sender=New)
+def news_edit_decorator(sender, instance, **kwargs):
+	try:
+		photo = New.objects.get(pk=instance.pk).photo
+	except Exception, e:
+		logger.info(str(e))
+	else:
+		if photo != instance.photo:
+			delete_photos(photo)
+
+@receiver(signals.post_save, sender=New)
 def news_save_decorator(sender, instance, **kwargs):
 	create_resized_photos(sender, instance)
+
+@receiver(signals.pre_delete, sender=New)
+def news_delete_decorator(sender, instance, **kwargs):
+	delete_photos(instance.photo)
 
 class Photogallery(models.Model):
 	active = models.BooleanField(_('Active'), default=True, help_text=_('Photogallery is active?'))
@@ -179,12 +230,6 @@ class Photo(models.Model):
 	def __unicode__(self):
 		return '%s' % (self.pk)
 
-	def photo_tag(self):
-		return '<img src="%s"/>' % (self.photo)
-
-	photo_tag.short_description = 'Photo'
-	photo_tag.allow_tags = True
-
 	def small(self):
 		extension = self.photo.url.rsplit('.', 1)[1]
 		photo_name = self.photo.url.rsplit('fotec', 1)[1]
@@ -200,9 +245,29 @@ class Photo(models.Model):
 		photo_name = self.photo.url.rsplit('fotec', 1)[1]
 		return photo_name.replace('.' + extension, '-big.png')
 
+	def photo_tag(self):
+		return '<img src="%s"/>' % (self.small())
+
+	photo_tag.short_description = _('Current photo')
+	photo_tag.allow_tags = True
+
+@receiver(signals.pre_save, sender=Photo)
+def photo_edit_decorator(sender, instance, **kwargs):
+	try:
+		photo = Photo.objects.get(pk=instance.pk).photo
+	except Exception, e:
+		logger.info(str(e))
+	else:
+		if photo != instance.photo:
+			delete_photos(photo)
+
 @receiver(signals.post_save, sender=Photo)
 def photo_save_decorator(sender, instance, **kwargs):
 	create_resized_photos(sender, instance)
+
+@receiver(signals.pre_delete, sender=Photo)
+def photo_delete_decorator(sender, instance, **kwargs):
+	delete_photos(instance.photo)
 
 class VideoLibrary(models.Model):
 	active = models.BooleanField(_('Active'), default=True, help_text=_('Video library is active?'))
@@ -248,8 +313,8 @@ class Video(models.Model):
 			logger.error(str(e))
 
 	video = models.FileField(upload_to=create_path, max_length=256, blank=True, validators=[validate_video], help_text=_('Video'))
-	youtube = models.URLField(max_length=200, blank=True, help_text=_('Ex: //www.youtube.com/embed/umMIcZODm2k'))
-	vimeo = models.URLField(max_length=200, blank=True, help_text=_('Ex: //player.vimeo.com/video/85228844'))
+	youtube = models.URLField(max_length=200, blank=True, help_text=_('Ex: http://www.youtube.com/embed/umMIcZODm2k'))
+	vimeo = models.URLField(max_length=200, blank=True, help_text=_('Ex: http://player.vimeo.com/video/85228844'))
 
 	class Meta:
 		verbose_name = _('Video')
@@ -276,13 +341,16 @@ class Podcast(models.Model):
 
 class Event(models.Model):
 	active = models.BooleanField(_('Active'), default=True, help_text=_('Event is active?'))
-	name = models.CharField(_('Name'), max_length=32, help_text=_('Event name'))
-	description = models.CharField(_('Description'), max_length=32, help_text=_('Event description'))
+	featured = models.BooleanField(_('Featured'), default=False, help_text=_('Event is in featured session?'))
 	date = models.DateField(_('Date'), help_text=_('Event date'))
 	date_modified = models.DateTimeField(_('Last modified'), auto_now=True)
-	news = models.ManyToManyField(News, verbose_name=_('News'), help_text=_('Event news'))
-	photogalleries = models.ManyToManyField(Photogallery, verbose_name=_('Photogalleries'), help_text=_('Event photogalleries'))
-	video_libraries = models.ManyToManyField(VideoLibrary, verbose_name=_('Video libraries'), help_text=_('Event video libraries'))
+	title = models.CharField(_('Title'), max_length=64, help_text=_('Event title'))
+	subtitle = models.CharField(_('Subtitle'), max_length=128, blank=True, help_text=_('Event subtitle'))
+	body = models.TextField(_('Body'), max_length=1024, blank=True, help_text=_('Event body'))	
+	news = models.ManyToManyField(New, verbose_name=_('New'), blank=True, help_text=_('Event news'))
+	photogalleries = models.ManyToManyField(Photogallery, verbose_name=_('Photogalleries'), blank=True, help_text=_('Event photogalleries'))
+	video_libraries = models.ManyToManyField(VideoLibrary, verbose_name=_('Video libraries'), blank=True, help_text=_('Event video libraries'))
+	podcasts = models.ManyToManyField(Podcast, verbose_name=_('Podcasts'), blank=True, help_text=_('Event podcasts'))
 
 	class Meta:
 		verbose_name = _('Event')

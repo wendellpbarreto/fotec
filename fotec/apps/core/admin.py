@@ -17,9 +17,16 @@ class EventAdmin(admin.ModelAdmin):
 		(
 			_('Informations'), {
 				'fields' : (
-					('active', 'date',),
-					'name', 
-					'description', 
+					('date', 'active', 'featured',),
+				)
+			}
+		),
+		(
+			_('Description'), {
+				'fields' : (
+					'title', 
+					'subtitle', 
+					'body', 
 				)
 			}
 		),
@@ -29,12 +36,21 @@ class EventAdmin(admin.ModelAdmin):
 					'news', 
 					'photogalleries', 
 					'video_libraries',
+					'podcasts',
 				)
 			}
 		),
 	)
-	filter_horizontal = ('news', 'photogalleries', 'video_libraries',)
+	filter_horizontal = ('news', 'photogalleries', 'video_libraries', 'podcasts',)
+	list_display = ('title', 'date', 'date_modified', 'featured', 'active',)
+	list_filter = ('date', 'featured', 'active',)
+	search_fields = ('date', 'date_modified', 'featured', 'active',)
+	ordering = ('date_modified', 'date', 'active', 'featured')
 
+	class Media:
+		css = {
+             'all': ('admin/datepicker.css',)
+        }
 
 admin.site.register(Event, EventAdmin)
 
@@ -43,9 +59,9 @@ class EditorialAdmin(admin.ModelAdmin):
 
 admin.site.register(Editorial, EditorialAdmin)
 
-class NewsAdmin(admin.ModelAdmin):
-	model = News
-	form = NewsAdminForm
+class NewAdmin(admin.ModelAdmin):
+	model = New
+	form = NewAdminForm
 	classes = ('grp-collapse grp-open',)
 	inline_classes = ('grp-collapse grp-open',)
 	fieldsets = (
@@ -63,7 +79,7 @@ class NewsAdmin(admin.ModelAdmin):
 					'title', 
 					'subtitle', 
 					'body',
-					'photo',
+					('photo', 'photo_tag',),
 				)
 			}
 		),
@@ -73,8 +89,13 @@ class NewsAdmin(admin.ModelAdmin):
 	search_fields = ('date', 'date_modified', 'editorial__name', 'featured', 'active',)
 	ordering = ('date_modified', 'date', 'editorial', 'active', 'featured')
 	readonly_fields = ('photo_tag',)
+	
+	class Media:
+		css = {
+             'all': ('admin/datepicker.css',)
+        }
 
-admin.site.register(News, NewsAdmin)
+admin.site.register(New, NewAdmin)
 
 class PhotoInline(admin.StackedInline):
 	model = Photo
@@ -95,8 +116,7 @@ class PhotogalleryAdmin(admin.ModelAdmin):
 		(
 			_('Informations'), {
 				'fields' : (
-					'date', 
-					('active', 'featured',),
+					('date', 'active', 'featured',),
 				)
 			}
 		),
@@ -115,6 +135,11 @@ class PhotogalleryAdmin(admin.ModelAdmin):
 	list_filter = ('date', 'active',)
 	search_fields = ('date', 'date_modified', 'active',)
 	ordering = ('date_modified', 'date', 'active',)
+	
+	class Media:
+		css = {
+             'all': ('admin/datepicker.css',)
+        }
 
 admin.site.register(Photogallery, PhotogalleryAdmin)
 
@@ -136,8 +161,7 @@ class VideoLibraryAdmin(admin.ModelAdmin):
 		(
 			_('Informations'), {
 				'fields' : (
-					'date', 
-					('active', 'featured',),
+					('date', 'active', 'featured',),
 				)
 			}
 		),
@@ -155,6 +179,11 @@ class VideoLibraryAdmin(admin.ModelAdmin):
 	list_filter = ('date', 'active',)
 	search_fields = ('date', 'date_modified', 'active',)
 	ordering = ('date_modified', 'date', 'active',)
+	
+	class Media:
+		css = {
+             'all': ('admin/datepicker.css',)
+        }
 
 admin.site.register(VideoLibrary, VideoLibraryAdmin)
 
@@ -167,8 +196,7 @@ class PodcastAdmin(admin.ModelAdmin):
 		(
 			_('Informations'), {
 				'fields' : (
-					'date', 
-					('active',),
+					('date', 'active',),
 				)
 			}
 		),
@@ -187,5 +215,10 @@ class PodcastAdmin(admin.ModelAdmin):
 	list_filter = ('date', 'active',)
 	search_fields = ('date', 'date_modified', 'active',)
 	ordering = ('date_modified', 'date', 'active',)
+	
+	class Media:
+		css = {
+             'all': ('admin/datepicker.css',)
+        }
 
 admin.site.register(Podcast, PodcastAdmin)

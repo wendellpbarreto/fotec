@@ -1,4 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/wendellpbarreto/fotec.png?label=ready)](https://waffle.io/wendellpbarreto/fotec)
+![Codeship Status](https://www.codeship.io/projects/26280a90-7ef3-0131-06dd-564f27b89133/status)
 Fotec
 =====
 
