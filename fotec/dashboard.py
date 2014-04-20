@@ -14,101 +14,93 @@ from grappelli.dashboard.utils import get_admin_site_name
 
 
 class CustomIndexDashboard(Dashboard):
-    """
-    Custom index dashboard for www.fotec.wendellpbarreto.com
-    """
-    
+
     def init_with_context(self, context):
         site_name = get_admin_site_name(context)
-        
-        # append a group for "Administration" & "Applications"
+
+        self.children.append(modules.AppList(
+            _('Publications'),
+            collapsible=True,
+            column=1,
+            css_classes=('collapse closed',),
+            models=('fotec.apps.core.models.*',),
+            exclude=(
+                'fotec.apps.core.models.SocialNetwork',
+                'fotec.apps.core.models.Contact',
+                'fotec.apps.core.models.Address',
+                'fotec.apps.core.models.About',
+                'fotec.apps.core.models.Role',
+                'fotec.apps.core.models.Member',
+                'fotec.apps.core.models.Editorial',
+                'fotec.apps.core.models.Discipline',
+            ),
+
+        ))
+
         self.children.append(modules.Group(
-            _('Group: Administration & Applications'),
+            _('Administration'),
             column=1,
             collapsible=True,
             children = [
                 modules.AppList(
-                    _('Administration'),
+                    _('General configurations'),
+                    collapsible=False,
+                    column=1,
+                    models=(
+                        'fotec.apps.core.models.SocialNetwork',
+                        'fotec.apps.core.models.Contact',
+                        'fotec.apps.core.models.Address',
+                        'fotec.apps.core.models.About',
+                        'fotec.apps.core.models.Role',
+                        'fotec.apps.core.models.Member',
+                    ),
+                ),
+                modules.AppList(
+                    _('Publication configurations'),
+                    collapsible=False,
+                    column=1,
+                    models=(
+                        'fotec.apps.core.models.Editorial',
+                        'fotec.apps.core.models.Discipline',
+                    ),
+                ),
+                modules.AppList(
+                    _('Users'),
                     column=1,
                     collapsible=False,
                     models=('django.contrib.*',),
                 ),
-                modules.AppList(
-                    _('Applications'),
-                    column=1,
-                    css_classes=('collapse closed',),
-                    exclude=('django.contrib.*',),
-                )
             ]
         ))
-        
-        # append an app list module for "Applications"
-        self.children.append(modules.AppList(
-            _('AppList: Applications'),
-            collapsible=True,
-            column=1,
-            css_classes=('collapse closed',),
-            exclude=('django.contrib.*',),
-        ))
-        
-        # append an app list module for "Administration"
-        self.children.append(modules.ModelList(
-            _('ModelList: Administration'),
-            column=1,
-            collapsible=False,
-            models=('django.contrib.*',),
-        ))
-        
-        # append another link list module for "support".
+
         self.children.append(modules.LinkList(
-            _('Media Management'),
+            _('Pages'),
             column=2,
             children=[
                 {
-                    'title': _('FileBrowser'),
-                    'url': '/admin/filebrowser/browse/',
+                    'title': _('Fotec GUI'),
+                    'url': '/home/',
                     'external': False,
                 },
+                # {
+                #     'title': _('Grappelli Documentation'),
+                #     'url': 'http://packages.python.org/django-grappelli/',
+                #     'external': True,
+                # },
+                # {
+                #     'title': _('Grappelli Google-Code'),
+                #     'url': 'http://code.google.com/p/django-grappelli/',
+                #     'external': True,
+                # },
             ]
         ))
-        
-        # append another link list module for "support".
-        self.children.append(modules.LinkList(
-            _('Support'),
-            column=2,
-            children=[
-                {
-                    'title': _('Django Documentation'),
-                    'url': 'http://docs.djangoproject.com/',
-                    'external': True,
-                },
-                {
-                    'title': _('Grappelli Documentation'),
-                    'url': 'http://packages.python.org/django-grappelli/',
-                    'external': True,
-                },
-                {
-                    'title': _('Grappelli Google-Code'),
-                    'url': 'http://code.google.com/p/django-grappelli/',
-                    'external': True,
-                },
-            ]
-        ))
-        
-        # append a feed module
-        self.children.append(modules.Feed(
-            _('Latest Django News'),
-            column=2,
-            feed_url='http://www.djangoproject.com/rss/weblog/',
-            limit=5
-        ))
-        
-        # append a recent actions module
+
         self.children.append(modules.RecentActions(
-            _('Recent Actions'),
-            limit=5,
+            title=_('Recent Actions'),
+            column=2,
             collapsible=False,
-            column=3,
+            limit=5,
         ))
+
 
 

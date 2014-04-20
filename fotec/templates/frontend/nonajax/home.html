@@ -1,122 +1,169 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
+{% load thumbnail %}
 
 {% block title %}
 	{{ title }}
 {% endblock %}
 
 {% block header %}
-	<div id='header' class='row'>
-		<div class='logo large-5 columns'>
-			<img src='{{ STATIC_URL }}/img/logo.png' alt='fotec'/>
+	<div id="header" class="row">
+		<div class="logo large-5 columns">
+			<img src="{{ STATIC_URL }}/img/logo.png" alt="fotec"/>
 		</div>
-		<ul class='nav large-15 columns no-bullet'>
+		<ul class="nav large-15 columns no-bullet">
 			<li><a>SOBRE</a></li>
-			<li><a>PODCASTS</a></li>
+			<li><a>DISCIPLINAS</a></li>
+			<li><a>EVENTOS</a></li>
 			<li><a>VÍDEOS</a></li>
-			<li><a>GALERIAS</a></li>
+			<li><a>FOTOGALERIAS</a></li>
 			<li><a>NOTÍCIAS</a></li>
-			<li><a class='active'>INÍCIO</a></li>
-		</div>		
+			<li class="active"><a>INÍCIO</a></li>
+		</ul>
 	</div>
-{% endblock %}
 
-{% block menu %}
+    <div id="header-fixed">
+        <div class="row">
+            <div class="logo large-4 columns">
+                <img src="{{ STATIC_URL }}/img/logo.png" alt="fotec"/>
+            </div>
+            <ul class="nav large-15 columns no-bullet">
+                <li><a>SOBRE</a></li>
+                <li><a>DISCIPLINAS</a></li>
+                <li><a>EVENTOS</a></li>
+                <li><a>VÍDEOS</a></li>
+                <li><a>FOTOGALERIAS</a></li>
+                <li><a>NOTÍCIAS</a></li>
+                <li class="active"><a>INÍCIO</a></li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}
 
 {% block container %}
-	<div id='container' class='row'>
-		<ul data-orbit>
-			{% for new in news %}
-				{% if new.get_first_image %}
-					<li>
-						<img src='{{ new.get_first_image.big }}' alt="{{ new.title }}" />
-						<div class="orbit-caption">
-							{{ new.title }}
-						</div>
-						<div>
-					</li>
-				{% else %}
-					<li>
-					    <div>
-					      <h2>{{ new.title }}</h2>
-					      <h3>{{ new.subtitle }}</h3>
-					    </div>
-				  	</li>
-			  {% endif %}
-			{% endfor %}
-		</ul>
+	<div id="container" class="row">
+        <aside class="large-6 columns">
+            <div class="tabs widget">
+                <header class="row text-center">
+                    <h6 class="large-centered column">Recente</h6>
+                </header>
+                <ul class="no-bullet">
+                    {% for new in news %}
+                        <li class="row">
+                            <a href="#" class="large-7 columns">
+                                {% thumbnail new.photo "100x100" crop="center" as im %}
+                                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% endthumbnail %}
+                            </a>
+                            <div class="large-13 columns">
+                                <h3 class="post-title">
+                                    <a href="#">
+                                        {{ new.title|capfirst|truncatechars:30 }}
+                                    </a>
+                                </h3>
+                                <p class="post-meta">
+                                    {{ new.date }}
+                                </p>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="social widget">
+                <header class="row text-center">
+                    <h6 class="large-centered column">SIGA-NOS</h6>
+                </header>
+            </div>
+            <div class="twitter widget">
+                <header class="row text-center">
+                    <h6 class="large-centered column">SIGA @FOTEC</h6>
+                </header>
+            </div>
+            <div class="facebook widget">
+                <header class="row text-center">
+                    <h6 class="large-centered column">FACEBOOK AGENCIAFOTEC</h6>
+                </header>
+            </div>
+            <div class="tags widget">
+                <header class="row text-center">
+                    <h6 class="large-centered column">TAGS</h6>
+                </header>
+            </div>
+        </aside>
+        <div class="content large-14 columns">
+            <section class="banner">
+                <div class="flexslider">
+            		<ul class="slides">
+            			{% for new in news %}
+            				{% if new.big %}
+            					<li>
+            						<a href="#">
+                                        {% thumbnail new.photo "1200x675" crop="center" as im %}
+                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                        {% endthumbnail %}
+            						</a>
+                                    <div class="slide-caption">
+                                        <p class="date">{{ new.date }}</p>
+            							<h5>
+            								<a href="#">{{ new.pretitle|upper}}</a>
+            							</h5>
+            							<p>{{ new.subtitle }}</p>
+                                        <a href="#" class="button">Leia mais</a>
+            						</div>
+            						<div>
+            					</li>
+            			  {% endif %}
+            			{% endfor %}
+            		</ul>
+                </div>
+            </section>
 
-		<section class='news'>
-			<div class='title text-center'>
-				<h2>NOTÍCIAS</h2>
-				<hr>
-			</div>
-			<ul class='text-center large-block-grid-4 medium-block-grid-2 small-block-grid-1'>
-			{% for new in news %}
-				<li>
-					<img src='{{ new.get_first_image.small }}' alt="{{ new.title }}" />
-
-				</li>
-			{% endfor %}
-			</ul>
-		</section>
-
-		<section id='galleries'>
-			<div class='title text-center row'>
-				<h2>GALERIAS</h2>
-				<hr>
-			</div>
-			
-		</section>
-
-		<section id='videos'>
-			<div class='title text-center row'>
-				<h2>VÍDEOS</h2>
-				<hr>
-			</div>
-			
-		</section>
-
-		<section id='podcasts'>
-			<div class='title text-center row'>
-				<h2>PODCASTS</h2>
-				<hr>
-			</div>
-
-			<ul class='podcasts large-block-grid-2 medium-block-grid-1'>
-				{% for podcast in podcasts %}
-					<li>
-						<div class='podcast column'>
-							<div class='row collapse'>
-								<div class='frame text-center large-20 columns'>
-									{{ podcast.body|safe }}
-								</div>
-								<!-- 							
-								<div class='download large-2 columns'>
-									<a class='icon-download' href='{{ podcast.download_url }}'></a>
-								</div> 
-								-->
-							</div>
-						</div>
-					</li>
-				{% endfor %}
-			</ul>
-		</section>
+    		{% if posts %}
+    			<section class="posts">
+                    {% for post in posts %}
+                        <article class="row">
+                            <figure>
+                                {% thumbnail post.photo "1200x675" crop="center" as im %}
+                                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% endthumbnail %}
+                                <figcaption>
+                                    <div class="line"></div>
+                                    <h6>{{ post.editorial|upper }}</h6>
+                                </figcaption>
+                            </figure>
+                            <header class="column">
+                                <h2>
+                                    <a hred="#">{{ post.pretitle|capfirst }}</a>
+                                </h2>
+                                <div class="meta">
+                                </div>
+                            </header>
+                            <div class="description column">
+                                {{ post.body|safe }}
+                            </div>
+                            <div class="read-more row text-center">
+                                <a href="#" class="button">Leia mais</a>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </section>
+            {% endif %}
+        </div>
 	</div>
 {% endblock %}
 
 {% block footer %}
-	<div id='footer'>
-		<footer class='row'>
-			<div class='info large-12 columns'>
-				<div class='row'>
-					<div class='large-10 columns'>
+	<div id="footer">
+		<footer class="row">
+			<div class="info large-12 columns">
+				<div class="row">
+					<div class="large-10 columns">
 						<h6>A agência <strong>fotec</strong></h6>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in sapien sed turpis laoreet placerat eget eget turpis. Morbi nulla neque, molestie at nibh id, egestas ultrices metus. Pellentesque sit amet fermentum augue.
 						</p>
 					</div>
-					<div class='large-10 columns'>
+					<div class="large-10 columns">
 						<h6>Contato</h6>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in sapien sed turpis laoreet placerat eget eget turpis. Morbi nulla neque, molestie at nibh id, egestas ultrices metus. Pellentesque sit amet fermentum augue.
@@ -124,17 +171,17 @@
 					</div>
 				</div>
 			</div>
-			<div class='large-4 large-offset-4 columns'>
-				<ul class='social row no-bullet'>
+			<div class="large-4 large-offset-4 columns">
+				<ul class="social row no-bullet">
 					<li>
-						<a href='http://twitter.com/fotec' class='icon-twitter'></a>
+						<a href="http://twitter.com/fotec" class="icon-twitter"></a>
 					</li>
 					<li>
-						<a href='http://www.facebook.com/AgenciaFotec' class='icon-facebook'></a>
+						<a href="http://www.facebook.com/AgenciaFotec" class="icon-facebook"></a>
 					</li>
 				</ul>
-				<div class='logo row'>
-					<img src='{{ STATIC_URL }}/img/logo-branca.png' alt='fotec'/>
+				<div class="logo row">
+					<img src="{{ STATIC_URL }}/img/logo-branca.png" alt="fotec"/>
 				</div>
 			</div>
 		</div>

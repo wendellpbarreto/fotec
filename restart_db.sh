@@ -32,4 +32,4 @@ while true; do
 done
 
 python manage.py syncdb
-python manage.py collectstatic
+python manage.py collectstatic --noinput

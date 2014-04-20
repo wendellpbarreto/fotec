@@ -7,46 +7,62 @@ from django.db import models
 
 from .models import (
     Event,
-	New,
+    New,
     Podcast,
     Photogallery,
-	VideoLibrary,
+    VideoLibrary,
+    Member,
+    About,
 )
 
-class EventAdminForm(forms.ModelForm):
+class AboutAdminForm(forms.ModelForm):
     class Meta:
-        model = Event
-        formfield_overrides = {
-            models.ManyToManyField: {'widget': forms.CheckboxSelectMultiple},
-        }
+        model = About
         widgets = {
-            'description': RedactorEditor(),
+            "body": RedactorEditor(),
+        }
+
+class MemberAdminForm(forms.ModelForm):
+    class Meta:
+        model = Member
+        widgets = {
+            "about": RedactorEditor(),
         }
 
 class NewAdminForm(forms.ModelForm):
     class Meta:
         model = New
         widgets = {
-            'body': RedactorEditor(),
+            "body": RedactorEditor(),
         }
 
 class PhotogalleryAdminForm(forms.ModelForm):
     class Meta:
         model = Photogallery
         widgets = {
-            'body': RedactorEditor(),
+            "body": RedactorEditor(),
         }
 
 class VideoLibraryAdminForm(forms.ModelForm):
     class Meta:
         model = VideoLibrary
         widgets = {
-            'body': RedactorEditor(),
+            "body": RedactorEditor(),
         }
 
 class PodcastAdminForm(forms.ModelForm):
     class Meta:
         model = Podcast
         widgets = {
-            'body': RedactorEditor(),
+            "body": RedactorEditor(),
+        }
+
+class EventAdminForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        formfield_overrides = {
+            models.ManyToManyField: {"widget": forms.CheckboxSelectMultiple},
+        }
+        widgets = {
+            "description": RedactorEditor(),
         }

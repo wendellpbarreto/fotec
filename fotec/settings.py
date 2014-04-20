@@ -11,6 +11,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
+# Global name to project
+PROJECT_NAME = 'fotec'
+PROJECT_NAME_READABLE = 'fotec'
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -33,11 +38,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    # 'grappelli.dashboard',
+    'gunicorn',
+    'grappelli.dashboard',
     'grappelli',
     'redactor',
     'sorl.thumbnail',
-    
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,11 +51,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'fotec.apps.core',
     'fotec.apps.accounts',
-    'fotec.apps.frontend',
+    'fotec.apps.core',
+    'fotec.apps.gui',
 
-    'gunicorn',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -69,9 +74,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
 )
 
-ROOT_URLCONF = 'fotec.urls'
+ROOT_URLCONF = '%s.urls' % PROJECT_NAME
 
-WSGI_APPLICATION = 'fotec.wsgi.application'
+WSGI_APPLICATION = '%s.wsgi.application' % PROJECT_NAME
 
 
 # Database
@@ -80,11 +85,11 @@ WSGI_APPLICATION = 'fotec.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fotec_db',                              
-        'USER': 'fotec_admin',
+        'NAME': '%s_db' % PROJECT_NAME,
+        'USER': '%s_admin' % PROJECT_NAME,
         'PASSWORD': 'q1IUilS14,747Qx',
-        'HOST': 'localhost',                                
-        'PORT': '',    
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -95,7 +100,9 @@ LOCALE = 'pt_BR'
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
+
+TIME_ZONE = 'Brazil/East'
 
 USE_I18N = True
 
@@ -124,14 +131,24 @@ TEMPLATE_DIRS = (
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-
 # Additional locations of static files
 
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'fotec', 'assets'),
+    os.path.join(BASE_DIR, PROJECT_NAME, 'assets'),
+)
+
+
+# Additional locations of static files
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR, PROJECT_NAME, 'templates'),
+
 )
 
 
@@ -153,14 +170,13 @@ GRAPPELLI_ADMIN_TITLE = u'Agência fotec - Comunicação experimental multimídi
 
 # Dashboard
 
-# GRAPPELLI_INDEX_DASHBOARD = 'fotec.dashboard.CustomIndexDashboard'
+GRAPPELLI_INDEX_DASHBOARD = 'fotec.dashboard.CustomIndexDashboard'
 
 
 # Redactor config
 
-REDACTOR_OPTIONS = {'lang': 'en'} 
+REDACTOR_OPTIONS = {'lang': 'en'}
 REDACTOR_UPLOAD = os.path.join(MEDIA_ROOT, 'upload')
-
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -215,7 +231,7 @@ LOGGING = {
             'handlers': ['console', 'logfile'],
             'level': 'DEBUG',
         },
-        'fotec.apps.frontend': {
+        'fotec.apps.gui': {
             'handlers': ['console', 'logfile'],
             'level': 'DEBUG',
         },
