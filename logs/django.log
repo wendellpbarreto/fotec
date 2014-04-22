@@ -1,396 +1,49 @@
-[06/Apr/2014 13:59:32] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 13:59:37] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:01:37] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:01:40] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:02:04] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:02:34] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:02:38] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:04:45] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:04:48] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:04:53] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:05:02] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:05:34] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:05:37] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:05:45] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:10:31] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:13:53] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:13:55] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:14:03] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:14:28] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:14:35] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:15:36] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:18:18] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:18:31] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:19:04] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:19:44] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:19:59] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:20:05] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:20:09] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:20:20] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:22:22] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:23:13] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:23:56] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:24:46] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:24:50] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:24:54] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:25:46] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:25:49] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:25:50] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:26:26] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:26:29] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:26:31] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:27:16] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:27:18] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:30:56] INFO [fotec.apps.core.models:352] New matching query does not exist.
-[06/Apr/2014 14:30:59] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:37:31] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:37:40] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:38:47] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:38:50] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:38:52] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:40:45] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:45:46] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:45:49] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:46:07] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 14:46:14] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:07:36] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:08:18] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:08:49] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:09:03] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:09:12] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:09:43] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:09:48] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:09:52] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:10:46] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:10:49] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:11:25] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:11:29] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:11:39] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:11:48] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:12:13] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:15:00] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:15:03] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:15:04] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:15:05] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:15:07] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:15:38] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:15:41] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:16:11] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:16:46] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:16:50] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:17:29] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:17:53] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:18:26] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:18:35] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:20:08] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:23:17] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:24:07] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:26:10] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:26:37] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:26:47] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:27:19] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:28:39] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:35:03] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:35:07] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:35:15] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:35:30] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:35:36] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:37:24] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:37:55] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:40:30] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:40:34] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:40:42] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:40:47] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:40:58] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:41:02] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:41:07] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:41:26] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:41:29] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:43:26] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:43:45] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:43:49] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:43:55] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:44:00] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:45:11] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:45:16] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:45:48] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:46:46] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:48:41] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:50:33] INFO [fotec.apps.core.models:352] New matching query does not exist.
-[06/Apr/2014 15:50:36] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:53:00] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:53:14] ERROR [fotec.apps.core.views:169] Template not found! Raised: Invalid filter: 'truncatechars_html'
-[06/Apr/2014 15:53:14] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/gui.html
-[06/Apr/2014 15:53:14] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/home.html
-[06/Apr/2014 15:53:14] INFO [fotec.apps.core.views:175] Not found available templates, loading 404 template!
-[06/Apr/2014 15:53:20] ERROR [fotec.apps.core.views:169] Template not found! Raised: Invalid filter: 'truncatechars_html'
-[06/Apr/2014 15:53:20] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/gui.html
-[06/Apr/2014 15:53:20] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/home.html
-[06/Apr/2014 15:53:20] INFO [fotec.apps.core.views:175] Not found available templates, loading 404 template!
-[06/Apr/2014 15:53:27] ERROR [fotec.apps.core.views:169] Template not found! Raised: Invalid filter: 'truncatechars_html'
-[06/Apr/2014 15:53:27] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/gui.html
-[06/Apr/2014 15:53:27] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/home.html
-[06/Apr/2014 15:53:27] INFO [fotec.apps.core.views:175] Not found available templates, loading 404 template!
-[06/Apr/2014 15:53:31] ERROR [fotec.apps.core.views:169] Template not found! Raised: Invalid filter: 'truncatechars_html'
-[06/Apr/2014 15:53:31] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/gui.html
-[06/Apr/2014 15:53:31] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/home.html
-[06/Apr/2014 15:53:31] INFO [fotec.apps.core.views:175] Not found available templates, loading 404 template!
-[06/Apr/2014 15:53:36] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:53:43] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:53:51] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:53:56] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:54:17] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 15:54:25] ERROR [fotec.apps.core.views:169] Template not found! Raised: Invalid filter: 'truncatechars_html'
-[06/Apr/2014 15:54:25] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/gui.html
-[06/Apr/2014 15:54:25] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/home.html
-[06/Apr/2014 15:54:25] INFO [fotec.apps.core.views:175] Not found available templates, loading 404 template!
-[06/Apr/2014 15:54:26] ERROR [fotec.apps.core.views:169] Template not found! Raised: Invalid filter: 'truncatechars_html'
-[06/Apr/2014 15:54:26] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/gui.html
-[06/Apr/2014 15:54:26] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/home.html
-[06/Apr/2014 15:54:26] INFO [fotec.apps.core.views:175] Not found available templates, loading 404 template!
-[06/Apr/2014 15:54:32] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:10:18] ERROR [fotec.apps.core.views:169] Template not found! Raised: Invalid filter: 'truncatechars_html'
-[06/Apr/2014 16:10:18] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/gui.html
-[06/Apr/2014 16:10:18] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/home.html
-[06/Apr/2014 16:10:18] INFO [fotec.apps.core.views:175] Not found available templates, loading 404 template!
-[06/Apr/2014 16:10:26] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:11:03] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:11:19] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:12:13] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:12:32] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:27:39] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:29:13] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:29:19] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:30:53] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:31:40] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:32:55] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:32:59] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:33:11] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:33:39] INFO [fotec.apps.core.models:352] New matching query does not exist.
-[06/Apr/2014 16:33:45] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:34:48] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:34:56] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:35:00] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:35:03] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:35:56] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:36:08] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:36:55] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:41:58] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:42:00] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:42:05] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:42:26] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:42:28] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:43:53] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:43:56] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:44:30] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:44:36] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:45:10] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:45:26] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:46:56] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:48:24] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:48:47] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 16:52:04] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 17:08:49] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 17:09:48] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 17:10:33] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 17:34:06] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:19:49] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:21:14] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:21:17] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:21:41] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:22:52] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:23:18] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:24:17] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:25:20] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:29:24] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:31:04] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:32:05] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:32:09] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:35:32] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:36:07] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:36:48] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:39:13] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:40:09] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:40:13] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:40:16] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:40:24] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:41:35] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:42:37] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:42:41] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:43:02] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:43:06] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:43:08] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:43:22] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:43:26] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:43:29] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:44:30] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:44:39] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:44:45] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:44:55] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:45:37] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:45:40] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:46:19] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:47:06] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:47:47] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:48:02] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:48:10] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:49:01] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:49:05] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:49:08] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:49:13] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:49:21] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:49:33] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:49:37] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:49:39] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:49:42] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:50:13] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:50:16] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:52:10] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:52:13] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:52:15] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:52:18] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:52:29] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:52:31] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:52:34] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:53:20] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:53:22] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:54:11] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:54:41] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:54:45] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:55:41] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:55:44] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:55:54] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:55:57] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:56:00] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:56:33] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:56:36] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:56:39] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:57:02] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:57:06] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:58:21] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:59:04] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 18:59:07] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:00:35] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:00:38] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:02:07] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:02:18] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:02:21] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:02:24] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:02:28] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:04:26] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:04:39] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:04:52] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:04:55] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:04:57] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:05:21] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:05:24] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:05:29] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:07:43] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:07:46] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:08:37] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:08:41] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:08:45] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:09:24] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:10:05] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:10:10] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:10:25] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:10:27] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:10:31] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:10:34] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:11:09] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:11:23] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:11:27] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:11:41] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:11:48] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:12:41] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:12:59] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:16:45] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:16:49] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:16:52] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:16:55] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:17:43] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:17:47] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:17:50] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:18:00] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:18:05] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:18:06] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:18:20] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:18:37] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:21:47] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:22:18] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:22:20] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:23:02] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:23:04] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:23:06] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:23:08] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:23:12] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:24:40] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:25:18] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:25:20] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:25:23] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:26:31] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:26:34] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:26:36] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:26:46] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:26:49] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:27:10] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:27:13] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:29:59] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:30:07] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:30:31] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:31:16] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:31:19] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:31:22] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:34:08] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:34:10] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:34:26] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:35:31] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:35:38] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:36:44] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:36:59] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:38:28] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:38:54] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:39:15] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:39:18] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:39:37] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:40:25] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:40:26] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:40:27] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:40:28] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:40:52] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:40:57] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:41:03] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:41:07] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:41:13] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:42:25] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:42:28] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:42:31] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 19:46:03] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[06/Apr/2014 20:10:34] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 17:21:56] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 17:22:00] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 17:30:05] INFO [fotec.apps.core.models:354] column core_new.cropping does not exist
-LINE 1: ...ew"."curricular_practice_id", "core_new"."photo", "core_new"...
-                                                             ^
-
-[13/Apr/2014 17:31:21] INFO [fotec.apps.core.models:354] New matching query does not exist.
-[13/Apr/2014 17:32:16] INFO [fotec.apps.core.models:354] New matching query does not exist.
-[13/Apr/2014 17:34:11] INFO [fotec.apps.core.models:354] New matching query does not exist.
-[13/Apr/2014 18:02:27] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 18:03:13] INFO [fotec.apps.core.models:352] New matching query does not exist.
-[13/Apr/2014 18:03:15] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 18:04:48] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 18:05:40] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 18:06:04] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 18:06:07] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 18:06:11] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 18:07:03] INFO [fotec.apps.core.models:352] New matching query does not exist.
-[13/Apr/2014 18:07:05] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 18:09:48] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 18:10:36] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 18:10:39] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 18:10:49] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 18:12:40] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 18:13:45] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[13/Apr/2014 18:14:09] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
-[20/Apr/2014 18:36:02] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 22:42:37] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 22:42:48] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 22:56:41] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 22:58:27] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:01:55] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:02:11] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:04:03] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:04:32] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:06:11] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:11:15] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:13:19] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:14:23] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:22:20] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:23:22] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:24:43] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:25:59] ERROR [fotec.apps.core.views:169] Template not found! Raised: Invalid filter: 'strip_tags'
+[20/Apr/2014 23:25:59] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/gui.html
+[20/Apr/2014 23:25:59] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/home.html
+[20/Apr/2014 23:25:59] INFO [fotec.apps.core.views:175] Not found available templates, loading 404 template!
+[20/Apr/2014 23:28:12] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:28:32] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:29:18] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:29:30] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:29:36] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[20/Apr/2014 23:29:51] ERROR [fotec.apps.core.views:169] Template not found! Raised: Invalid filter: 'capitalize'
+[20/Apr/2014 23:29:51] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/gui.html
+[20/Apr/2014 23:29:51] ERROR [fotec.apps.core.views:169] Template not found! Raised: nonajax/home.html
+[20/Apr/2014 23:29:51] INFO [fotec.apps.core.views:175] Not found available templates, loading 404 template!
+[20/Apr/2014 23:30:02] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:13:41] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:14:05] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:14:24] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:16:04] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:18:25] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:18:32] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:27:16] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:27:48] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:28:14] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:29:41] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:29:58] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:30:14] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:30:38] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:30:41] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:30:51] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:32:34] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 00:32:42] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 13:22:12] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 13:22:34] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html
+[21/Apr/2014 16:42:01] INFO [fotec.apps.core.views:171] Template loaded: gui/nonajax/home.html

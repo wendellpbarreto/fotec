@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="pt-br">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,8 +8,8 @@
 
         <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.png" />
 		<link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/app.css" />
-		<link rel="stylesheet" href="{{ STATIC_URL }}fonts/opensans.css" />
-		<link rel="stylesheet" href="{{ STATIC_URL }}fonts/icomoon.css" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}font/opensans.css" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}font/icomoon.css" />
 
 		<script src="{{ STATIC_URL }}bower_components/modernizr/modernizr.js"></script>
 	</head>
@@ -30,5 +30,15 @@
         <script src="{{ STATIC_URL }}bower_components/foundation/js/foundation.min.js"></script>
         <script src="{{ STATIC_URL }}js/vendor/flexslider.min.js"></script>
 		<script src="{{ STATIC_URL }}js/app.js"></script>
+
+        <!-- Facebook Javascript SDK -->
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 	</body>
 </html>

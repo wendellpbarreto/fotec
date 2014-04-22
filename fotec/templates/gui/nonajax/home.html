@@ -3,24 +3,24 @@
 {% load thumbnail %}
 
 {% block title %}
-	{{ title }}
+    {{ title }}
 {% endblock %}
 
 {% block header %}
-	<div id="header" class="row">
-		<div class="logo large-5 columns">
-			<img src="{{ STATIC_URL }}/img/logo.png" alt="fotec"/>
-		</div>
-		<ul class="nav large-15 columns no-bullet">
-			<li><a>SOBRE</a></li>
-			<li><a>DISCIPLINAS</a></li>
-			<li><a>EVENTOS</a></li>
-			<li><a>VÍDEOS</a></li>
-			<li><a>FOTOGALERIAS</a></li>
-			<li><a>NOTÍCIAS</a></li>
-			<li class="active"><a>INÍCIO</a></li>
-		</ul>
-	</div>
+    <div id="header" class="row">
+        <div class="logo large-5 columns">
+            <img src="{{ STATIC_URL }}/img/logo.png" alt="fotec"/>
+        </div>
+        <ul class="nav large-15 columns no-bullet">
+            <li><a>SOBRE</a></li>
+            <li><a>DISCIPLINAS</a></li>
+            <li><a>EVENTOS</a></li>
+            <li><a>VÍDEOS</a></li>
+            <li><a>FOTOGALERIAS</a></li>
+            <li><a>NOTÍCIAS</a></li>
+            <li class="active"><a>INÍCIO</a></li>
+        </ul>
+    </div>
 
     <div id="header-fixed">
         <div class="row">
@@ -41,47 +41,114 @@
 {% endblock %}
 
 {% block container %}
-	<div id="container" class="row">
+    <div id="container" class="row">
         <aside class="large-6 columns">
             <div class="tabs widget">
-                <header class="row text-center">
-                    <h6 class="large-centered column">Recente</h6>
-                </header>
-                <ul class="no-bullet">
-                    {% for new in news %}
-                        <li class="row">
-                            <a href="#" class="large-7 columns">
-                                {% thumbnail new.photo "100x100" crop="center" as im %}
-                                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-                                {% endthumbnail %}
-                            </a>
-                            <div class="large-13 columns">
-                                <h3 class="post-title">
-                                    <a href="#">
-                                        {{ new.title|capfirst|truncatechars:30 }}
+                <ul class="no-bullet tabs-nav">
+                    <li>
+                        <h6>POPULAR</h6>
+                    </li>
+                    <li>
+                        <h6>RECENTE</h6>
+                    </li>
+                    <li>
+                        <i class="icon-comments"></i>
+                    </li>
+                </ul>
+                <ul class="slides">
+                    <li>
+                        <ul class="no-bullet popular">
+                            {% for popular in populars %}
+                                <li class="row">
+                                    <a href="#" class="large-7 columns">
+                                        {% thumbnail popular.photo "65x65" crop="center" as im %}
+                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                        {% endthumbnail %}
                                     </a>
-                                </h3>
-                                <p class="post-meta">
-                                    {{ new.date }}
-                                </p>
-                            </div>
-                        </li>
-                    {% endfor %}
+                                    <div class="large-13 columns meta">
+                                        <h3 class="post-title">
+                                            <a href="#">
+                                                {{ popular.title|capfirst|truncatechars:30 }}
+                                            </a>
+                                        </h3>
+                                        <p class="post-meta">
+                                            {{ popular.date }}
+                                        </p>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="no-bullet recent">
+                            {% for recent in recents %}
+                                <li class="row">
+                                    <a href="#" class="large-7 columns">
+                                        {% thumbnail recent.photo "65x65" crop="center" as im %}
+                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                        {% endthumbnail %}
+                                    </a>
+                                    <div class="large-13 columns meta">
+                                        <h3 class="post-title">
+                                            <a href="#">
+                                                {{ recent.title|capfirst|truncatechars:30 }}
+                                            </a>
+                                        </h3>
+                                        <p class="post-meta">
+                                            {{ recent.date }}
+                                        </p>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="no-bullet commentaries">
+
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <div class="social widget">
                 <header class="row text-center">
                     <h6 class="large-centered column">SIGA-NOS</h6>
+                    <ul class="no-bullet">
+                        <li>
+                            <a href="https://www.facebook.com/AgenciaFotec" target="_blank">
+                                <i class="icon-facebook2"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/Fotec" target="_blank">
+                                <i class="icon-twitter2"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://plus.google.com/" target="_blank">
+                                <i class="icon-googleplus"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/user/AgenciaFotec" target="_blank">
+                                <i class="icon-youtube"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </header>
             </div>
             <div class="twitter widget">
                 <header class="row text-center">
-                    <h6 class="large-centered column">SIGA @FOTEC</h6>
+                    <h6 class="large-centered column">SIGA <a href="https://twitter.com/Fotec" target="_blank">@FOTEC</a></h6>
+                    <a class="twitter-timeline" href="https://twitter.com/Fotec" data-widget-id="458061559353184256">Tweets de @Fotec</a>
+                    <script>
+                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                    </script>
                 </header>
             </div>
             <div class="facebook widget">
                 <header class="row text-center">
-                    <h6 class="large-centered column">FACEBOOK AGENCIAFOTEC</h6>
+                    <h6 class="large-centered column"><a href="https://www.facebook.com/AgenciaFotec" targe="_blank">FACEBOOK</a></h6>
+                    <div class="fb-like-box" data-href="https://www.facebook.com/AgenciaFotec" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="true" data-show-border="true"></div>
                 </header>
             </div>
             <div class="tags widget">
@@ -91,35 +158,34 @@
             </div>
         </aside>
         <div class="content large-14 columns">
-            <section class="banner">
-                <div class="flexslider">
-            		<ul class="slides">
-            			{% for new in news %}
-            				{% if new.big %}
-            					<li>
-            						<a href="#">
+            {% if news %}
+                <section class="banner">
+                    <ul class="slides">
+                        {% for new in news %}
+                            {% if new.big %}
+                                <li>
+                                    <a href="#">
                                         {% thumbnail new.photo "1200x675" crop="center" as im %}
                                             <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                         {% endthumbnail %}
-            						</a>
+                                    </a>
                                     <div class="slide-caption">
                                         <p class="date">{{ new.date }}</p>
-            							<h5>
-            								<a href="#">{{ new.pretitle|upper}}</a>
-            							</h5>
-            							<p>{{ new.subtitle }}</p>
+                                        <h5>
+                                            <a href="#">{{ new.pretitle|upper}}</a>
+                                        </h5>
+                                        <p>{{ new.subtitle }}</p>
                                         <a href="#" class="button">Leia mais</a>
-            						</div>
-            						<div>
-            					</li>
-            			  {% endif %}
-            			{% endfor %}
-            		</ul>
-                </div>
-            </section>
-
-    		{% if posts %}
-    			<section class="posts">
+                                    </div>
+                                    <div>
+                                </li>
+                          {% endif %}
+                        {% endfor %}
+                    </ul>
+                </section>
+            {% endif %}
+            {% if posts %}
+                <section class="posts">
                     {% for post in posts %}
                         <article class="row">
                             <figure>
@@ -139,7 +205,7 @@
                                 </div>
                             </header>
                             <div class="description column">
-                                {{ post.body|safe }}
+                                <p>{{ post.body|striptags|capfirst|truncatechars:256 }}</p>
                             </div>
                             <div class="read-more row text-center">
                                 <a href="#" class="button">Leia mais</a>
@@ -149,41 +215,41 @@
                 </section>
             {% endif %}
         </div>
-	</div>
+    </div>
 {% endblock %}
 
 {% block footer %}
-	<div id="footer">
-		<footer class="row">
-			<div class="info large-12 columns">
-				<div class="row">
-					<div class="large-10 columns">
-						<h6>A agência <strong>fotec</strong></h6>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in sapien sed turpis laoreet placerat eget eget turpis. Morbi nulla neque, molestie at nibh id, egestas ultrices metus. Pellentesque sit amet fermentum augue.
-						</p>
-					</div>
-					<div class="large-10 columns">
-						<h6>Contato</h6>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in sapien sed turpis laoreet placerat eget eget turpis. Morbi nulla neque, molestie at nibh id, egestas ultrices metus. Pellentesque sit amet fermentum augue.
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="large-4 large-offset-4 columns">
-				<ul class="social row no-bullet">
-					<li>
-						<a href="http://twitter.com/fotec" class="icon-twitter"></a>
-					</li>
-					<li>
-						<a href="http://www.facebook.com/AgenciaFotec" class="icon-facebook"></a>
-					</li>
-				</ul>
-				<div class="logo row">
-					<img src="{{ STATIC_URL }}/img/logo-branca.png" alt="fotec"/>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div id="footer">
+        <footer class="row">
+            <div class="info large-12 columns">
+                <div class="row">
+                    <div class="large-10 columns">
+                        <h6>A agência <strong>fotec</strong></h6>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in sapien sed turpis laoreet placerat eget eget turpis. Morbi nulla neque, molestie at nibh id, egestas ultrices metus. Pellentesque sit amet fermentum augue.
+                        </p>
+                    </div>
+                    <div class="large-10 columns">
+                        <h6>Contato</h6>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in sapien sed turpis laoreet placerat eget eget turpis. Morbi nulla neque, molestie at nibh id, egestas ultrices metus. Pellentesque sit amet fermentum augue.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="large-4 large-offset-4 columns">
+                <ul class="social row no-bullet">
+                    <li>
+                        <a href="http://twitter.com/fotec" class="icon-twitter"></a>
+                    </li>
+                    <li>
+                        <a href="http://www.facebook.com/AgenciaFotec" class="icon-facebook"></a>
+                    </li>
+                </ul>
+                <div class="logo row">
+                    <img src="{{ STATIC_URL }}/img/logo-branca.png" alt="fotec"/>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

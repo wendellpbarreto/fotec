@@ -280,6 +280,7 @@ class Editorial(models.Model):
         return "%s" % (self.name.capitalize())
 
 class New(models.Model):
+    # views = models.IntegerField(max_length=32, default=0)
     active = models.BooleanField(_("Active"), default=True, help_text=_("New is active?"))
     featured = models.BooleanField(_("Featured"), default=True, help_text=_("New is in featured session?"))
     date = models.DateField(_("Date"), help_text=_("New date"))
@@ -288,7 +289,7 @@ class New(models.Model):
     title = models.CharField(_("Title"), max_length=64, help_text=_("New title"))
     subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("New subtitle"))
     body = models.TextField(_("Body"), max_length=1024, help_text=_("New body"))
-    editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), null=True, blank=True, help_text=_("New editorial"))
+    editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), help_text=_("New editorial"))
     discipline = models.ForeignKey(Discipline, verbose_name=_("Discipline"), null=True, blank=True, help_text=_("New discipline"))
     curricular_practice = models.ForeignKey(CurricularPractice, verbose_name=_("Curricular practice"), null=True, blank=True, help_text=_("New curricular practice"))
 
@@ -369,7 +370,7 @@ class Photogallery(models.Model):
     title = models.CharField(_("Title"), max_length=64, help_text=_("Photogallery title"))
     subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("Photogallery subtitle"))
     body = models.TextField(_("Body"), max_length=1024, blank=True, help_text=_("Photogallery body"))
-    editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), null=True, blank=True, help_text=_("Photogallery editorial"))
+    editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), help_text=_("Photogallery editorial"))
     discipline = models.ForeignKey(Discipline, verbose_name=_("Discipline"), null=True, blank=True, help_text=_("Photogallery discipline"))
     curricular_practice = models.ForeignKey(CurricularPractice, verbose_name=_("Curricular practice"), null=True, blank=True, help_text=_("Photogallery curricular practice"))
 
@@ -463,7 +464,7 @@ class VideoLibrary(models.Model):
     title = models.CharField(_("Title"), max_length=64, help_text=_("Video library title"))
     subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("Video library subtitle"))
     body = models.TextField(_("Body"), max_length=1024, blank=True, help_text=_("Video library body"))
-    editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), null=True, blank=True, help_text=_("Video library editorial"))
+    editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), help_text=_("Video library editorial"))
     discipline = models.ForeignKey(Discipline, verbose_name=_("Discipline"), null=True, blank=True, help_text=_("Video library discipline"))
     curricular_practice = models.ForeignKey(CurricularPractice, verbose_name=_("Curricular practice"), null=True, blank=True, help_text=_("Video library curricular practice"))
 
