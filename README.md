@@ -1,5 +1,3 @@
-[![Stories in Ready](https://badge.waffle.io/wendellpbarreto/fotec.png?label=ready)](https://waffle.io/wendellpbarreto/fotec)
-
 Fotec
 =====
 
