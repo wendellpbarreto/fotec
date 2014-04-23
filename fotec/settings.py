@@ -11,6 +11,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'a((7j^9kmif$qreld@wgnkq6_)tz+%*lmet7k8$-1n&h(5ib*='
+
+# Database password
+DB_PASS = 'q1IUilS14,747Qx'
+
 # Global name to project
 PROJECT_NAME = 'fotec'
 PROJECT_NAME_READABLE = 'fotec'
@@ -24,8 +30,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'a((7j^9kmif$qreld@wgnkq6_)tz+%*lmet7k8$-1n&h(5ib*='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -51,9 +55,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'fotec.apps.accounts',
-    'fotec.apps.core',
-    'fotec.apps.gui',
+    '%s.apps.accounts' % PROJECT_NAME,
+    '%s.apps.core' % PROJECT_NAME,
+    '%s.apps.gui' % PROJECT_NAME,
 
 )
 
@@ -87,7 +91,7 @@ DATABASES = {
         'ENGINE':'django.db.backends.postgresql_psycopg2',
         'NAME': '%s_db' % PROJECT_NAME,
         'USER': '%s_admin' % PROJECT_NAME,
-        'PASSWORD': 'q1IUilS14,747Qx',
+        'PASSWORD': DB_PASS,
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -120,7 +124,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'fotec', 'templates'),
+    os.path.join(BASE_DIR, PROJECT_NAME, 'templates'),
 
 )
 
@@ -214,7 +218,7 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers':['console'],
+            'handlers':['console', 'logfile'],
             'propagate': True,
             'level':'WARN',
         },
@@ -223,15 +227,15 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': False,
         },
-        'fotec.apps.accounts': {
+        '%s.apps.accounts' % PROJECT_NAME: {
             'handlers': ['console', 'logfile'],
             'level': 'DEBUG',
         },
-        'fotec.apps.core': {
+        '%s.apps.core' % PROJECT_NAME: {
             'handlers': ['console', 'logfile'],
             'level': 'DEBUG',
         },
-        'fotec.apps.gui': {
+        '%s.apps.gui' % PROJECT_NAME: {
             'handlers': ['console', 'logfile'],
             'level': 'DEBUG',
         },

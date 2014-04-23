@@ -154,13 +154,13 @@ class GenericView(View):
             return app_name + "/404.html"
         else:
             if request.is_ajax():
+                paths.append(app_name_slashed + page_name_slashed + "ajax/" + slug + ".html")
+                paths.append(app_name_slashed + "ajax/" + page_name + ".html")
+                paths.append(app_name_slashed + "ajax/" + slug + ".html")
+            else:
                 paths.append(app_name_slashed + page_name_slashed + slug + ".html")
                 paths.append(app_name_slashed + page_name + ".html")
                 paths.append(page_name_slashed + slug + ".html")
-            else:
-                paths.append(app_name_slashed + page_name_slashed + "nonajax/" + slug + ".html")
-                paths.append(app_name_slashed + "nonajax/" + page_name + ".html")
-                paths.append(app_name_slashed + "nonajax/" + slug + ".html")
 
             for path in paths:
                 try:

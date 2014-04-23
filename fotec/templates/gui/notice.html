@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block header %}
+    {% include "gui/partials/header.html" %}
+{% endblock %}
+
+{% block container %}
+    <div id="container" class="row">
+        <!-- -  -   -    -     -      -      -       -        -        Aside -->
+        {% include "gui/partials/aside.html" %}
+
+        <!-- -  -   -    -     -      -      -       -        -        Content -->
+        <div class="content large-14 columns">
+            <section class="notice">
+                {% if notice %}
+                    <article class="row post">
+                        <figure>
+                            {% thumbnail notice.photo "1200x675" crop="center" as im %}
+                                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                            {% endthumbnail %}
+                            <figcaption>
+                                <div class="line"></div>
+                                <h6>{{ notice.editorial|upper }}</h6>
+                            </figcaption>
+                        </figure>
+                        <header class="column">
+                            <h2>{{ notice.pretitle|capfirst }}</h2>
+                            <ul class="no-bullet meta row">
+                                <li>POSTADOR POR: <a href="#">ADMIN</a></li>
+                                <li>{{ notice.date }}</li>
+                                <li>EM <a href="#">{{ notice.editorial|upper }}</a></li>
+                                <li>{{ notice.views }} VISUALIZAÇÕES</li>
+                                <li><i class="icon-heart2"></i> {{ notice.likes }}</li>
+                            </ul>
+                        </header>
+                        <div class="description column">
+                            <p>{{ notice.body|safe }}</p>
+                        </div>
+                        <div
+                           class="fb-comments column"
+                           data-href="http://fotec.wendellpbarreto.com/"
+                           data-numposts="10"
+                           data-width="800"></div>
+                    </article>
+                {% endif %}
+            </section>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {% include "gui/partials/footer.html" %}
+{% endblock %}

@@ -7,7 +7,7 @@ from django.db import models
 
 from .models import (
     Event,
-    New,
+    Notice,
     Podcast,
     Photogallery,
     VideoLibrary,
@@ -29,9 +29,9 @@ class MemberAdminForm(forms.ModelForm):
             "about": RedactorEditor(),
         }
 
-class NewAdminForm(forms.ModelForm):
+class NoticeAdminForm(forms.ModelForm):
     class Meta:
-        model = New
+        model = Notice
         widgets = {
             "body": RedactorEditor(),
         }

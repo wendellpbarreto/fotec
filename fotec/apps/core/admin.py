@@ -135,12 +135,19 @@ class EditorialAdmin(admin.ModelAdmin):
 
 admin.site.register(Editorial, EditorialAdmin)
 
-class NewAdmin(admin.ModelAdmin):
-    model = New
-    form = NewAdminForm
+class NoticeAdmin(admin.ModelAdmin):
+    model = Notice
+    form = NoticeAdminForm
     classes = ("grp-collapse grp-open",)
     inline_classes = ("grp-collapse grp-open",)
     fieldsets = (
+        (
+            _("Statistics"), {
+                "fields" : (
+                    ("views", "comments", "likes",),
+                )
+            }
+        ),
         (
             _("Informations"), {
                 "fields" : (
@@ -165,14 +172,14 @@ class NewAdmin(admin.ModelAdmin):
     list_filter = ("date", "editorial__name", "featured", "active",)
     search_fields = ("date", "date_modified", "editorial__name", "featured", "active",)
     ordering = ("date_modified", "date", "editorial", "active", "featured")
-    readonly_fields = ("photo_tag",)
+    readonly_fields = ("views", "comments", "likes", "photo_tag",)
 
     class Media:
         css = {
              "all": ("admin/datepicker.css",)
         }
 
-admin.site.register(New, NewAdmin)
+admin.site.register(Notice, NoticeAdmin)
 
 class PhotoInline(admin.StackedInline):
     model = Photo
@@ -190,6 +197,13 @@ class PhotogalleryAdmin(admin.ModelAdmin):
     classes = ("grp-collapse grp-open",)
     inline_classes = ("grp-collapse grp-open",)
     fieldsets = (
+        (
+            _("Statistics"), {
+                "fields" : (
+                    ("views", "comments", "likes",),
+                )
+            }
+        ),
         (
             _("Informations"), {
                 "fields" : (
@@ -213,6 +227,7 @@ class PhotogalleryAdmin(admin.ModelAdmin):
     list_filter = ("date", "active",)
     search_fields = ("date", "date_modified", "active",)
     ordering = ("date_modified", "date", "active",)
+    readonly_fields = ("views", "comments", "likes",)
 
     class Media:
         css = {
@@ -237,6 +252,13 @@ class VideoLibraryAdmin(admin.ModelAdmin):
     inline_classes = ("grp-collapse grp-open",)
     fieldsets = (
         (
+            _("Statistics"), {
+                "fields" : (
+                    ("views", "comments", "likes",),
+                )
+            }
+        ),
+        (
             _("Informations"), {
                 "fields" : (
                     ("date", "active",),
@@ -258,6 +280,7 @@ class VideoLibraryAdmin(admin.ModelAdmin):
     list_filter = ("date", "active",)
     search_fields = ("date", "date_modified", "active",)
     ordering = ("date_modified", "date", "active",)
+    readonly_fields = ("views", "comments", "likes",)
 
     class Media:
         css = {
@@ -272,6 +295,13 @@ class PodcastAdmin(admin.ModelAdmin):
     classes = ("grp-collapse grp-open",)
     inline_classes = ("grp-collapse grp-open",)
     fieldsets = (
+        (
+            _("Statistics"), {
+                "fields" : (
+                    ("views", "comments", "likes",),
+                )
+            }
+        ),
         (
             _("Informations"), {
                 "fields" : (
@@ -294,6 +324,7 @@ class PodcastAdmin(admin.ModelAdmin):
     list_filter = ("date", "active",)
     search_fields = ("date", "date_modified", "active",)
     ordering = ("date_modified", "date", "active",)
+    readonly_fields = ("views", "comments", "likes",)
 
     class Media:
         css = {
@@ -306,6 +337,13 @@ class EventAdmin(admin.ModelAdmin):
     model = Event
     form = EventAdminForm
     fieldsets = (
+        (
+            _("Statistics"), {
+                "fields" : (
+                    ("views", "comments", "likes",),
+                )
+            }
+        ),
         (
             _("Informations"), {
                 "fields" : (
@@ -325,7 +363,7 @@ class EventAdmin(admin.ModelAdmin):
         (
             _("Medias"), {
                 "fields" : (
-                    "news",
+                    "notices",
                     "photogalleries",
                     "video_libraries",
                     "podcasts",
@@ -333,11 +371,12 @@ class EventAdmin(admin.ModelAdmin):
             }
         ),
     )
-    filter_horizontal = ("news", "photogalleries", "video_libraries", "podcasts",)
+    filter_horizontal = ("notices", "photogalleries", "video_libraries", "podcasts",)
     list_display = ("title", "date", "date_modified", "active",)
     list_filter = ("date", "active",)
     search_fields = ("date", "date_modified", "active",)
     ordering = ("date_modified", "date", "active",)
+    readonly_fields = ("views", "comments", "likes",)
 
     class Media:
         css = {

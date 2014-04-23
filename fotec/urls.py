@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
-from fotec.apps.gui.views import FrontEnd
+from fotec.apps.gui.views import GUI
 
 admin.autodiscover()
 
@@ -17,7 +17,8 @@ urlpatterns = patterns('',
 
     url(r'^$', RedirectView.as_view(url='/home/')),
 
-	url(r'^(?P<slug>\w+)/$', FrontEnd.as_view(), name='gui',),
+    url(r'^(?P<slug>\w+)/$', GUI.as_view(), name='gui',),
+	url(r'^(?P<slug>\w+)/(?P<pk>\d+)$', GUI.as_view(), name='gui',),
 
 )
 

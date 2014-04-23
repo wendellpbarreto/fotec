@@ -279,19 +279,21 @@ class Editorial(models.Model):
     def __unicode__(self):
         return "%s" % (self.name.capitalize())
 
-class New(models.Model):
-    # views = models.IntegerField(max_length=32, default=0)
-    active = models.BooleanField(_("Active"), default=True, help_text=_("New is active?"))
-    featured = models.BooleanField(_("Featured"), default=True, help_text=_("New is in featured session?"))
-    date = models.DateField(_("Date"), help_text=_("New date"))
+class Notice(models.Model):
+    views = models.IntegerField(max_length=32, default=0)
+    comments = models.IntegerField(max_length=32, default=0)
+    likes = models.IntegerField(max_length=32, default=0)
+    active = models.BooleanField(_("Active"), default=True, help_text=_("Notice is active?"))
+    featured = models.BooleanField(_("Featured"), default=True, help_text=_("Notice is in featured session?"))
+    date = models.DateField(_("Date"), help_text=_("Notice date"))
     date_modified = models.DateTimeField(_("Last modified"), auto_now=True)
-    pretitle = models.CharField(_("Pretitle"), max_length=32, help_text=_("New pretitle"))
-    title = models.CharField(_("Title"), max_length=64, help_text=_("New title"))
-    subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("New subtitle"))
-    body = models.TextField(_("Body"), max_length=1024, help_text=_("New body"))
-    editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), help_text=_("New editorial"))
-    discipline = models.ForeignKey(Discipline, verbose_name=_("Discipline"), null=True, blank=True, help_text=_("New discipline"))
-    curricular_practice = models.ForeignKey(CurricularPractice, verbose_name=_("Curricular practice"), null=True, blank=True, help_text=_("New curricular practice"))
+    pretitle = models.CharField(_("Pretitle"), max_length=32, help_text=_("Notice pretitle"))
+    title = models.CharField(_("Title"), max_length=64, help_text=_("Notice title"))
+    subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("Notice subtitle"))
+    body = models.TextField(_("Body"), max_length=1024, help_text=_("Notice body"))
+    editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), help_text=_("Notice editorial"))
+    discipline = models.ForeignKey(Discipline, verbose_name=_("Discipline"), null=True, blank=True, help_text=_("Notice discipline"))
+    curricular_practice = models.ForeignKey(CurricularPractice, verbose_name=_("Curricular practice"), null=True, blank=True, help_text=_("Notice curricular practice"))
 
     def create_path(self, filename):
         try:
@@ -315,11 +317,11 @@ class New(models.Model):
         except Exception, e:
             logger.error(str(e))
 
-    photo = ImageField(upload_to=create_path, verbose_name=_("Photo"), max_length=256, validators=[validate_photo], help_text=_("New photo"))
+    photo = ImageField(upload_to=create_path, verbose_name=_("Photo"), max_length=256, validators=[validate_photo], help_text=_("Notice photo"))
 
     class Meta:
-        verbose_name = _("New")
-        verbose_name_plural = _("News")
+        verbose_name = _("Notice")
+        verbose_name_plural = _("Notices")
 
     def __unicode__(self):
         return "%s" % (self.title.capitalize())
@@ -345,25 +347,28 @@ class New(models.Model):
     photo_tag.short_description = _("Current photo")
     photo_tag.allow_tags = True
 
-@receiver(signals.pre_save, sender=New)
-def news_edit_decorator(sender, instance, **kwargs):
+@receiver(signals.pre_save, sender=Notice)
+def notices_edit_decorator(sender, instance, **kwargs):
     try:
-        photo = New.objects.get(pk=instance.pk).photo
+        photo = Notice.objects.get(pk=instance.pk).photo
     except Exception, e:
         logger.info(str(e))
     else:
         if photo != instance.photo:
             delete_photos(photo)
 
-@receiver(signals.post_save, sender=New)
-def news_save_decorator(sender, instance, **kwargs):
+@receiver(signals.post_save, sender=Notice)
+def notices_save_decorator(sender, instance, **kwargs):
     create_resized_photos(sender, instance)
 
-@receiver(signals.pre_delete, sender=New)
-def news_delete_decorator(sender, instance, **kwargs):
+@receiver(signals.pre_delete, sender=Notice)
+def notices_delete_decorator(sender, instance, **kwargs):
     delete_photos(instance.photo)
 
 class Photogallery(models.Model):
+    views = models.IntegerField(max_length=32, default=0)
+    comments = models.IntegerField(max_length=32, default=0)
+    likes = models.IntegerField(max_length=32, default=0)
     active = models.BooleanField(_("Active"), default=True, help_text=_("Photogallery is active?"))
     date = models.DateField(_("Date"), help_text=_("Photogallery date"))
     date_modified = models.DateTimeField(_("Last modified"), auto_now=True)
@@ -458,6 +463,9 @@ def photo_delete_decorator(sender, instance, **kwargs):
     delete_photos(instance.photo)
 
 class VideoLibrary(models.Model):
+    views = models.IntegerField(max_length=32, default=0)
+    comments = models.IntegerField(max_length=32, default=0)
+    likes = models.IntegerField(max_length=32, default=0)
     active = models.BooleanField(_("Active"), default=True, help_text=_("Video library is active?"))
     date = models.DateField(_("Date"), help_text=_("Video library date"))
     date_modified = models.DateTimeField(_("Last modified"), auto_now=True)
@@ -545,6 +553,9 @@ class Video(models.Model):
         return result
 
 class Podcast(models.Model):
+    views = models.IntegerField(max_length=32, default=0)
+    comments = models.IntegerField(max_length=32, default=0)
+    likes = models.IntegerField(max_length=32, default=0)
     active = models.BooleanField(_("Active"), default=True, help_text=_("Podcast is active?"))
     date = models.DateField(_("Date"), help_text=_("Podcast date"))
     date_modified = models.DateTimeField(_("Last modified"), auto_now=True)
@@ -561,13 +572,16 @@ class Podcast(models.Model):
         return "%s" % (self.title.capitalize())
 
 class Event(models.Model):
+    views = models.IntegerField(max_length=32, default=0)
+    comments = models.IntegerField(max_length=32, default=0)
+    likes = models.IntegerField(max_length=32, default=0)
     active = models.BooleanField(_("Active"), default=True, help_text=_("Event is active?"))
     date = models.DateField(_("Date"), help_text=_("Event date"))
     date_modified = models.DateTimeField(_("Last modified"), auto_now=True)
     title = models.CharField(_("Title"), max_length=64, help_text=_("Event title"))
     subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("Event subtitle"))
     body = models.TextField(_("Body"), max_length=1024, blank=True, help_text=_("Event body"))
-    news = models.ManyToManyField(New, verbose_name=_("New"), blank=True, help_text=_("Event news"))
+    notices = models.ManyToManyField(Notice, verbose_name=_("Notice"), blank=True, help_text=_("Event notices"))
     photogalleries = models.ManyToManyField(Photogallery, verbose_name=_("Photogalleries"), blank=True, help_text=_("Event photogalleries"))
     video_libraries = models.ManyToManyField(VideoLibrary, verbose_name=_("Video libraries"), blank=True, help_text=_("Event video libraries"))
     podcasts = models.ManyToManyField(Podcast, verbose_name=_("Podcasts"), blank=True, help_text=_("Event podcasts"))

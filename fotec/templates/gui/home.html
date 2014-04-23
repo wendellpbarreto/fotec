@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% load thumbnail %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block header %}
+    {% include "gui/partials/header.html" %}
+{% endblock %}
+
+{% block container %}
+    <div id="container" class="row">
+
+        <!-- -  -   -    -     -      -      -       -        -        Aside -->
+        {% include "gui/partials/aside.html" %}
+
+        <!-- -  -   -    -     -      -      -       -        -        Content -->
+        <div class="content large-14 columns">
+            {% if notices %}
+                <section class="banner">
+                    <ul class="slides">
+                        {% for notice in notices %}
+                            {% if notice.big %}
+                                <li>
+                                    <a href="/notice/{{ notice.pk }}">
+                                        {% thumbnail notice.photo "1200x675" crop="center" as im %}
+                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                        {% endthumbnail %}
+                                    </a>
+                                    <div class="slide-caption">
+                                        <p class="date">{{ notice.date }}</p>
+                                        <h5>
+                                            <a href="/notice/{{ notice.pk }}">{{ notice.pretitle|upper}}</a>
+                                        </h5>
+                                        <p>{{ notice.subtitle }}</p>
+                                        <a href="/notice/{{ notice.pk }}" class="button">Leia mais</a>
+                                    </div>
+                                    <div>
+                                </li>
+                          {% endif %}
+                        {% endfor %}
+                    </ul>
+                </section>
+            {% endif %}
+            {% if posts %}
+                <section class="posts">
+                    {% for post in posts %}
+                        <article class="row post">
+                            <figure>
+                                {% thumbnail post.photo "1200x675" crop="center" as im %}
+                                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% endthumbnail %}
+                                <figcaption>
+                                    <div class="line"></div>
+                                    <h6>{{ post.editorial|upper }}</h6>
+                                </figcaption>
+                            </figure>
+                            <header class="column">
+                                <h2>
+                                    <a href="/notice/{{ post.pk }}">{{ post.pretitle|capfirst }}</a>
+                                </h2>
+                                <ul class="no-bullet meta row">
+                                    <li>POSTADOR POR: <a href="#">ADMIN</a></li>
+                                    <li>{{ post.date }}</li>
+                                    <li>EM <a href="#">{{ post.editorial|upper }}</a></li>
+                                    <li>{{ post.views }} VISUALIZAÇÕES</li>
+                                    <li><i class="icon-heart2"></i> {{ post.likes }}</li>
+                                </ul>
+                            </header>
+                            <div class="description column">
+                                <p>{{ post.body|striptags|capfirst|truncatechars:256 }}</p>
+                            </div>
+                            <div class="read-more row text-center">
+                                <a href="/notice/{{ post.pk }}" class="button">Leia mais</a>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </section>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {% include "gui/partials/footer.html" %}
+{% endblock %}
