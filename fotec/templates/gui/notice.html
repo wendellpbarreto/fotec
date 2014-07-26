@@ -30,13 +30,13 @@
                             </figcaption>
                         </figure>
                         <header class="column">
-                            <h2>{{ notice.pretitle|capfirst }}</h2>
+                            <h2>{{ notice.title|capfirst }}</h2>
                             <ul class="no-bullet meta row">
                                 <li>POSTADOR POR: <a href="#">ADMIN</a></li>
                                 <li>{{ notice.date }}</li>
                                 <li>EM <a href="#">{{ notice.editorial|upper }}</a></li>
                                 <li>{{ notice.views }} VISUALIZAÇÕES</li>
-                                <li><i class="icon-heart2"></i> {{ notice.likes }}</li>
+                                <li><a href="#"><i class="icon-heart2"></i> {{ notice.likes }}</a></li>
                             </ul>
                         </header>
                         <div class="description column">

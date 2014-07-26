@@ -1,0 +1,53 @@
+{
+  "name": "fotec",
+  "version": "0.2.0",
+  "homepage": "https://github.com/wendellpbarreto/fotec",
+  "authors": [
+    "Wendell P. Barreto <wendellp.barreto@gmail.com>"
+  ],
+  "description": "Fotec agency website",
+  "main": "fotec/fotec/assets/js/app.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "fotec",
+    "agência",
+    "ufrn",
+    "natal",
+    "rn",
+    "rio",
+    "grande",
+    "do",
+    "norte",
+    "website",
+    "site",
+    "notícias",
+    "fotogaleria",
+    "fotogalerias",
+    "vídeo",
+    "vídeos",
+    "evento",
+    "evento",
+    "podcast",
+    "podcasts",
+    "cientec",
+    "comunicação",
+    "experimental",
+    "multimídia"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "foundation": "~5.3.1",
+    "modernizr": "~2.8.2",
+    "pace": "~0.5.1"
+  }
+}

@@ -159,7 +159,6 @@ class NoticeAdmin(admin.ModelAdmin):
         (
             _("Description"), {
                 "fields" : (
-                    "pretitle",
                     "title",
                     "subtitle",
                     "body",
@@ -168,7 +167,7 @@ class NoticeAdmin(admin.ModelAdmin):
             }
         ),
     )
-    list_display = ("pretitle", "date", "date_modified", "editorial", "featured", "active",)
+    list_display = ("date", "date_modified", "editorial", "featured", "active",)
     list_filter = ("date", "editorial__name", "featured", "active",)
     search_fields = ("date", "date_modified", "editorial__name", "featured", "active",)
     ordering = ("date_modified", "date", "editorial", "active", "featured")

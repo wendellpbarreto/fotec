@@ -1,17 +1,28 @@
 <!doctype html>
 <html class="no-js" lang="pt-br">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<title>{% block title %} {% endblock %}</title>
 
-        <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.png" />
-		<link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/app.css" />
-		<link rel="stylesheet" href="{{ STATIC_URL }}font/opensans.css" />
-		<link rel="stylesheet" href="{{ STATIC_URL }}font/icomoon.css" />
+        <meta name="author" content="Wendell P. Barreto (wendellp.barreto@gmail.com)">
+        <meta name="description" content="Fotec agency website">
+        <meta name="keywords" content="fotec, agência, ufrn, natal, rn, rio, grande, do, norte, website, site, , notícias, fotogaleria, fotogalerias, vídeo, vídeos, evento, evento, podcast, podcasts, cientec, comunicação, experimental, multimídia">
 
-		<script src="{{ STATIC_URL }}bower_components/modernizr/modernizr.js"></script>
+        <script src="{{ STATIC_URL }}bower_components/pace/pace.js"></script>
+        <link rel="stylesheet" href="{{ STATIC_URL }}bower_components/pace/themes/pace-theme-flash.css">
+
+        <script src="{{ STATIC_URL }}bower_components/modernizr/modernizr.js"></script>
+
+        <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.png">
+
+        <link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/app.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}fonts/opensans.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}fonts/icomoon.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}vendor/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}vendor/owl-carousel/owl.theme.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}vendor/owl-carousel/owl.transitions.css">
 	</head>
 	<body>
 		<!-- -  -   -    -     -      -      -       -        -        Header -->
@@ -27,9 +38,9 @@
 		{% block footer %} {% endblock %}
 
         <script src="{{ STATIC_URL }}bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="{{ STATIC_URL }}bower_components/foundation/js/foundation.min.js"></script>
-        <script src="{{ STATIC_URL }}js/vendor/flexslider.min.js"></script>
-		<script src="{{ STATIC_URL }}js/app.js"></script>
+        <script src="{{ STATIC_URL }}bower_components/foundation/js/foundation.js"></script>
+        <script src="{{ STATIC_URL }}vendor/owl-carousel/owl.carousel.js"></script>
+		<script src="{{ STATIC_URL }}scripts/app.js"></script>
 
         <!-- Facebook Javascript SDK -->
         <div id="fb-root"></div>
@@ -40,5 +51,8 @@
           js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
+        <script>
+              $(document).foundation();
+        </script>
 	</body>
 </html>

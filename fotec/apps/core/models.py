@@ -16,6 +16,12 @@ from sorl.thumbnail import ImageField
 
 logger = logging.getLogger(__name__)
 
+NOTICE = "notice"
+PHOTOGALLERY = "photogallery"
+VIDEO_LIBRARY = "video library"
+PODCAST = "podcast"
+EVENT = "event"
+
 STATES = (
     ("AC", "AC"),
     ("AL", "AL"),
@@ -279,7 +285,14 @@ class Editorial(models.Model):
     def __unicode__(self):
         return "%s" % (self.name.capitalize())
 
-class Notice(models.Model):
+class Post(models.Model):
+    TYPES = (
+        (NOTICE, "Notice"),
+        (PHOTOGALLERY, "Photogallery"),
+        (VIDEO_LIBRARY, "Video Library"),
+        (PODCAST, "Podcast"),
+    )
+    type = models.CharField(max_length=16, choices=TYPES)
     views = models.IntegerField(max_length=32, default=0)
     comments = models.IntegerField(max_length=32, default=0)
     likes = models.IntegerField(max_length=32, default=0)
@@ -287,10 +300,14 @@ class Notice(models.Model):
     featured = models.BooleanField(_("Featured"), default=True, help_text=_("Notice is in featured session?"))
     date = models.DateField(_("Date"), help_text=_("Notice date"))
     date_modified = models.DateTimeField(_("Last modified"), auto_now=True)
-    pretitle = models.CharField(_("Pretitle"), max_length=32, help_text=_("Notice pretitle"))
     title = models.CharField(_("Title"), max_length=64, help_text=_("Notice title"))
     subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("Notice subtitle"))
     body = models.TextField(_("Body"), max_length=1024, help_text=_("Notice body"))
+
+    class Meta:
+        abstract = True
+
+class Notice(Post):
     editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), help_text=_("Notice editorial"))
     discipline = models.ForeignKey(Discipline, verbose_name=_("Discipline"), null=True, blank=True, help_text=_("Notice discipline"))
     curricular_practice = models.ForeignKey(CurricularPractice, verbose_name=_("Curricular practice"), null=True, blank=True, help_text=_("Notice curricular practice"))
@@ -325,6 +342,10 @@ class Notice(models.Model):
 
     def __unicode__(self):
         return "%s" % (self.title.capitalize())
+
+    def save(self, *args, **kwargs):
+        self.type = NOTICE
+        super(Notice, self).save(*args, **kwargs)
 
     def small(self):
         extension = self.photo.url.rsplit(".", 1)[1]
@@ -365,16 +386,7 @@ def notices_save_decorator(sender, instance, **kwargs):
 def notices_delete_decorator(sender, instance, **kwargs):
     delete_photos(instance.photo)
 
-class Photogallery(models.Model):
-    views = models.IntegerField(max_length=32, default=0)
-    comments = models.IntegerField(max_length=32, default=0)
-    likes = models.IntegerField(max_length=32, default=0)
-    active = models.BooleanField(_("Active"), default=True, help_text=_("Photogallery is active?"))
-    date = models.DateField(_("Date"), help_text=_("Photogallery date"))
-    date_modified = models.DateTimeField(_("Last modified"), auto_now=True)
-    title = models.CharField(_("Title"), max_length=64, help_text=_("Photogallery title"))
-    subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("Photogallery subtitle"))
-    body = models.TextField(_("Body"), max_length=1024, blank=True, help_text=_("Photogallery body"))
+class Photogallery(Post):
     editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), help_text=_("Photogallery editorial"))
     discipline = models.ForeignKey(Discipline, verbose_name=_("Discipline"), null=True, blank=True, help_text=_("Photogallery discipline"))
     curricular_practice = models.ForeignKey(CurricularPractice, verbose_name=_("Curricular practice"), null=True, blank=True, help_text=_("Photogallery curricular practice"))
@@ -386,11 +398,23 @@ class Photogallery(models.Model):
     def __unicode__(self):
         return "%s" % (self.title.capitalize())
 
-    def photos(self):
+    def save(self, *args, **kwargs):
+        self.type = PHOTOGALLERY
+        super(Photogallery, self).save(*args, **kwargs)
+
+    def get_photos(self):
         return Photo.objects.filter(photogallery=self)
 
+    def get_photo(self):
+        return Photo.objects.filter(photogallery=self).order_by('?')[0].photo
+
+    def get_amount(self):
+        return len(Photo.objects.filter(photogallery=self))
+
 class Photo(models.Model):
-    photogallery = models.ForeignKey(Photogallery)
+    photogallery = models.ForeignKey(Photogallery, related_name="photos")
+    title = models.CharField(_("Title"), max_length=128, blank=True, help_text=_("Photo title"))
+    credits = models.CharField(_("Credits"), max_length=64, blank=True, help_text=_("Photo credits"))
 
     def create_path(self, filename):
         try:
@@ -462,16 +486,7 @@ def photo_save_decorator(sender, instance, **kwargs):
 def photo_delete_decorator(sender, instance, **kwargs):
     delete_photos(instance.photo)
 
-class VideoLibrary(models.Model):
-    views = models.IntegerField(max_length=32, default=0)
-    comments = models.IntegerField(max_length=32, default=0)
-    likes = models.IntegerField(max_length=32, default=0)
-    active = models.BooleanField(_("Active"), default=True, help_text=_("Video library is active?"))
-    date = models.DateField(_("Date"), help_text=_("Video library date"))
-    date_modified = models.DateTimeField(_("Last modified"), auto_now=True)
-    title = models.CharField(_("Title"), max_length=64, help_text=_("Video library title"))
-    subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("Video library subtitle"))
-    body = models.TextField(_("Body"), max_length=1024, blank=True, help_text=_("Video library body"))
+class VideoLibrary(Post):
     editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), help_text=_("Video library editorial"))
     discipline = models.ForeignKey(Discipline, verbose_name=_("Discipline"), null=True, blank=True, help_text=_("Video library discipline"))
     curricular_practice = models.ForeignKey(CurricularPractice, verbose_name=_("Curricular practice"), null=True, blank=True, help_text=_("Video library curricular practice"))
@@ -483,11 +498,21 @@ class VideoLibrary(models.Model):
     def __unicode__(self):
         return "%s" % (self.title.capitalize())
 
-    def videos(self):
+    def save(self, *args, **kwargs):
+        self.type = VIDEO_LIBRARY
+        super(VideoLibrary, self).save(*args, **kwargs)
+
+    def get_videos(self):
         return Video.objects.filter(video_library=self)
 
+    def is_videoteca(self):
+        return len(Video.objects.filter(video_library=self)) > 1
+
+    def get_amount(self):
+        return len(Video.objects.filter(video_library=self))
+
 class Video(models.Model):
-    video_library = models.ForeignKey(VideoLibrary)
+    video_library = models.ForeignKey(VideoLibrary, related_name="videos")
 
     def create_path(self, filename):
         try:
@@ -531,9 +556,9 @@ class Video(models.Model):
             file_name = self.file.url.rsplit("fotec", 1)[1]
             result = u"<iframe src=\"%s\">" % file_name
         elif self.youtube:
-            result = u"<iframe src=\"http://www.youtube.com/embed/%s\"></iframe>" % self.youtube
+            result = u"<iframe class=\"youtube-player\" src=\"http://www.youtube.com/embed/%s?showinfo=0\" frameborder=\"0\" allowfullscreen></iframe>" % self.youtube
         elif self.vimeo:
-            result = u"<iframe src=\"//player.vimeo.com/video/%s\"></iframe>" % self.vimeo
+            result = u"<iframe class=\"vimeo-player\" src=\"//player.vimeo.com/video/%s?badge=0&amp;byline=0&amp;portrait=0&amp;title=0\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>" % self.vimeo
 
         return result
 
@@ -552,17 +577,10 @@ class Video(models.Model):
 
         return result
 
-class Podcast(models.Model):
-    views = models.IntegerField(max_length=32, default=0)
-    comments = models.IntegerField(max_length=32, default=0)
-    likes = models.IntegerField(max_length=32, default=0)
-    active = models.BooleanField(_("Active"), default=True, help_text=_("Podcast is active?"))
-    date = models.DateField(_("Date"), help_text=_("Podcast date"))
-    date_modified = models.DateTimeField(_("Last modified"), auto_now=True)
-    title = models.CharField(_("Title"), max_length=64, help_text=_("Podcast title"))
-    subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("Podcast subtitle"))
-    body = models.TextField(_("Body"), max_length=1024, help_text=_("Podcast body"))
+class Podcast(Post):
     download_url = models.URLField(_("Download URL"), max_length=128, blank=True, help_text=_("Podcast download url"))
+
+    type = PODCAST
 
     class Meta:
         verbose_name = _("Podcast")
@@ -571,16 +589,11 @@ class Podcast(models.Model):
     def __unicode__(self):
         return "%s" % (self.title.capitalize())
 
-class Event(models.Model):
-    views = models.IntegerField(max_length=32, default=0)
-    comments = models.IntegerField(max_length=32, default=0)
-    likes = models.IntegerField(max_length=32, default=0)
-    active = models.BooleanField(_("Active"), default=True, help_text=_("Event is active?"))
-    date = models.DateField(_("Date"), help_text=_("Event date"))
-    date_modified = models.DateTimeField(_("Last modified"), auto_now=True)
-    title = models.CharField(_("Title"), max_length=64, help_text=_("Event title"))
-    subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("Event subtitle"))
-    body = models.TextField(_("Body"), max_length=1024, blank=True, help_text=_("Event body"))
+    def save(self, *args, **kwargs):
+        self.type = PODCAST
+        super(Podcast, self).save(*args, **kwargs)
+
+class Event(Post):
     notices = models.ManyToManyField(Notice, verbose_name=_("Notice"), blank=True, help_text=_("Event notices"))
     photogalleries = models.ManyToManyField(Photogallery, verbose_name=_("Photogalleries"), blank=True, help_text=_("Event photogalleries"))
     video_libraries = models.ManyToManyField(VideoLibrary, verbose_name=_("Video libraries"), blank=True, help_text=_("Event video libraries"))
@@ -591,6 +604,10 @@ class Event(models.Model):
         verbose_name_plural = _("Events")
 
     def __unicode__(self):
-        return "%s" % (self.name.capitalize())
+        return "%s" % (self.title.capitalize())
+
+    def save(self, *args, **kwargs):
+        self.type = EVENT
+        super(Event, self).save(*args, **kwargs)
 
 
