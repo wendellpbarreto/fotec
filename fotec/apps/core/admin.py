@@ -102,6 +102,7 @@ class MemberAdmin(admin.ModelAdmin):
         (
             _("Informations"), {
                 "fields" : (
+                    ("photo", "photo_tag"),
                     ("name", "role",),
                     ("email", "phone",),
                     ("about",),
@@ -113,6 +114,7 @@ class MemberAdmin(admin.ModelAdmin):
     list_filter = ("role",)
     search_fields = ("name", "role", "email",)
     ordering = ("name", "role",)
+    readonly_fields = ("photo_tag",)
 
 admin.site.register(Member, MemberAdmin)
 

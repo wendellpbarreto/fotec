@@ -246,6 +246,7 @@ class Member(models.Model):
     email = models.EmailField(_("Email"), max_length=32, blank=True, help_text=_("Member email"))
     phone = models.IntegerField(_("Phone"), max_length=32, blank=True, help_text=_("Member phone"))
     role = models.ForeignKey(Role, verbose_name=_("Role"), help_text=_("Member role"))
+    photo = ImageField(upload_to=settings.MEDIA_MEMBERS_ROOT, max_length=256, validators=[validate_photo], help_text=_("Member photo"))
 
     class Meta:
         verbose_name = _("Member")
@@ -253,6 +254,12 @@ class Member(models.Model):
 
     def __unicode__(self):
         return "%s" % (self.name.capitalize())
+
+    def photo_tag(self):
+        return "<img src=\"%s\"/>" % (self.small())
+
+    photo_tag.short_description = _("Current photo")
+    photo_tag.allow_tags = True
 
 class Discipline(models.Model):
     name = models.CharField(_("Discipline"), max_length=32, help_text=_("Discipline name"))
@@ -266,7 +273,7 @@ class Discipline(models.Model):
 
 class CurricularPractice(models.Model):
     name = models.CharField(_("Name"), max_length=32, help_text=_("Curricular practice name"))
-    discipline = models.ForeignKey(Discipline, verbose_name=_("Discipline"), help_text=_("Curricular practice discipline"))
+    discipline = models.ForeignKey(Discipline, verbose_name=_("Discipline"), related_name="curricular_practices", help_text=_("Curricular practice discipline"))
 
     class Meta:
         verbose_name = _("Curricular practice")

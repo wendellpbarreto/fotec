@@ -12,11 +12,8 @@
 
 {% block container %}
     <div id="container" class="row">
-        <!-- -  -   -    -     -      -      -       -        -        Aside -->
-        {% include "gui/partials/aside.html" %}
-
         <!-- -  -   -    -     -      -      -       -        -        Content -->
-        <div class="content large-14 columns">
+        <div class="content column">
             <section class="photogallery">
                 {% if photogallery %}
                    <article class="row post photogallery">
@@ -25,11 +22,9 @@
                             <h6 class="editorial">{{ photogallery.editorial|upper }}</h6>
                             <i class="icon-camera"></i>
                         </div>
-                        <a href="/photogallery/{{ photogallery.pk }}">
-                            {% thumbnail photogallery.get_photo "1200x675" crop="center" as im %}
-                                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-                            {% endthumbnail %}
-                        </a>
+                        {% thumbnail photogallery.get_photo "1200x675" crop="center" as im %}
+                            <img src="{{ im.url }}" class="img-responsive" width="{{ im.width }}" height="{{ im.height }}">
+                        {% endthumbnail %}
                         <header class="column">
                             <h2>
                                 <a href="/photogallery/{{ photogallery.pk }}">{{ photogallery.title|capfirst }}</a>
@@ -49,7 +44,7 @@
                             {% for photo in photogallery.photos.all %}
                                 <div class="photo">
                                 {% thumbnail photo.photo "1200x675" crop="center" as im %}
-                                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                    <img src="{{ im.url }}" class="img-responsive" width="{{ im.width }}" height="{{ im.height }}">
                                 {% endthumbnail %}
                                     <div class="photo__meta">
                                         <p class="photo__meta-title">{{ photo.title }}</p><!-- p class='photo__meta-title' -->

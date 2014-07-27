@@ -1,6 +1,17 @@
 {% load thumbnail %}
 
 <aside class="large-6 columns">
+    {% if not "/home" in request.path %}
+        <div class="search widget">
+            <header class="row text-center">
+                <h6 class="large-centered column">PESQUISAR</h6>
+                <form action="/posts" method="get" class="column">
+                    <input type="text" name="keywords"/>
+                    <button type="submit"><i class="icon-search"></i></button>
+                </form>
+            </header>
+        </div><!-- div class='search widget' -->
+    {% endif %}
     <div class="main-tabs widget">
         <div class="centered-list">
             <ul class="tabs" data-tab>
@@ -87,6 +98,17 @@
             </div><!-- div id='comentaries-panel' class='content' -->
         </div><!-- div class='tabs-content' -->
     </div>
+    {% if "/home" in request.path %}
+        <div class="search widget">
+            <header class="row text-center">
+                <h6 class="large-centered column">PESQUISAR</h6>
+                <form action="/posts" method="get" class="column">
+                    <input type="text" name="keywords"/>
+                    <button type="submit"><i class="icon-search"></i></button>
+                </form>
+            </header>
+        </div><!-- div class='search widget' -->
+    {% endif %}
     <div class="social widget">
         <header class="row text-center">
             <h6 class="large-centered column">SIGA-NOS</h6>

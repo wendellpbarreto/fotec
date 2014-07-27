@@ -163,6 +163,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Media news files
 
+MEDIA_MEMBERS_ROOT = os.path.join(MEDIA_ROOT, 'members')
 MEDIA_NEWS_ROOT = os.path.join(MEDIA_ROOT, 'news')
 MEDIA_PHOTOGALLERY_ROOT = os.path.join(MEDIA_ROOT, 'photogallery')
 MEDIA_VIDEO_LIBRARY_ROOT = os.path.join(MEDIA_ROOT, 'video_library')

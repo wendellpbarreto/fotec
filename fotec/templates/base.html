@@ -3,20 +3,27 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		<title>{% block title %} {% endblock %}</title>
-
+        <!-- title -->
+        <title>{% block title %} {% endblock %}</title>
+        <!-- shortcut icon -->
+        <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.png">
+        <!-- meta tags -->
         <meta name="author" content="Wendell P. Barreto (wendellp.barreto@gmail.com)">
         <meta name="description" content="Fotec agency website">
         <meta name="keywords" content="fotec, agência, ufrn, natal, rn, rio, grande, do, norte, website, site, , notícias, fotogaleria, fotogalerias, vídeo, vídeos, evento, evento, podcast, podcasts, cientec, comunicação, experimental, multimídia">
-
+        <!-- facebook tags -->
+        <meta property="og:url" content="fotec.wendellpbarreto.com">
+        <meta property="og:site_name" content="Agência fotec website">
+        <meta property="og:type" content="blog">
+        <meta property="og:title" content="Agência fotec">
+        <meta property="og:image" content="{{ STATIC_URL }}images/logo.png">
+        <meta property="og:description" content="">
+        <!-- pacejs -->
         <script src="{{ STATIC_URL }}bower_components/pace/pace.js"></script>
         <link rel="stylesheet" href="{{ STATIC_URL }}bower_components/pace/themes/pace-theme-flash.css">
-
+        <!-- modrnizr -->
         <script src="{{ STATIC_URL }}bower_components/modernizr/modernizr.js"></script>
-
-        <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.png">
-
+        <!-- styles -->
         <link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/app.css">
         <link rel="stylesheet" href="{{ STATIC_URL }}fonts/opensans.css">
         <link rel="stylesheet" href="{{ STATIC_URL }}fonts/icomoon.css">

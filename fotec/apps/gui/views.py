@@ -6,10 +6,12 @@ import requests
 
 from django.shortcuts import render
 from itertools import chain
-from django.db.models import F
+from django.db.models import F, Q
 
 from fotec.apps.core.views import GenericView
 from fotec.apps.core.models import (
+    Discipline,
+    CurricularPractice,
     Notice,
     Photogallery,
     VideoLibrary,
@@ -20,33 +22,36 @@ from fotec.apps.core.models import (
 logger = logging.getLogger(__name__)
 
 class GUI(GenericView):
-    def home(self, request):
-        populars = Notice.objects.filter(active=True).order_by('-views')[:4]
-        recents = Notice.objects.filter(active=True).order_by('-date_modified')[:4]
-        commenteds = Notice.objects.filter(active=True).order_by('-comments')[:4]
 
+    def __init__(self):
+        self.disciplines = Discipline.objects.all()
+        self.populars = Notice.objects.filter(active=True).order_by('-views')[:4]
+        self.recents = Notice.objects.filter(active=True).order_by('-date_modified')[:4]
+        self.commenteds = Notice.objects.filter(active=True).order_by('-comments')[:4]
+
+    def home(self, request):
         notices = Notice.objects.filter(active=True).order_by('-date')[:5]
         photogalleries = Photogallery.objects.filter(active=True).order_by('-date')[:5]
         video_libraries = VideoLibrary.objects.filter(active=True).order_by('-date')[:5]
         podcasts = Podcast.objects.filter(active=True).order_by('-date')[:5]
         events = Event.objects.filter(active=True).order_by('-date')[:5]
 
-        # posts = notices
         posts = list(chain(notices, photogalleries, video_libraries, podcasts, events))
 
-            #         try:
-            #     r = requests.get("https://graph.facebook.com/?ids=http://fotec.wendellpbarreto.com/")
-            #     notice.comments = r.json()["http://fotec.wendellpbarreto.com/"]["comments"]
-            # except Exception, e:
-            #     logger.warning(str(e))
-            #     notice.comments = 0
+        #         try:
+        #     r = requests.get("https://graph.facebook.com/?ids=http://fotec.wendellpbarreto.com/")
+        #     notice.comments = r.json()["http://fotec.wendellpbarreto.com/"]["comments"]
+        # except Exception, e:
+        #     logger.warning(str(e))
+        #     notice.comments = 0
 
         return {
             'template' : {
                 'title' : 'fotec | início',
-                'populars' : populars,
-                'recents' : recents,
-                'commenteds' : commenteds,
+                'disciplines' : self.disciplines,
+                'populars' : self.populars,
+                'recents' : self.recents,
+                'commenteds' : self.commenteds,
                 'posts' : posts,
                 'notices' : notices,
                 'photogalleries' : photogalleries,
@@ -54,21 +59,105 @@ class GUI(GenericView):
             }
         }
 
+    def about(self, request):
+        notices = Notice.objects.filter(active=True).order_by('-date')[:5]
+        photogalleries = Photogallery.objects.filter(active=True).order_by('-date')[:5]
+        video_libraries = VideoLibrary.objects.filter(active=True).order_by('-date')[:5]
+        podcasts = Podcast.objects.filter(active=True).order_by('-date')[:5]
+        events = Event.objects.filter(active=True).order_by('-date')[:5]
+
+        posts = list(chain(notices, photogalleries, video_libraries, podcasts, events))
+
+        #         try:
+        #     r = requests.get("https://graph.facebook.com/?ids=http://fotec.wendellpbarreto.com/")
+        #     notice.comments = r.json()["http://fotec.wendellpbarreto.com/"]["comments"]
+        # except Exception, e:
+        #     logger.warning(str(e))
+        #     notice.comments = 0
+
+        return {
+            'template' : {
+                'title' : 'fotec | início',
+                'disciplines' : self.disciplines,
+                'populars' : self.populars,
+                'recents' : self.recents,
+                'commenteds' : self.commenteds,
+                'posts' : posts,
+                'notices' : notices,
+                'photogalleries' : photogalleries,
+                'video_libraries' : video_libraries,
+            }
+        }
+
+
+    def posts(self, request):
+        notices, photogalleries, video_libraries = None, None, None
+
+        try:
+            discipline = Discipline.objects.get(pk=request.GET['discipline'])
+        except Exception, e:
+            logger.error(str(e))
+        else:
+            try:
+                notices = Notice.objects.filter(active=True, discipline=discipline).order_by('-date')
+                photogalleries = Photogallery.objects.filter(active=True, discipline=discipline).order_by('-date')
+                video_libraries = VideoLibrary.objects.filter(active=True, discipline=discipline).order_by('-date')
+            except Exception, e:
+                logger.error(str(e))
+
+        try:
+            curricular_practice = CurricularPractice.objects.get(pk=request.GET['curricular_practice'])
+        except Exception, e:
+            logger.error(str(e))
+        else:
+            if notices and photogalleries and video_libraries:
+                notices = notices.filter(active=True, curricular_practice=curricular_practice).order_by('-date')
+                photogalleries = photogalleries.filter(active=True, curricular_practice=curricular_practice).order_by('-date')
+                video_libraries = video_libraries.filter(active=True, curricular_practice=curricular_practice).order_by('-date')
+            else:
+                notices = Notice.objects.filter(active=True, curricular_practice=curricular_practice).order_by('-date')
+                photogalleries = Photogallery.objects.filter(active=True, curricular_practice=curricular_practice).order_by('-date')
+                video_libraries = VideoLibrary.objects.filter(active=True, curricular_practice=curricular_practice).order_by('-date')
+
+        try:
+            keywords = request.GET['keywords'].split()
+            print keywords
+        except Exception, e:
+            logger.error(str(e))
+        else:
+            if notices and photogalleries and video_libraries:
+                notices = notices.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]))
+                photogalleries = photogalleries.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]))
+                video_libraries = video_libraries.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]))
+            else:
+                notices = Notice.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]), active=True).order_by('-date')
+                photogalleries = Photogallery.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]), active=True).order_by('-date')
+                video_libraries = VideoLibrary.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]), active=True).order_by('-date')
+
+        posts = list(chain(notices, photogalleries, video_libraries))
+
+        return {
+            'template' : {
+                'title' : 'fotec | início',
+                'disciplines' : self.disciplines,
+                'populars' : self.populars,
+                'recents' : self.recents,
+                'commenteds' : self.commenteds,
+                'posts' : posts
+            }
+        }
+
     def notices(self, request):
         data = None
-
-        populars = Notice.objects.filter(active=True).order_by('-views')[:4]
-        recents = Notice.objects.filter(active=True).order_by('-date_modified')[:4]
-        commenteds = Notice.objects.filter(active=True).order_by('-comments')[:4]
-
         notices = Notice.objects.filter(active=True).order_by('-date')[:5]
 
         data = {
             'template' : {
                 'title' : 'fotec | notícias',
-                'populars' : populars,
-                'recents' : recents,
-                'commenteds' : commenteds,
+                'disciplines' : self.disciplines,
+                'populars' : self.populars,
+                'recents' : self.recents,
+                'commenteds' : self.commenteds,
                 'notices' : notices,
             }
         }
@@ -77,9 +166,6 @@ class GUI(GenericView):
 
     def notice(self, request):
         data = None
-        populars = Notice.objects.filter(active=True).order_by('-views')[:4]
-        recents = Notice.objects.filter(active=True).order_by('-date_modified')[:4]
-        commenteds = Notice.objects.filter(active=True).order_by('-comments')[:4]
 
         try:
             pk = self.kwargs['pk']
@@ -93,10 +179,10 @@ class GUI(GenericView):
             data =  {
                 'template' : {
                     'title' : 'fotec | notícia',
-                    'url' : request.get_full_path(),
-                    'populars' : populars,
-                    'recents' : recents,
-                    'commenteds' : commenteds,
+                    'disciplines' : self.disciplines,
+                    'populars' : self.populars,
+                    'recents' : self.recents,
+                    'commenteds' : self.commenteds,
                     'notice' : notice,
                 }
             }
@@ -106,18 +192,13 @@ class GUI(GenericView):
     def photogalleries(self, request):
         data = None
 
-        populars = Notice.objects.filter(active=True).order_by('-views')[:4]
-        recents = Notice.objects.filter(active=True).order_by('-date_modified')[:4]
-        commenteds = Notice.objects.filter(active=True).order_by('-comments')[:4]
-
-        photogalleries = Photogallery.objects.filter(active=True).order_by('-date')[:5]
-
         data = {
             'template' : {
                 'title' : 'fotec | fotogalerias',
-                'populars' : populars,
-                'recents' : recents,
-                'commenteds' : commenteds,
+                'disciplines' : self.disciplines,
+                'populars' : self.populars,
+                'recents' : self.recents,
+                'commenteds' : self.commenteds,
                 'photogalleries' : photogalleries,
             }
         }
@@ -126,10 +207,6 @@ class GUI(GenericView):
 
     def photogallery(self, request):
         data = None
-
-        populars = Notice.objects.filter(active=True).order_by('-views')[:4]
-        recents = Notice.objects.filter(active=True).order_by('-date_modified')[:4]
-        commenteds = Notice.objects.filter(active=True).order_by('-comments')[:4]
 
         try:
             pk = self.kwargs['pk']
@@ -143,10 +220,10 @@ class GUI(GenericView):
             data =  {
                 'template' : {
                     'title' : 'fotec | fotogaleria',
-                    'url' : request.get_full_path(),
-                    'populars' : populars,
-                    'recents' : recents,
-                    'commenteds' : commenteds,
+                    'disciplines' : self.disciplines,
+                    'populars' : self.populars,
+                    'recents' : self.recents,
+                    'commenteds' : self.commenteds,
                     'photogallery' : photogallery,
                 }
             }
@@ -155,19 +232,15 @@ class GUI(GenericView):
 
     def video_libraries(self, request):
         data = None
-
-        populars = Notice.objects.filter(active=True).order_by('-views')[:4]
-        recents = Notice.objects.filter(active=True).order_by('-date_modified')[:4]
-        commenteds = Notice.objects.filter(active=True).order_by('-comments')[:4]
-
         video_libraries = VideoLibrary.objects.filter(active=True).order_by('-date')[:5]
 
         data = {
             'template' : {
                 'title' : 'fotec | videotecas',
-                'populars' : populars,
-                'recents' : recents,
-                'commenteds' : commenteds,
+                'disciplines' : self.disciplines,
+                'populars' : self.populars,
+                'recents' : self.recents,
+                'commenteds' : self.commenteds,
                 'video_libraries' : video_libraries,
             }
         }
@@ -176,10 +249,6 @@ class GUI(GenericView):
 
     def video_library(self, request):
         data = None
-
-        populars = Notice.objects.filter(active=True).order_by('-views')[:4]
-        recents = Notice.objects.filter(active=True).order_by('-date_modified')[:4]
-        commenteds = Notice.objects.filter(active=True).order_by('-comments')[:4]
 
         try:
             pk = self.kwargs['pk']
@@ -193,10 +262,10 @@ class GUI(GenericView):
             data =  {
                 'template' : {
                     'title' : 'fotec | videoteca',
-                    'url' : request.get_full_path(),
-                    'populars' : populars,
-                    'recents' : recents,
-                    'commenteds' : commenteds,
+                    'disciplines' : self.disciplines,
+                    'populars' : self.populars,
+                    'recents' : self.recents,
+                    'commenteds' : self.commenteds,
                     'video_library' : video_library,
                 }
             }
@@ -205,19 +274,15 @@ class GUI(GenericView):
 
     def events(self, request):
         data = None
-
-        populars = Notice.objects.filter(active=True).order_by('-views')[:4]
-        recents = Notice.objects.filter(active=True).order_by('-date_modified')[:4]
-        commenteds = Notice.objects.filter(active=True).order_by('-comments')[:4]
-
         events = Event.objects.filter(active=True).order_by('-date')[:5]
 
         data = {
             'template' : {
                 'title' : 'fotec | eventos',
-                'populars' : populars,
-                'recents' : recents,
-                'commenteds' : commenteds,
+                'disciplines' : self.disciplines,
+                'populars' : self.populars,
+                'recents' : self.recents,
+                'commenteds' : self.commenteds,
                 'events' : events,
             }
         }
@@ -226,10 +291,6 @@ class GUI(GenericView):
 
     def event(self, request):
         data = None
-
-        populars = Notice.objects.filter(active=True).order_by('-views')[:4]
-        recents = Notice.objects.filter(active=True).order_by('-date_modified')[:4]
-        commenteds = Notice.objects.filter(active=True).order_by('-comments')[:4]
 
         try:
             pk = self.kwargs['pk']
@@ -243,10 +304,10 @@ class GUI(GenericView):
             data =  {
                 'template' : {
                     'title' : 'fotec | videoteca',
-                    'url' : request.get_full_path(),
-                    'populars' : populars,
-                    'recents' : recents,
-                    'commenteds' : commenteds,
+                    'disciplines' : self.disciplines,
+                    'populars' : self.populars,
+                    'recents' : self.recents,
+                    'commenteds' : self.commenteds,
                     'event' : event,
                 }
             }

@@ -407,7 +407,7 @@ msgstr "Notícias"
 
 #: fotec/apps/core/models.py:316 fotec/apps/core/models.py:410
 msgid "Current photo"
-msgstr "Foto da notícia"
+msgstr "Foto atual"
 
 #: fotec/apps/core/models.py:338
 msgid "Photogallery is active?"
