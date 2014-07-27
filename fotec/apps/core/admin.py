@@ -79,12 +79,12 @@ class AboutAdmin(admin.ModelAdmin):
         (
             _("Informations"), {
                 "fields" : (
-                    "title", "subtitle", "body",
+                    "body",
                 )
             }
         ),
     )
-    list_display = ("title",)
+    list_display = ("pk",)
 
 admin.site.register(About, AboutAdmin)
 

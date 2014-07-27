@@ -161,7 +161,7 @@ class SocialNetwork(models.Model):
     FACEBOOK = "facebook"
     TWITTER = "twitter"
     INSTAGRAM = "instagram"
-    GOOGLE = "google"
+    GOOGLE = "googleplus"
     TYPES = (
         (FACEBOOK, "Facebook"),
         (TWITTER, "Twitter"),
@@ -219,8 +219,6 @@ class Address(models.Model):
         return "%s" % (self.name.capitalize())
 
 class About(models.Model):
-    title = models.CharField(_("Title"), max_length=64, blank=True, help_text=_("About title"))
-    subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("About subtitle"))
     body = models.TextField(_("Body"), max_length=1024, help_text=_("About body"))
 
     class Meta:
@@ -228,7 +226,7 @@ class About(models.Model):
         verbose_name_plural = _("Abouts")
 
     def __unicode__(self):
-        return "%s" % self.name.capitalize()
+        return "%s" % self.pk
 
 class Role(models.Model):
     name = models.CharField(_("Role"), max_length=64, help_text=_("Role name"))
@@ -244,7 +242,7 @@ class Member(models.Model):
     name = models.CharField(_("Name"), max_length=64, help_text=_("Member name"))
     about = models.TextField(_("About"), max_length=256, help_text=_("Member about"))
     email = models.EmailField(_("Email"), max_length=32, blank=True, help_text=_("Member email"))
-    phone = models.IntegerField(_("Phone"), max_length=32, blank=True, help_text=_("Member phone"))
+    phone = models.CharField(_("Phone"), max_length=32, blank=True, help_text=_("Member phone"))
     role = models.ForeignKey(Role, verbose_name=_("Role"), help_text=_("Member role"))
     photo = ImageField(upload_to=settings.MEDIA_MEMBERS_ROOT, max_length=256, validators=[validate_photo], help_text=_("Member photo"))
 

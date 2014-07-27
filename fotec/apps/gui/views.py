@@ -10,6 +10,11 @@ from django.db.models import F, Q
 
 from fotec.apps.core.views import GenericView
 from fotec.apps.core.models import (
+    About,
+    Member,
+    SocialNetwork,
+    Address,
+    Contact,
     Discipline,
     CurricularPractice,
     Notice,
@@ -28,6 +33,7 @@ class GUI(GenericView):
         self.populars = Notice.objects.filter(active=True).order_by('-views')[:4]
         self.recents = Notice.objects.filter(active=True).order_by('-date_modified')[:4]
         self.commenteds = Notice.objects.filter(active=True).order_by('-comments')[:4]
+        self.social_networks = SocialNetwork.objects.all()
 
     def home(self, request):
         notices = Notice.objects.filter(active=True).order_by('-date')[:5]
@@ -52,6 +58,7 @@ class GUI(GenericView):
                 'populars' : self.populars,
                 'recents' : self.recents,
                 'commenteds' : self.commenteds,
+                'social_networks' : self.social_networks,
                 'posts' : posts,
                 'notices' : notices,
                 'photogalleries' : photogalleries,
@@ -60,20 +67,10 @@ class GUI(GenericView):
         }
 
     def about(self, request):
-        notices = Notice.objects.filter(active=True).order_by('-date')[:5]
-        photogalleries = Photogallery.objects.filter(active=True).order_by('-date')[:5]
-        video_libraries = VideoLibrary.objects.filter(active=True).order_by('-date')[:5]
-        podcasts = Podcast.objects.filter(active=True).order_by('-date')[:5]
-        events = Event.objects.filter(active=True).order_by('-date')[:5]
-
-        posts = list(chain(notices, photogalleries, video_libraries, podcasts, events))
-
-        #         try:
-        #     r = requests.get("https://graph.facebook.com/?ids=http://fotec.wendellpbarreto.com/")
-        #     notice.comments = r.json()["http://fotec.wendellpbarreto.com/"]["comments"]
-        # except Exception, e:
-        #     logger.warning(str(e))
-        #     notice.comments = 0
+        abouts = About.objects.all()
+        members = Member.objects.all().order_by('name')
+        addresses = Address.objects.all()
+        contacts = Contact.objects.all()
 
         return {
             'template' : {
@@ -82,10 +79,11 @@ class GUI(GenericView):
                 'populars' : self.populars,
                 'recents' : self.recents,
                 'commenteds' : self.commenteds,
-                'posts' : posts,
-                'notices' : notices,
-                'photogalleries' : photogalleries,
-                'video_libraries' : video_libraries,
+                'social_networks' : self.social_networks,
+                'abouts' : abouts,
+                'members' : members,
+                'addresses' : addresses,
+                'contacts' : contacts,
             }
         }
 
@@ -143,6 +141,7 @@ class GUI(GenericView):
                 'populars' : self.populars,
                 'recents' : self.recents,
                 'commenteds' : self.commenteds,
+                'social_networks' : self.social_networks,
                 'posts' : posts
             }
         }
@@ -158,6 +157,7 @@ class GUI(GenericView):
                 'populars' : self.populars,
                 'recents' : self.recents,
                 'commenteds' : self.commenteds,
+                'social_networks' : self.social_networks,
                 'notices' : notices,
             }
         }
@@ -183,6 +183,7 @@ class GUI(GenericView):
                     'populars' : self.populars,
                     'recents' : self.recents,
                     'commenteds' : self.commenteds,
+                    'social_networks' : self.social_networks,
                     'notice' : notice,
                 }
             }
@@ -199,6 +200,7 @@ class GUI(GenericView):
                 'populars' : self.populars,
                 'recents' : self.recents,
                 'commenteds' : self.commenteds,
+                'social_networks' : self.social_networks,
                 'photogalleries' : photogalleries,
             }
         }
@@ -224,6 +226,7 @@ class GUI(GenericView):
                     'populars' : self.populars,
                     'recents' : self.recents,
                     'commenteds' : self.commenteds,
+                    'social_networks' : self.social_networks,
                     'photogallery' : photogallery,
                 }
             }
@@ -241,6 +244,7 @@ class GUI(GenericView):
                 'populars' : self.populars,
                 'recents' : self.recents,
                 'commenteds' : self.commenteds,
+                'social_networks' : self.social_networks,
                 'video_libraries' : video_libraries,
             }
         }
@@ -266,6 +270,7 @@ class GUI(GenericView):
                     'populars' : self.populars,
                     'recents' : self.recents,
                     'commenteds' : self.commenteds,
+                    'social_networks' : self.social_networks,
                     'video_library' : video_library,
                 }
             }
@@ -283,6 +288,7 @@ class GUI(GenericView):
                 'populars' : self.populars,
                 'recents' : self.recents,
                 'commenteds' : self.commenteds,
+                'social_networks' : self.social_networks,
                 'events' : events,
             }
         }
@@ -308,6 +314,7 @@ class GUI(GenericView):
                     'populars' : self.populars,
                     'recents' : self.recents,
                     'commenteds' : self.commenteds,
+                    'social_networks' : self.social_networks,
                     'event' : event,
                 }
             }
