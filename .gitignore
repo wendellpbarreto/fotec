@@ -30,6 +30,10 @@ nosetests.xml
 # Translations
 *.mo
 
+# Django stuff:
+*.log
+*.pot
+
 # Mr Developer
 .mr.developer.cfg
 .project
