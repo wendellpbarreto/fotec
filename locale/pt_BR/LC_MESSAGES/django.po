@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-08 21:59-0300\n"
+"POT-Creation-Date: 2014-07-27 18:54-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,8 +44,8 @@ msgid "Pages"
 msgstr "Páginas"
 
 #: fotec/dashboard.py:81
-msgid "Fotec front-end"
-msgstr "Front-end da agência"
+msgid "Fotec GUI"
+msgstr ""
 
 #: fotec/dashboard.py:99
 msgid "Recent Actions"
@@ -53,547 +53,561 @@ msgstr "Ações recentes"
 
 #: fotec/apps/core/admin.py:19 fotec/apps/core/admin.py:39
 #: fotec/apps/core/admin.py:59 fotec/apps/core/admin.py:80
-#: fotec/apps/core/admin.py:103 fotec/apps/core/admin.py:145
-#: fotec/apps/core/admin.py:194 fotec/apps/core/admin.py:240
-#: fotec/apps/core/admin.py:276 fotec/apps/core/admin.py:310
+#: fotec/apps/core/admin.py:103 fotec/apps/core/admin.py:154
+#: fotec/apps/core/admin.py:209 fotec/apps/core/admin.py:263
+#: fotec/apps/core/admin.py:307 fotec/apps/core/admin.py:349
 msgid "Informations"
 msgstr "Informações"
 
-#: fotec/apps/core/admin.py:153 fotec/apps/core/admin.py:202
-#: fotec/apps/core/admin.py:248 fotec/apps/core/admin.py:283
-#: fotec/apps/core/admin.py:317
+#: fotec/apps/core/admin.py:147 fotec/apps/core/admin.py:202
+#: fotec/apps/core/admin.py:256 fotec/apps/core/admin.py:300
+#: fotec/apps/core/admin.py:342
+msgid "Statistics"
+msgstr "Estatísticas"
+
+#: fotec/apps/core/admin.py:162 fotec/apps/core/admin.py:217
+#: fotec/apps/core/admin.py:271 fotec/apps/core/admin.py:314
+#: fotec/apps/core/admin.py:356
 msgid "Description"
 msgstr "Descrição"
 
-#: fotec/apps/core/admin.py:326
+#: fotec/apps/core/admin.py:365
 msgid "Medias"
 msgstr "Mídias"
 
-#: fotec/apps/core/models.py:138 fotec/apps/core/models.py:161
+#: fotec/apps/core/models.py:172 fotec/apps/core/models.py:195
 msgid "Type"
 msgstr "Tipo"
 
-#: fotec/apps/core/models.py:138
+#: fotec/apps/core/models.py:172
 msgid "Social network type"
 msgstr "Tipo da rede social"
 
-#: fotec/apps/core/models.py:139
+#: fotec/apps/core/models.py:173
 msgid "URL"
 msgstr ""
 
-#: fotec/apps/core/models.py:139
+#: fotec/apps/core/models.py:173
 #, fuzzy
 msgid "Social network url"
 msgstr "URL da rede social"
 
-#: fotec/apps/core/models.py:142
+#: fotec/apps/core/models.py:176
 msgid "Social network"
 msgstr "Rede social"
 
-#: fotec/apps/core/models.py:143
+#: fotec/apps/core/models.py:177
 msgid "Social networks"
 msgstr "Redes sociais"
 
-#: fotec/apps/core/models.py:161
+#: fotec/apps/core/models.py:195
 msgid "Contact type"
 msgstr "Tipo do contato"
 
-#: fotec/apps/core/models.py:162
+#: fotec/apps/core/models.py:196
 msgid "Value"
 msgstr "Valor"
 
-#: fotec/apps/core/models.py:162
+#: fotec/apps/core/models.py:196
 msgid "Contact value"
 msgstr "Valor do contato"
 
-#: fotec/apps/core/models.py:165
+#: fotec/apps/core/models.py:199
 msgid "Contact"
 msgstr "Contato"
 
-#: fotec/apps/core/models.py:166
+#: fotec/apps/core/models.py:200
 msgid "Contacts"
 msgstr "Contatos"
 
-#: fotec/apps/core/models.py:172
+#: fotec/apps/core/models.py:206
 msgid "Street"
 msgstr "Rua"
 
-#: fotec/apps/core/models.py:172
+#: fotec/apps/core/models.py:206
 msgid "Address street"
 msgstr "Rua do endereço"
 
-#: fotec/apps/core/models.py:173
+#: fotec/apps/core/models.py:207
 msgid "Number"
 msgstr "Número"
 
-#: fotec/apps/core/models.py:173
+#: fotec/apps/core/models.py:207
 msgid "Address number"
 msgstr "Número do endereço"
 
-#: fotec/apps/core/models.py:174
+#: fotec/apps/core/models.py:208
 msgid "Complement"
 msgstr "Complemento"
 
-#: fotec/apps/core/models.py:174
+#: fotec/apps/core/models.py:208
 msgid "Address complement"
 msgstr "Complemento do endereço"
 
-#: fotec/apps/core/models.py:175
+#: fotec/apps/core/models.py:209
 msgid "District"
 msgstr "Bairro"
 
-#: fotec/apps/core/models.py:175
+#: fotec/apps/core/models.py:209
 msgid "Address district"
 msgstr "Bairro do endereço"
 
-#: fotec/apps/core/models.py:176
+#: fotec/apps/core/models.py:210
 msgid "Zip code"
 msgstr "CEP"
 
-#: fotec/apps/core/models.py:176
+#: fotec/apps/core/models.py:210
 msgid "Address zip code"
 msgstr "CEP do endereço"
 
-#: fotec/apps/core/models.py:177
+#: fotec/apps/core/models.py:211
 msgid "City"
 msgstr "Cidade"
 
-#: fotec/apps/core/models.py:177
+#: fotec/apps/core/models.py:211
 msgid "Address city"
 msgstr "Cidade do endereço"
 
-#: fotec/apps/core/models.py:178
+#: fotec/apps/core/models.py:212
 msgid "State"
 msgstr "Estado"
 
-#: fotec/apps/core/models.py:178
+#: fotec/apps/core/models.py:212
 msgid "Address state"
 msgstr "Estado do endereço"
 
-#: fotec/apps/core/models.py:181
+#: fotec/apps/core/models.py:215
 msgid "Address"
 msgstr "Endereço"
 
-#: fotec/apps/core/models.py:182
+#: fotec/apps/core/models.py:216
 msgid "Addresses"
 msgstr "Endereços"
 
-#: fotec/apps/core/models.py:188 fotec/apps/core/models.py:260
-#: fotec/apps/core/models.py:341 fotec/apps/core/models.py:435
-#: fotec/apps/core/models.py:491 fotec/apps/core/models.py:507
-msgid "Title"
-msgstr "Título"
-
-#: fotec/apps/core/models.py:188
-#, fuzzy
-msgid "About title"
-msgstr "Título do podcast"
-
-#: fotec/apps/core/models.py:189 fotec/apps/core/models.py:261
-#: fotec/apps/core/models.py:342 fotec/apps/core/models.py:436
-#: fotec/apps/core/models.py:492 fotec/apps/core/models.py:508
-msgid "Subtitle"
-msgstr "Subtítulo"
-
-#: fotec/apps/core/models.py:189
-#, fuzzy
-msgid "About subtitle"
-msgstr "Subtítulo do podcast"
-
-#: fotec/apps/core/models.py:190 fotec/apps/core/models.py:262
-#: fotec/apps/core/models.py:343 fotec/apps/core/models.py:437
-#: fotec/apps/core/models.py:493 fotec/apps/core/models.py:509
+#: fotec/apps/core/models.py:222 fotec/apps/core/models.py:310
 msgid "Body"
 msgstr "Corpo"
 
-#: fotec/apps/core/models.py:190
+#: fotec/apps/core/models.py:222
 #, fuzzy
 msgid "About body"
 msgstr "Corpo do podcast"
 
-#: fotec/apps/core/models.py:193 fotec/apps/core/models.py:211
+#: fotec/apps/core/models.py:225 fotec/apps/core/models.py:243
 msgid "About"
 msgstr "Sobre"
 
-#: fotec/apps/core/models.py:194
+#: fotec/apps/core/models.py:226
 msgid "Abouts"
 msgstr "Sobres"
 
-#: fotec/apps/core/models.py:200 fotec/apps/core/models.py:203
-#: fotec/apps/core/models.py:214
+#: fotec/apps/core/models.py:232 fotec/apps/core/models.py:235
+#: fotec/apps/core/models.py:246
 msgid "Role"
 msgstr "Cargo"
 
-#: fotec/apps/core/models.py:200
+#: fotec/apps/core/models.py:232
 #, fuzzy
 msgid "Role name"
 msgstr "Nome da editoria"
 
-#: fotec/apps/core/models.py:204
+#: fotec/apps/core/models.py:236
 msgid "Roles"
 msgstr "Cargos"
 
-#: fotec/apps/core/models.py:210 fotec/apps/core/models.py:234
+#: fotec/apps/core/models.py:242 fotec/apps/core/models.py:273
 msgid "Name"
 msgstr "Nome"
 
-#: fotec/apps/core/models.py:210
+#: fotec/apps/core/models.py:242
 msgid "Member name"
 msgstr "Nome do membro"
 
-#: fotec/apps/core/models.py:211
+#: fotec/apps/core/models.py:243
 msgid "Member about"
 msgstr "Sobre do membro"
 
-#: fotec/apps/core/models.py:212
+#: fotec/apps/core/models.py:244
 msgid "Email"
 msgstr "Email"
 
-#: fotec/apps/core/models.py:212
+#: fotec/apps/core/models.py:244
 msgid "Member email"
 msgstr "Email do membro"
 
-#: fotec/apps/core/models.py:213
+#: fotec/apps/core/models.py:245
 msgid "Phone"
 msgstr "Telefone"
 
-#: fotec/apps/core/models.py:213
+#: fotec/apps/core/models.py:245
 msgid "Member phone"
 msgstr "Telefone do membro"
 
-#: fotec/apps/core/models.py:214
+#: fotec/apps/core/models.py:246
 msgid "Member role"
 msgstr "Cargo do membro"
 
-#: fotec/apps/core/models.py:217
+#: fotec/apps/core/models.py:247
+#, fuzzy
+msgid "Member photo"
+msgstr "Telefone do membro"
+
+#: fotec/apps/core/models.py:250
 msgid "Member"
 msgstr "Membro"
 
-#: fotec/apps/core/models.py:218
+#: fotec/apps/core/models.py:251
 msgid "Members"
 msgstr "Membros"
 
-#: fotec/apps/core/models.py:224 fotec/apps/core/models.py:227
-#: fotec/apps/core/models.py:235 fotec/apps/core/models.py:264
-#: fotec/apps/core/models.py:345 fotec/apps/core/models.py:439
-msgid "Discipline"
-msgstr "Disciplina"
-
-#: fotec/apps/core/models.py:224
-msgid "Discipline name"
-msgstr "Nome da disciplina"
-
-#: fotec/apps/core/models.py:228
-msgid "Disciplines"
-msgstr "Disciplinas"
-
-#: fotec/apps/core/models.py:234
-msgid "Curricular practice name"
-msgstr "Nome da prática curricular"
-
-#: fotec/apps/core/models.py:235
-msgid "Curricular practice discipline"
-msgstr "Disciplina da prática curricular"
-
-#: fotec/apps/core/models.py:238 fotec/apps/core/models.py:265
-#: fotec/apps/core/models.py:346 fotec/apps/core/models.py:440
-msgid "Curricular practice"
-msgstr "Prática curricular"
-
-#: fotec/apps/core/models.py:239
-msgid "Curricular practices"
-msgstr "Prática curriculares"
-
-#: fotec/apps/core/models.py:245 fotec/apps/core/models.py:248
-#: fotec/apps/core/models.py:263 fotec/apps/core/models.py:344
-#: fotec/apps/core/models.py:438
-msgid "Editorial"
-msgstr "Editoria"
-
-#: fotec/apps/core/models.py:245
-msgid "Editorial name"
-msgstr "Nome da editoria"
-
-#: fotec/apps/core/models.py:249
-msgid "Editorials"
-msgstr "Editorias"
-
-#: fotec/apps/core/models.py:255 fotec/apps/core/models.py:338
-#: fotec/apps/core/models.py:432 fotec/apps/core/models.py:488
-#: fotec/apps/core/models.py:504
-msgid "Active"
-msgstr "Ativo"
-
-#: fotec/apps/core/models.py:255
-msgid "New is active?"
-msgstr "Esta notícia está ativa?"
-
-#: fotec/apps/core/models.py:256
-msgid "Featured"
-msgstr "Destaque"
-
-#: fotec/apps/core/models.py:256
-msgid "New is in featured session?"
-msgstr "Esta notícia está na sessão de destaque?"
-
-#: fotec/apps/core/models.py:257 fotec/apps/core/models.py:339
-#: fotec/apps/core/models.py:433 fotec/apps/core/models.py:489
-#: fotec/apps/core/models.py:505
-msgid "Date"
-msgstr "Data"
-
-#: fotec/apps/core/models.py:257
-msgid "New date"
-msgstr "Data da notícia"
-
-#: fotec/apps/core/models.py:258 fotec/apps/core/models.py:340
-#: fotec/apps/core/models.py:434 fotec/apps/core/models.py:490
-#: fotec/apps/core/models.py:506
-msgid "Last modified"
-msgstr "Última modificação"
-
-#: fotec/apps/core/models.py:259
-#, fuzzy
-msgid "Pretitle"
-msgstr "Pré-titulo"
-
-#: fotec/apps/core/models.py:259
-#, fuzzy
-msgid "New pretitle"
-msgstr "Pré-título da notícia"
-
-#: fotec/apps/core/models.py:260
-msgid "New title"
-msgstr "Título da notícia"
-
-#: fotec/apps/core/models.py:261
-msgid "New subtitle"
-msgstr "Subtítulo da notícia"
-
-#: fotec/apps/core/models.py:262
-msgid "New body"
-msgstr "Corpo da notícia"
-
-#: fotec/apps/core/models.py:263
-msgid "New editorial"
-msgstr "Editoria da notícia"
-
-#: fotec/apps/core/models.py:264
-#, fuzzy
-msgid "New discipline"
-msgstr "Disciplina"
-
-#: fotec/apps/core/models.py:265
-#, fuzzy
-msgid "New curricular practice"
-msgstr "Prática curricular"
-
-#: fotec/apps/core/models.py:289 fotec/apps/core/models.py:383
-#: fotec/apps/core/models.py:386
-msgid "Photo"
-msgstr "Foto"
-
-#: fotec/apps/core/models.py:289
-msgid "New photo"
-msgstr "Foto da notícia"
-
-#: fotec/apps/core/models.py:292 fotec/apps/core/models.py:510
-msgid "New"
-msgstr "Notícia"
-
-#: fotec/apps/core/models.py:293
-msgid "News"
-msgstr "Notícias"
-
-#: fotec/apps/core/models.py:316 fotec/apps/core/models.py:410
+#: fotec/apps/core/models.py:259 fotec/apps/core/models.py:373
+#: fotec/apps/core/models.py:473
 msgid "Current photo"
 msgstr "Foto atual"
 
-#: fotec/apps/core/models.py:338
-msgid "Photogallery is active?"
-msgstr "Esta fotogaleria está ativa?"
+#: fotec/apps/core/models.py:263 fotec/apps/core/models.py:266
+#: fotec/apps/core/models.py:274 fotec/apps/core/models.py:317
+#: fotec/apps/core/models.py:396 fotec/apps/core/models.py:496
+msgid "Discipline"
+msgstr "Disciplina"
 
-#: fotec/apps/core/models.py:339
-msgid "Photogallery date"
-msgstr "Data da fotogaleria"
+#: fotec/apps/core/models.py:263
+msgid "Discipline name"
+msgstr "Nome da disciplina"
 
-#: fotec/apps/core/models.py:341
-msgid "Photogallery title"
-msgstr "Data da fotogaleria"
+#: fotec/apps/core/models.py:267
+msgid "Disciplines"
+msgstr "Disciplinas"
+
+#: fotec/apps/core/models.py:273
+msgid "Curricular practice name"
+msgstr "Nome da prática curricular"
+
+#: fotec/apps/core/models.py:274
+msgid "Curricular practice discipline"
+msgstr "Disciplina da prática curricular"
+
+#: fotec/apps/core/models.py:277 fotec/apps/core/models.py:318
+#: fotec/apps/core/models.py:397 fotec/apps/core/models.py:497
+msgid "Curricular practice"
+msgstr "Prática curricular"
+
+#: fotec/apps/core/models.py:278
+msgid "Curricular practices"
+msgstr "Prática curriculares"
+
+#: fotec/apps/core/models.py:284 fotec/apps/core/models.py:287
+#: fotec/apps/core/models.py:316 fotec/apps/core/models.py:395
+#: fotec/apps/core/models.py:495
+msgid "Editorial"
+msgstr "Editoria"
+
+#: fotec/apps/core/models.py:284
+msgid "Editorial name"
+msgstr "Nome da editoria"
+
+#: fotec/apps/core/models.py:288
+msgid "Editorials"
+msgstr "Editorias"
+
+#: fotec/apps/core/models.py:304
+msgid "Active"
+msgstr "Ativo"
+
+#: fotec/apps/core/models.py:304
+#, fuzzy
+msgid "Notice is active?"
+msgstr "Esta notícia está ativa?"
+
+#: fotec/apps/core/models.py:305
+msgid "Featured"
+msgstr "Destaque"
+
+#: fotec/apps/core/models.py:305
+#, fuzzy
+msgid "Notice is in featured session?"
+msgstr "Esta notícia está na sessão de destaque?"
+
+#: fotec/apps/core/models.py:306
+msgid "Date"
+msgstr "Data"
+
+#: fotec/apps/core/models.py:306
+#, fuzzy
+msgid "Notice date"
+msgstr "Data da notícia"
+
+#: fotec/apps/core/models.py:307
+msgid "Last modified"
+msgstr "Última modificação"
+
+#: fotec/apps/core/models.py:308 fotec/apps/core/models.py:421
+msgid "Title"
+msgstr "Título"
+
+#: fotec/apps/core/models.py:308
+#, fuzzy
+msgid "Notice title"
+msgstr "Título da notícia"
+
+#: fotec/apps/core/models.py:309
+msgid "Subtitle"
+msgstr "Subtítulo"
+
+#: fotec/apps/core/models.py:309
+#, fuzzy
+msgid "Notice subtitle"
+msgstr "Subtítulo da notícia"
+
+#: fotec/apps/core/models.py:310
+#, fuzzy
+msgid "Notice body"
+msgstr "Corpo da notícia"
+
+#: fotec/apps/core/models.py:316
+#, fuzzy
+msgid "Notice editorial"
+msgstr "Editoria da notícia"
+
+#: fotec/apps/core/models.py:317
+#, fuzzy
+msgid "Notice discipline"
+msgstr "Disciplina"
+
+#: fotec/apps/core/models.py:318
+#, fuzzy
+msgid "Notice curricular practice"
+msgstr "Prática curricular"
+
+#: fotec/apps/core/models.py:342 fotec/apps/core/models.py:446
+#: fotec/apps/core/models.py:449
+msgid "Photo"
+msgstr "Foto"
 
 #: fotec/apps/core/models.py:342
-msgid "Photogallery subtitle"
-msgstr "Subtítulo da fotogaleria"
+#, fuzzy
+msgid "Notice photo"
+msgstr "Foto da notícia"
 
-#: fotec/apps/core/models.py:343
-msgid "Photogallery body"
-msgstr "Corpo da fotogaleria"
+#: fotec/apps/core/models.py:345 fotec/apps/core/models.py:602
+msgid "Notice"
+msgstr "Notícia"
 
-#: fotec/apps/core/models.py:344
+#: fotec/apps/core/models.py:346
+msgid "Notices"
+msgstr "Notícias"
+
+#: fotec/apps/core/models.py:395
 #, fuzzy
 msgid "Photogallery editorial"
 msgstr "Data da fotogaleria"
 
-#: fotec/apps/core/models.py:345
+#: fotec/apps/core/models.py:396
 #, fuzzy
 msgid "Photogallery discipline"
 msgstr "Esta fotogaleria está ativa?"
 
-#: fotec/apps/core/models.py:346
+#: fotec/apps/core/models.py:397
 #, fuzzy
 msgid "Photogallery curricular practice"
 msgstr "Esta fotogaleria está ativa?"
 
-#: fotec/apps/core/models.py:349
+#: fotec/apps/core/models.py:400
 msgid "Photogallery"
 msgstr "Fotogaleria"
 
-#: fotec/apps/core/models.py:350 fotec/apps/core/models.py:511
+#: fotec/apps/core/models.py:401 fotec/apps/core/models.py:603
 msgid "Photogalleries"
 msgstr "Fotogalerias"
 
-#: fotec/apps/core/models.py:387
+#: fotec/apps/core/models.py:421
+#, fuzzy
+msgid "Photo title"
+msgstr "Data da fotogaleria"
+
+#: fotec/apps/core/models.py:422
+msgid "Credits"
+msgstr "Créditos"
+
+#: fotec/apps/core/models.py:422
+#, fuzzy
+msgid "Photo credits"
+msgstr "Fotos"
+
+#: fotec/apps/core/models.py:450
 msgid "Photos"
 msgstr "Fotos"
 
-#: fotec/apps/core/models.py:432
-msgid "Video library is active?"
-msgstr "Esta videoteca está ativa?"
-
-#: fotec/apps/core/models.py:433
-msgid "Video library date"
-msgstr "Data da videoteca"
-
-#: fotec/apps/core/models.py:435
-msgid "Video library title"
-msgstr "Título da videoteca"
-
-#: fotec/apps/core/models.py:436
-msgid "Video library subtitle"
-msgstr "Subtítulo da videoteca"
-
-#: fotec/apps/core/models.py:437
-msgid "Video library body"
-msgstr "Corpo da videoteca"
-
-#: fotec/apps/core/models.py:438
+#: fotec/apps/core/models.py:495
 #, fuzzy
 msgid "Video library editorial"
 msgstr "Título da videoteca"
 
-#: fotec/apps/core/models.py:439
+#: fotec/apps/core/models.py:496
 #, fuzzy
 msgid "Video library discipline"
 msgstr "Esta videoteca está ativa?"
 
-#: fotec/apps/core/models.py:440
+#: fotec/apps/core/models.py:497
 #, fuzzy
 msgid "Video library curricular practice"
 msgstr "Esta videoteca está ativa?"
 
-#: fotec/apps/core/models.py:443
+#: fotec/apps/core/models.py:500
 msgid "Video library"
 msgstr "Videoteca"
 
-#: fotec/apps/core/models.py:444 fotec/apps/core/models.py:512
+#: fotec/apps/core/models.py:501 fotec/apps/core/models.py:604
 msgid "Video libraries"
 msgstr "Videotecas"
 
-#: fotec/apps/core/models.py:476 fotec/apps/core/models.py:481
+#: fotec/apps/core/models.py:546 fotec/apps/core/models.py:551
 msgid "Video"
 msgstr "Vídeo"
 
-#: fotec/apps/core/models.py:477
-msgid "Ex: http://www.youtube.com/embed/umMIcZODm2k"
+#: fotec/apps/core/models.py:547
+msgid "Youtube code"
+msgstr "Código do Youtube"
+
+#: fotec/apps/core/models.py:547
+msgid "Ex: umMIcZODm2k of http://www.youtube.com/embed/umMIcZODm2k"
 msgstr ""
 
-#: fotec/apps/core/models.py:478
-msgid "Ex: http://player.vimeo.com/video/85228844"
+#: fotec/apps/core/models.py:548
+#, fuzzy
+msgid "Vimeo code"
+msgstr "Código do Vimeo"
+
+#: fotec/apps/core/models.py:548
+msgid "Ex: 85228844 of http://player.vimeo.com/video/85228844"
 msgstr ""
 
-#: fotec/apps/core/models.py:482
+#: fotec/apps/core/models.py:552
 msgid "Videos"
 msgstr "Vídeos"
 
-#: fotec/apps/core/models.py:488
-msgid "Podcast is active?"
-msgstr "Este podcast está ativo?"
-
-#: fotec/apps/core/models.py:489
-msgid "Podcast date"
-msgstr "Data do podcast"
-
-#: fotec/apps/core/models.py:491
-msgid "Podcast title"
-msgstr "Título do podcast"
-
-#: fotec/apps/core/models.py:492
-msgid "Podcast subtitle"
-msgstr "Subtítulo do podcast"
-
-#: fotec/apps/core/models.py:493
-msgid "Podcast body"
-msgstr "Corpo do podcast"
-
-#: fotec/apps/core/models.py:494
+#: fotec/apps/core/models.py:586
 msgid "Download URL"
 msgstr ""
 
-#: fotec/apps/core/models.py:494
+#: fotec/apps/core/models.py:586
 msgid "Podcast download url"
 msgstr "Download url do podcast"
 
-#: fotec/apps/core/models.py:497
+#: fotec/apps/core/models.py:591
 msgid "Podcast"
 msgstr ""
 
-#: fotec/apps/core/models.py:498 fotec/apps/core/models.py:513
+#: fotec/apps/core/models.py:592 fotec/apps/core/models.py:605
 msgid "Podcasts"
 msgstr ""
 
-#: fotec/apps/core/models.py:504
-msgid "Event is active?"
-msgstr "Este evento está ativo?"
-
-#: fotec/apps/core/models.py:505
-msgid "Event date"
-msgstr "Data do evento"
-
-#: fotec/apps/core/models.py:507
-msgid "Event title"
-msgstr "Título do evento"
-
-#: fotec/apps/core/models.py:508
-msgid "Event subtitle"
-msgstr "Subtítulo do evento"
-
-#: fotec/apps/core/models.py:509
-msgid "Event body"
-msgstr "Corpo do evento"
-
-#: fotec/apps/core/models.py:510
-msgid "Event news"
+#: fotec/apps/core/models.py:602
+#, fuzzy
+msgid "Event notices"
 msgstr "Notícias do evento"
 
-#: fotec/apps/core/models.py:511
+#: fotec/apps/core/models.py:603
 msgid "Event photogalleries"
 msgstr "Fotogalerias do evento"
 
-#: fotec/apps/core/models.py:512
+#: fotec/apps/core/models.py:604
 msgid "Event video libraries"
 msgstr "Galerias de vídeos do evento"
 
-#: fotec/apps/core/models.py:513
+#: fotec/apps/core/models.py:605
 msgid "Event podcasts"
 msgstr "Podcasts do evento"
 
-#: fotec/apps/core/models.py:516
+#: fotec/apps/core/models.py:608
 msgid "Event"
 msgstr "Evento"
 
-#: fotec/apps/core/models.py:517
+#: fotec/apps/core/models.py:609
 msgid "Events"
 msgstr "Eventos"
+
+#~ msgid "Fotec front-end"
+#~ msgstr "Front-end da agência"
+
+#, fuzzy
+#~ msgid "About title"
+#~ msgstr "Título do podcast"
+
+#, fuzzy
+#~ msgid "About subtitle"
+#~ msgstr "Subtítulo do podcast"
+
+#, fuzzy
+#~ msgid "Pretitle"
+#~ msgstr "Pré-titulo"
+
+#, fuzzy
+#~ msgid "New pretitle"
+#~ msgstr "Pré-título da notícia"
+
+#~ msgid "New"
+#~ msgstr "Notícia"
+
+#~ msgid "News"
+#~ msgstr "Notícias"
+
+#~ msgid "Photogallery is active?"
+#~ msgstr "Esta fotogaleria está ativa?"
+
+#~ msgid "Photogallery date"
+#~ msgstr "Data da fotogaleria"
+
+#~ msgid "Photogallery subtitle"
+#~ msgstr "Subtítulo da fotogaleria"
+
+#~ msgid "Photogallery body"
+#~ msgstr "Corpo da fotogaleria"
+
+#~ msgid "Video library is active?"
+#~ msgstr "Esta videoteca está ativa?"
+
+#~ msgid "Video library date"
+#~ msgstr "Data da videoteca"
+
+#~ msgid "Video library title"
+#~ msgstr "Título da videoteca"
+
+#~ msgid "Video library subtitle"
+#~ msgstr "Subtítulo da videoteca"
+
+#~ msgid "Video library body"
+#~ msgstr "Corpo da videoteca"
+
+#~ msgid "Podcast is active?"
+#~ msgstr "Este podcast está ativo?"
+
+#~ msgid "Podcast date"
+#~ msgstr "Data do podcast"
+
+#~ msgid "Podcast title"
+#~ msgstr "Título do podcast"
+
+#~ msgid "Podcast subtitle"
+#~ msgstr "Subtítulo do podcast"
+
+#~ msgid "Podcast body"
+#~ msgstr "Corpo do podcast"
+
+#~ msgid "Event is active?"
+#~ msgstr "Este evento está ativo?"
+
+#~ msgid "Event date"
+#~ msgstr "Data do evento"
+
+#~ msgid "Event title"
+#~ msgstr "Título do evento"
+
+#~ msgid "Event subtitle"
+#~ msgstr "Subtítulo do evento"
+
+#~ msgid "Event body"
+#~ msgstr "Corpo do evento"
 
 #~ msgid "Photogallery is in featured session?"
 #~ msgstr "Esta fotogaleria está na sessão de destaque?"
