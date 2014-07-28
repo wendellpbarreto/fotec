@@ -17,6 +17,7 @@ from fotec.apps.core.models import (
     Contact,
     Discipline,
     CurricularPractice,
+    Editorial,
     Notice,
     Photogallery,
     VideoLibrary,
@@ -30,6 +31,7 @@ class GUI(GenericView):
 
     def __init__(self):
         self.disciplines = Discipline.objects.all()
+        self.editorials = Editorial.objects.all()
         self.populars = Notice.objects.filter(active=True).order_by('-views')[:4]
         self.recents = Notice.objects.filter(active=True).order_by('-date_modified')[:4]
         self.commenteds = Notice.objects.filter(active=True).order_by('-comments')[:4]
@@ -55,6 +57,7 @@ class GUI(GenericView):
             'template' : {
                 'title' : 'fotec | início',
                 'disciplines' : self.disciplines,
+                'editorials' : self.editorials,
                 'populars' : self.populars,
                 'recents' : self.recents,
                 'commenteds' : self.commenteds,
@@ -76,6 +79,7 @@ class GUI(GenericView):
             'template' : {
                 'title' : 'fotec | início',
                 'disciplines' : self.disciplines,
+                'editorials' : self.editorials,
                 'populars' : self.populars,
                 'recents' : self.recents,
                 'commenteds' : self.commenteds,
@@ -87,21 +91,18 @@ class GUI(GenericView):
             }
         }
 
-
     def posts(self, request):
         notices, photogalleries, video_libraries = None, None, None
+        editorial = None
 
         try:
             discipline = Discipline.objects.get(pk=request.GET['discipline'])
         except Exception, e:
             logger.error(str(e))
         else:
-            try:
-                notices = Notice.objects.filter(active=True, discipline=discipline).order_by('-date')
-                photogalleries = Photogallery.objects.filter(active=True, discipline=discipline).order_by('-date')
-                video_libraries = VideoLibrary.objects.filter(active=True, discipline=discipline).order_by('-date')
-            except Exception, e:
-                logger.error(str(e))
+            notices = Notice.objects.filter(active=True, discipline=discipline).order_by('-date')
+            photogalleries = Photogallery.objects.filter(active=True, discipline=discipline).order_by('-date')
+            video_libraries = VideoLibrary.objects.filter(active=True, discipline=discipline).order_by('-date')
 
         try:
             curricular_practice = CurricularPractice.objects.get(pk=request.GET['curricular_practice'])
@@ -109,28 +110,46 @@ class GUI(GenericView):
             logger.error(str(e))
         else:
             if notices and photogalleries and video_libraries:
-                notices = notices.filter(active=True, curricular_practice=curricular_practice).order_by('-date')
-                photogalleries = photogalleries.filter(active=True, curricular_practice=curricular_practice).order_by('-date')
-                video_libraries = video_libraries.filter(active=True, curricular_practice=curricular_practice).order_by('-date')
+                notices = notices.filter(curricular_practice=curricular_practice).order_by('-date')
+                photogalleries = photogalleries.filter(curricular_practice=curricular_practice).order_by('-date')
+                video_libraries = video_libraries.filter(curricular_practice=curricular_practice).order_by('-date')
             else:
                 notices = Notice.objects.filter(active=True, curricular_practice=curricular_practice).order_by('-date')
                 photogalleries = Photogallery.objects.filter(active=True, curricular_practice=curricular_practice).order_by('-date')
                 video_libraries = VideoLibrary.objects.filter(active=True, curricular_practice=curricular_practice).order_by('-date')
 
         try:
-            keywords = request.GET['keywords'].split()
-            print keywords
+            editorial = Editorial.objects.get(pk=request.GET['editorial'])
         except Exception, e:
             logger.error(str(e))
         else:
             if notices and photogalleries and video_libraries:
-                notices = notices.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]))
-                photogalleries = photogalleries.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]))
-                video_libraries = video_libraries.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]))
+                notices = notices.filter(editorial=editorial).order_by('-date')
+                photogalleries = photogalleries.filter(editorial=editorial).order_by('-date')
+                video_libraries = video_libraries.filter(editorial=editorial).order_by('-date')
             else:
-                notices = Notice.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]), active=True).order_by('-date')
-                photogalleries = Photogallery.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]), active=True).order_by('-date')
-                video_libraries = VideoLibrary.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]), active=True).order_by('-date')
+                notices = Notice.objects.filter(active=True, editorial=editorial).order_by('-date')
+                photogalleries = Photogallery.objects.filter(active=True, editorial=editorial).order_by('-date')
+                video_libraries = VideoLibrary.objects.filter(active=True, editorial=editorial).order_by('-date')
+
+        try:
+            keywords = request.GET['keywords'].split()
+        except Exception, e:
+            logger.error(str(e))
+        else:
+            if keywords:
+                if notices and photogalleries and video_libraries:
+                    notices = notices.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]))
+                    photogalleries = photogalleries.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]))
+                    video_libraries = video_libraries.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]))
+                else:
+                    notices = Notice.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]), active=True).order_by('-date')
+                    photogalleries = Photogallery.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]), active=True).order_by('-date')
+                    video_libraries = VideoLibrary.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]), active=True).order_by('-date')
+            else:
+                notices = Notice.objects.filter(active=True).order_by('-date')
+                photogalleries = Photogallery.objects.filter(active=True).order_by('-date')
+                video_libraries = VideoLibrary.objects.filter(active=True).order_by('-date')
 
         posts = list(chain(notices, photogalleries, video_libraries))
 
@@ -138,11 +157,13 @@ class GUI(GenericView):
             'template' : {
                 'title' : 'fotec | início',
                 'disciplines' : self.disciplines,
+                'editorials' : self.editorials,
                 'populars' : self.populars,
                 'recents' : self.recents,
                 'commenteds' : self.commenteds,
                 'social_networks' : self.social_networks,
-                'posts' : posts
+                'posts' : posts,
+                'editorial' : editorial,
             }
         }
 
@@ -154,6 +175,7 @@ class GUI(GenericView):
             'template' : {
                 'title' : 'fotec | notícias',
                 'disciplines' : self.disciplines,
+                'editorials' : self.editorials,
                 'populars' : self.populars,
                 'recents' : self.recents,
                 'commenteds' : self.commenteds,
@@ -180,6 +202,7 @@ class GUI(GenericView):
                 'template' : {
                     'title' : 'fotec | notícia',
                     'disciplines' : self.disciplines,
+                    'editorials' : self.editorials,
                     'populars' : self.populars,
                     'recents' : self.recents,
                     'commenteds' : self.commenteds,
@@ -197,6 +220,7 @@ class GUI(GenericView):
             'template' : {
                 'title' : 'fotec | fotogalerias',
                 'disciplines' : self.disciplines,
+                'editorials' : self.editorials,
                 'populars' : self.populars,
                 'recents' : self.recents,
                 'commenteds' : self.commenteds,
@@ -223,6 +247,7 @@ class GUI(GenericView):
                 'template' : {
                     'title' : 'fotec | fotogaleria',
                     'disciplines' : self.disciplines,
+                    'editorials' : self.editorials,
                     'populars' : self.populars,
                     'recents' : self.recents,
                     'commenteds' : self.commenteds,
@@ -241,6 +266,7 @@ class GUI(GenericView):
             'template' : {
                 'title' : 'fotec | videotecas',
                 'disciplines' : self.disciplines,
+                'editorials' : self.editorials,
                 'populars' : self.populars,
                 'recents' : self.recents,
                 'commenteds' : self.commenteds,
@@ -267,6 +293,7 @@ class GUI(GenericView):
                 'template' : {
                     'title' : 'fotec | videoteca',
                     'disciplines' : self.disciplines,
+                    'editorials' : self.editorials,
                     'populars' : self.populars,
                     'recents' : self.recents,
                     'commenteds' : self.commenteds,
@@ -285,6 +312,7 @@ class GUI(GenericView):
             'template' : {
                 'title' : 'fotec | eventos',
                 'disciplines' : self.disciplines,
+                'editorials' : self.editorials,
                 'populars' : self.populars,
                 'recents' : self.recents,
                 'commenteds' : self.commenteds,
@@ -311,6 +339,7 @@ class GUI(GenericView):
                 'template' : {
                     'title' : 'fotec | videoteca',
                     'disciplines' : self.disciplines,
+                    'editorials' : self.editorials,
                     'populars' : self.populars,
                     'recents' : self.recents,
                     'commenteds' : self.commenteds,

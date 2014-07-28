@@ -37,7 +37,7 @@
                                 <ul class="no-bullet meta row">
                                     <li>POSTADO POR: <a href="#">ADMIN</a></li>
                                     <li>{{ video_library.date }}</li>
-                                    <li>EM <a href="#">{{ video_library.editorial|upper }}</a></li>
+                                    <li>EM <a href="/posts/?editorial={{ video_libray.editorial.pk }}">{{ video_library.editorial.name|upper }}</a></li>
                                     {% if video_library.is_videoteca %}
                                         <li><a href="/video_library/{{ video_library.pk}}"><i class="icon-film"></i> {{ video_library.get_amount }}</a></li>
                                     {% else %}

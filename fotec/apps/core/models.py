@@ -260,7 +260,7 @@ class Member(models.Model):
     photo_tag.allow_tags = True
 
 class Discipline(models.Model):
-    name = models.CharField(_("Discipline"), max_length=32, help_text=_("Discipline name"))
+    name = models.CharField(_("Discipline"), max_length=32, unique=True, help_text=_("Discipline name"))
 
     class Meta:
         verbose_name = _("Discipline")
@@ -276,12 +276,13 @@ class CurricularPractice(models.Model):
     class Meta:
         verbose_name = _("Curricular practice")
         verbose_name_plural = _("Curricular practices")
+        unique_together = ("name", "discipline")
 
     def __unicode__(self):
         return "%s" % (self.name.capitalize())
 
 class Editorial(models.Model):
-    name = models.CharField(_("Editorial"), max_length=32, help_text=_("Editorial name"))
+    name = models.CharField(_("Editorial"), max_length=32, unique=True, help_text=_("Editorial name"))
 
     class Meta:
         verbose_name = _("Editorial")
@@ -289,6 +290,11 @@ class Editorial(models.Model):
 
     def __unicode__(self):
         return "%s" % (self.name.capitalize())
+
+    def get_amount(self):
+        return len(Notice.objects.filter(editorial=self)) \
+            + len(Photogallery.objects.filter(editorial=self)) \
+            + len(VideoLibrary.objects.filter(editorial=self))
 
 class Post(models.Model):
     TYPES = (
@@ -307,7 +313,7 @@ class Post(models.Model):
     date_modified = models.DateTimeField(_("Last modified"), auto_now=True)
     title = models.CharField(_("Title"), max_length=64, help_text=_("Notice title"))
     subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("Notice subtitle"))
-    body = models.TextField(_("Body"), max_length=1024, help_text=_("Notice body"))
+    body = models.TextField(_("Body"), max_length=1024, blank=True, help_text=_("Notice body"))
 
     class Meta:
         abstract = True

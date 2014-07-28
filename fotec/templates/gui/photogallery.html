@@ -32,7 +32,7 @@
                             <ul class="no-bullet meta row">
                                 <li>POSTADO POR: <a href="#">ADMIN</a></li>
                                 <li>{{ photogallery.date }}</li>
-                                <li>EM <a href="#">{{ photogallery.editorial|upper }}</a></li>
+                                <li>EM <a href="/posts/?editorial={{ photogallery.editorial.pk }}">{{ photogallery.editorial.name|upper }}</a></li>
                                 <li>{{ photogallery.views }} VISUALIZAÇÕES</li>
                                 <li><a href="/photogallery/{{ photogallery.pk }}"><i class="icon-picture-o"></i> {{ photogallery.get_amount }}</a></li>
                             </ul>

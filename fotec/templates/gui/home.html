@@ -61,7 +61,7 @@
                                     <ul class="no-bullet meta row">
                                         <li>POSTADO POR: <a href="#">ADMIN</a></li>
                                         <li>{{ post.date }}</li>
-                                        <li>EM <a href="#">{{ post.editorial|upper }}</a></li>
+                                        <li>EM <a href="/posts/?editorial={{ post.editorial.pk }}">{{ post.editorial.name|upper }}</a></li>
                                         <li>{{ post.views }} VISUALIZAÇÕES</li>
                                     </ul>
                                 </header>
@@ -91,7 +91,7 @@
                                     <ul class="no-bullet meta row">
                                         <li>POSTADO POR: <a href="#">ADMIN</a></li>
                                         <li>{{ post.date }}</li>
-                                        <li>EM <a href="#">{{ post.editorial|upper }}</a></li>
+                                        <li>EM <a href="/posts/?editorial={{ post.editorial.pk }}">{{ post.editorial.name|upper }}</a></li>
                                         <li>{{ post.views }} VISUALIZAÇÕES</li>
                                         <li><a href="/photogallery/{{ post.pk }}"><i class="icon-picture-o"></i> {{ post.get_amount }}</a></li>
                                     </ul>
@@ -115,7 +115,7 @@
                                     <ul class="no-bullet meta row">
                                         <li>POSTADO POR: <a href="#">ADMIN</a></li>
                                         <li>{{ post.date }}</li>
-                                        <li>EM <a href="#">{{ post.editorial|upper }}</a></li>
+                                        <li>EM <a href="/posts/?editorial={{ post.editorial.pk }}">{{ post.editorial.name|upper }}</a></li>
                                         {% if post.is_videoteca %}
                                             <li><a href="/video_library/{{ post.pk}}"><i class="icon-film"></i> {{ post.get_amount }}</a></li>
                                         {% else %}

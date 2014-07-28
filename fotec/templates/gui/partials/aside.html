@@ -6,8 +6,14 @@
             <header class="row text-center">
                 <h6 class="large-centered column">PESQUISAR</h6>
                 <form action="/posts" method="get" class="column">
-                    <input type="text" name="keywords"/>
+                    <input type="text" name="keywords" placeholder="Pesquisar"/>
                     <button type="submit"><i class="icon-search"></i></button>
+                    <select name="editorial" id="editorial">
+                        <option value="" selected>Todo o conteúdo</option>
+                        {% for editorial in editorials %}
+                            <option value="{{ editorial.pk }}">{{ editorial.name }} ({{ editorial.get_amount }})</option>
+                        {% endfor %}
+                    </select>
                 </form>
             </header>
         </div><!-- div class='search widget' -->
@@ -103,8 +109,14 @@
             <header class="row text-center">
                 <h6 class="large-centered column">PESQUISAR</h6>
                 <form action="/posts" method="get" class="column">
-                    <input type="text" name="keywords"/>
+                    <input type="text" name="keywords" placeholder="Pesquisar"/>
                     <button type="submit"><i class="icon-search"></i></button>
+                    <select name="editorial" id="editorial">
+                        <option value="">Todo o conteúdo</option>
+                        {% for editorial in editorials %}
+                            <option value="{{ editorial.pk }}">{{ editorial.name }} ({{ editorial.get_amount }})</option>
+                        {% endfor %}
+                    </select>
                 </form>
             </header>
         </div><!-- div class='search widget' -->
