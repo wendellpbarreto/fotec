@@ -1,0 +1,12 @@
+@import "settings";
+@import "../../bower_components/foundation/scss/foundation";
+
+// Modules and variables
+@import "modules/base";
+
+// Partials
+@import "partials/screen";
+@import "partials/header";
+@import "partials/container";
+@import "partials/footer";
+

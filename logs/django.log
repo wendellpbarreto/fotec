@@ -1,0 +1,163 @@
+[07/Sep/2014 20:13:34] ERROR [django.request:231] Internal Server Error: /admin/core/notice/2/
+Traceback (most recent call last):
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/core/handlers/base.py", line 137, in get_response
+    response = response.render()
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/response.py", line 103, in render
+    self.content = self.rendered_content
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/response.py", line 80, in rendered_content
+    content = template.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/defaulttags.py", line 201, in render
+    nodelist.append(node.render(context))
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return template.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/defaulttags.py", line 402, in render
+    return strip_spaces_between_tags(self.nodelist.render(context).strip())
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/defaulttags.py", line 201, in render
+    nodelist.append(node.render(context))
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/defaulttags.py", line 201, in render
+    nodelist.append(node.render(context))
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/debug.py", line 90, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 596, in resolve
+    obj = self.var.resolve(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 734, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/template/base.py", line 788, in _resolve_lookup
+    current = current()
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/contrib/admin/helpers.py", line 183, in contents
+    f, attr, value = lookup_field(field, obj, model_admin)
+  File "/Users/wendellpbarreto/.virtualenvs/fotec/lib/python2.7/site-packages/django/contrib/admin/utils.py", line 280, in lookup_field
+    value = attr()
+  File "/Users/wendellpbarreto/Projects/fotec/system/core/models.py", line 269, in photo_tag
+    timg = get_thumbnail(self.photo, "160x110", quality=50)
+NameError: global name 'get_thumbnail' is not defined
+[07/Sep/2014 20:13:45] WARNING [django.request:143] Not Found: /admin/core/notice/2/<sorl.thumbnail.images.ImageFile object at 0x103da4ed0>/
+[07/Sep/2014 20:13:49] WARNING [django.request:143] Not Found: /admin/core/notice/2/<sorl.thumbnail.images.ImageFile object at 0x105e8ba50>/
+[07/Sep/2014 20:14:18] ERROR [django.security.SuspiciousFileOperation:180] Attempted access to '/media/news/o1467783.jpg' denied.
+[07/Sep/2014 20:15:06] WARNING [django.request:143] Not Found: /admin/core/notice/2/news/o1467783.jpg/
+[07/Sep/2014 20:15:12] WARNING [django.request:143] Not Found: /Users/wendellpbarreto/Projects/fotec/media/upload/o1469788.jpg
+[07/Sep/2014 20:15:12] WARNING [django.request:143] Not Found: /Users/wendellpbarreto/Projects/fotec/media/upload/o1469788.jpg
+[07/Sep/2014 20:15:20] WARNING [django.request:143] Not Found: /admin/core/notice/2/news/o1467783.jpg/
+[07/Sep/2014 20:15:20] WARNING [django.request:143] Not Found: /Users/wendellpbarreto/Projects/fotec/media/upload/o1469788.jpg
+[07/Sep/2014 20:15:46] WARNING [django.request:143] Not Found: /admin/core/notice/2/media/upload/o1469788.jpg/
+[07/Sep/2014 20:16:19] WARNING [django.request:143] Not Found: /admin/core/notice/2/news/o1467783.jpg/
+[07/Sep/2014 20:16:20] WARNING [django.request:143] Not Found: /Users/wendellpbarreto/Projects/fotec/media/upload/o1469788.jpg
+[07/Sep/2014 20:16:35] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 20:16:43] INFO [system.core.generic_view:171] Template loaded: gui/notice.html
+[07/Sep/2014 20:16:43] WARNING [django.request:143] Not Found: /Users/wendellpbarreto/Projects/fotec/media/upload/o1469788.jpg
+[07/Sep/2014 20:28:30] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 20:28:37] ERROR [system.core.views:100] "'discipline'"
+[07/Sep/2014 20:28:37] ERROR [system.core.views:109] "'curricular_practice'"
+[07/Sep/2014 20:28:37] ERROR [system.core.views:137] "'keywords'"
+[07/Sep/2014 20:28:37] INFO [system.core.generic_view:171] Template loaded: gui/posts.html
+[07/Sep/2014 20:28:44] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:28:37] WARNING [django.request:143] Not Found: /admin/core/member/add/PicsArt_1403480464617.jpg/
+[07/Sep/2014 21:28:52] INFO [system.core.generic_view:171] Template loaded: gui/about.html
+[07/Sep/2014 21:29:49] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:29:59] ERROR [system.core.views:100] "'discipline'"
+[07/Sep/2014 21:29:59] ERROR [system.core.views:109] "'curricular_practice'"
+[07/Sep/2014 21:29:59] ERROR [system.core.views:137] "'keywords'"
+[07/Sep/2014 21:29:59] INFO [system.core.generic_view:171] Template loaded: gui/posts.html
+[07/Sep/2014 21:30:01] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:31:27] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:38:27] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:38:39] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:39:00] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:39:19] WARNING [django.request:143] Not Found: /home/127.0.0.1:8000/notice/2
+[07/Sep/2014 21:39:34] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:39:58] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:40:01] INFO [system.core.generic_view:171] Template loaded: gui/notice.html
+[07/Sep/2014 21:40:02] WARNING [django.request:143] Not Found: /Users/wendellpbarreto/Projects/fotec/media/upload/o1469788.jpg
+[07/Sep/2014 21:40:48] INFO [system.core.generic_view:171] Template loaded: gui/notice.html
+[07/Sep/2014 21:40:48] WARNING [django.request:143] Not Found: /Users/wendellpbarreto/Projects/fotec/media/upload/o1469788.jpg
+[07/Sep/2014 21:40:48] WARNING [django.request:143] Not Found: /Users/wendellpbarreto/Projects/fotec/media/upload/o1469788.jpg
+[07/Sep/2014 21:40:51] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:40:51] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:40:51] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:40:52] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:41:00] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:41:03] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:41:08] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:41:10] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:41:42] WARNING [django.request:143] Not Found: /admin/core/notice/2/news/o1467783.jpg/
+[07/Sep/2014 21:41:42] WARNING [django.request:143] Not Found: /Users/wendellpbarreto/Projects/fotec/media/upload/o1469788.jpg
+[07/Sep/2014 21:41:46] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:42:19] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:53:55] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:54:02] INFO [system.core.generic_view:171] Template loaded: gui/notice.html
+[07/Sep/2014 21:54:50] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:55:31] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 21:58:53] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 22:01:52] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 22:01:59] INFO [system.core.generic_view:171] Template loaded: gui/notice.html
+[07/Sep/2014 22:03:11] INFO [system.core.generic_view:171] Template loaded: gui/notice.html
+[07/Sep/2014 22:03:16] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 22:03:20] INFO [system.core.generic_view:171] Template loaded: gui/notices.html
+[07/Sep/2014 22:03:22] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 22:03:28] INFO [system.core.generic_view:171] Template loaded: gui/notice.html
+[07/Sep/2014 22:03:28] WARNING [django.request:143] Not Found: /Users/wendellpbarreto/Projects/fotec/media/upload/o1469788.jpg
+[07/Sep/2014 22:03:34] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 22:03:50] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 22:35:37] INFO [system.core.generic_view:171] Template loaded: gui/notice.html
+[07/Sep/2014 22:35:44] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[07/Sep/2014 22:37:19] INFO [system.core.generic_view:171] Template loaded: gui/about.html
