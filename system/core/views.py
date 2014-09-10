@@ -92,7 +92,7 @@ class GUI(GenericView):
 
     def posts(self, request):
         notices, photogalleries, video_libraries = None, None, None
-        editorial = None
+        discipline, curricular_practice, editorial = None, None, None
 
         try:
             discipline = Discipline.objects.get(pk=request.GET['discipline'])
@@ -133,6 +133,9 @@ class GUI(GenericView):
 
         try:
             keywords = request.GET['keywords'].split()
+            print '*' * 20
+            print keywords
+            print '*' * 20
         except Exception, e:
             logger.error(str(e))
         else:
@@ -145,7 +148,7 @@ class GUI(GenericView):
                     notices = Notice.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]), active=True).order_by('-date')
                     photogalleries = Photogallery.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]), active=True).order_by('-date')
                     video_libraries = VideoLibrary.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]), active=True).order_by('-date')
-            else:
+            elif (not discipline) and (not curricular_practice) and (not editorial):
                 notices = Notice.objects.filter(active=True).order_by('-date')
                 photogalleries = Photogallery.objects.filter(active=True).order_by('-date')
                 video_libraries = VideoLibrary.objects.filter(active=True).order_by('-date')

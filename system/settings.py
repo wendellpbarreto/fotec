@@ -159,16 +159,16 @@ TEMPLATE_DIRS = (
 # Media files
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-print MEDIA_ROOT
-print '*' * 200
 # Media news files
 
-MEDIA_MEMBERS_ROOT = os.path.join(MEDIA_ROOT, 'members')
-MEDIA_NEWS_ROOT = os.path.join(MEDIA_ROOT, 'news')
-MEDIA_PHOTOGALLERY_ROOT = os.path.join(MEDIA_ROOT, 'photogallery')
-MEDIA_VIDEO_LIBRARY_ROOT = os.path.join(MEDIA_ROOT, 'video_library')
+MEDIA_PHOTOGRAPHERS_ROOT = 'photographers'
+MEDIA_MEMBERS_ROOT = 'members'
+MEDIA_AUTHORS_ROOT = 'authors'
+MEDIA_NEWS_ROOT = 'news'
+MEDIA_PHOTOGALLERY_ROOT = 'photogallery'
+MEDIA_VIDEO_LIBRARY_ROOT = 'video_library'
 
 # Admin tittle
 

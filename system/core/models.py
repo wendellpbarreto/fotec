@@ -10,7 +10,6 @@ from PIL import Image
 from django.conf import settings
 from django.db import models
 from django.db.models import signals
-from django.dispatch.dispatcher import receiver
 from django.utils.translation import ugettext_lazy as _
 from sorl.thumbnail import ImageField
 
@@ -147,7 +146,7 @@ class Role(models.Model):
 
 class Member(models.Model):
     name = models.CharField(_("Name"), max_length=64, help_text=_("Member name"))
-    about = models.TextField(_("About"), max_length=256, help_text=_("Member about"))
+    about = models.TextField(_("About"), max_length=256, blank=True, help_text=_("Member about"))
     email = models.EmailField(_("Email"), max_length=32, blank=True, help_text=_("Member email"))
     phone = models.CharField(_("Phone"), max_length=32, blank=True, help_text=_("Member phone"))
     role = models.ForeignKey(Role, verbose_name=_("Role"), help_text=_("Member role"))
@@ -161,7 +160,7 @@ class Member(models.Model):
         return "%s" % (self.name.capitalize())
 
     def photo_tag(self):
-        return "<img src=\"%s\"/>" % (self.photo)
+        return "<img width='300' src='%s'>" % (self.photo.url)
 
     photo_tag.short_description = _("Current photo")
     photo_tag.allow_tags = True
@@ -203,6 +202,46 @@ class Editorial(models.Model):
             + len(Photogallery.objects.filter(editorial=self)) \
             + len(VideoLibrary.objects.filter(editorial=self))
 
+class Author(models.Model):
+    name = models.CharField(_("Name"), max_length=64, help_text=_("Author name"))
+    about = models.TextField(_("About"), max_length=256, blank=True, help_text=_("Author about"))
+    email = models.EmailField(_("Email"), max_length=32, blank=True, help_text=_("Author email"))
+    phone = models.CharField(_("Phone"), max_length=32, blank=True, help_text=_("Author phone"))
+    photo = ImageField(upload_to=settings.MEDIA_AUTHORS_ROOT, max_length=256, blank=True, validators=[validate_photo], help_text=_("Author photo"))
+
+    class Meta:
+        verbose_name = _("Author")
+        verbose_name_plural = _("Authors")
+
+    def __unicode__(self):
+        return "%s" % (self.name.capitalize())
+
+    def photo_tag(self):
+        return "<img width='300' src='%s'>" % (self.photo.url)
+
+    photo_tag.short_description = _("Current photo")
+    photo_tag.allow_tags = True
+
+class Photographer(models.Model):
+    name = models.CharField(_("Name"), max_length=64, help_text=_("Photographer name"))
+    about = models.TextField(_("About"), max_length=256, blank=True, help_text=_("Photographer about"))
+    email = models.EmailField(_("Email"), max_length=32, blank=True, help_text=_("Photographer email"))
+    phone = models.CharField(_("Phone"), max_length=32, blank=True, help_text=_("Photographer phone"))
+    photo = ImageField(upload_to=settings.MEDIA_PHOTOGRAPHERS_ROOT, max_length=256, blank=True, validators=[validate_photo], help_text=_("Photographer photo"))
+
+    class Meta:
+        verbose_name = _("Photographer")
+        verbose_name_plural = _("Photographers")
+
+    def __unicode__(self):
+        return "%s" % (self.name.capitalize())
+
+    def photo_tag(self):
+        return "<img width='300' src='%s'>" % (self.photo.url)
+
+    photo_tag.short_description = _("Current photo")
+    photo_tag.allow_tags = True
+
 class Post(models.Model):
     TYPES = (
         (NOTICE, "Notice"),
@@ -214,45 +253,24 @@ class Post(models.Model):
     views = models.IntegerField(max_length=32, default=0)
     comments = models.IntegerField(max_length=32, default=0)
     likes = models.IntegerField(max_length=32, default=0)
-    active = models.BooleanField(_("Active"), default=True, help_text=_("Notice is active?"))
-    featured = models.BooleanField(_("Featured"), default=True, help_text=_("Notice is in featured session?"))
-    date = models.DateField(_("Date"), help_text=_("Notice date"))
+    active = models.BooleanField(_("Active"), default=True, help_text=_("Is this active?"))
+    featured = models.BooleanField(_("Featured"), default=True, help_text=_("Is this in featured session?"))
+    date = models.DateField(_("Date"), help_text=_("Date"))
     date_modified = models.DateTimeField(_("Last modified"), auto_now=True)
-    title = models.CharField(_("Title"), max_length=64, help_text=_("Notice title"))
-    subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("Notice subtitle"))
-    body = models.TextField(_("Body"), max_length=1024, blank=True, help_text=_("Notice body"))
+    title = models.CharField(_("Title"), max_length=64, help_text=_("Title"))
+    subtitle = models.CharField(_("Subtitle"), max_length=128, help_text=_("Subtitle"))
+    body = models.TextField(_("Body"), max_length=1024, help_text=_("Body"))
 
     class Meta:
         abstract = True
 
 class Notice(Post):
+    author = models.ForeignKey(Author, verbose_name=_("Author"), help_text=_("Notice author"))
     editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), help_text=_("Notice editorial"))
     discipline = models.ForeignKey(Discipline, verbose_name=_("Discipline"), null=True, blank=True, help_text=_("Notice discipline"))
     curricular_practice = models.ForeignKey(CurricularPractice, verbose_name=_("Curricular practice"), null=True, blank=True, help_text=_("Notice curricular practice"))
-
-    def create_path(self, filename):
-        try:
-            folder_path = os.path.join(settings.MEDIA_NEWS_ROOT)
-            hash_code = uuid.uuid4().hex
-            photo_name = hash_code + ".png"
-
-            try:
-                photo_list = os.listdir(folder_path)
-            except Exception, e:
-                logger.error(str(e))
-            else:
-                while True:
-                    if not (photo_name) in photo_list:
-                        break
-
-                    hash_code = uuid.uuid4().hex
-                    photo_name = hash_code + ".png"
-            finally:
-                return os.path.join(folder_path, photo_name)
-        except Exception, e:
-            logger.error(str(e))
-
-    photo = ImageField(upload_to='news', verbose_name=_("Photo"), max_length=256, validators=[validate_photo], help_text=_("Notice photo"))
+    photo = ImageField(upload_to=settings.MEDIA_NEWS_ROOT, verbose_name=_("Photo"), max_length=256, validators=[validate_photo], help_text=_("Notice photo"))
+    photographer = models.ForeignKey(Photographer, verbose_name=_("Photographer"), help_text=_("Notice photographer"))
 
     class Meta:
         verbose_name = _("Notice")
@@ -266,20 +284,10 @@ class Notice(Post):
         super(Notice, self).save(*args, **kwargs)
 
     def photo_tag(self):
-        return "<img src=\"%s\"/>" % (self.photo)
+        return "<img width='300' src='%s'>" % (self.photo.url)
 
     photo_tag.short_description = _("Current photo")
     photo_tag.allow_tags = True
-
-@receiver(signals.pre_save, sender=Notice)
-def notices_edit_decorator(sender, instance, **kwargs):
-    try:
-        photo = Notice.objects.get(pk=instance.pk).photo
-    except Exception, e:
-        logger.info(str(e))
-    else:
-        if photo != instance.photo:
-            delete_photos(photo)
 
 class Photogallery(Post):
     editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), help_text=_("Photogallery editorial"))
@@ -308,32 +316,9 @@ class Photogallery(Post):
 
 class Photo(models.Model):
     photogallery = models.ForeignKey(Photogallery, related_name="photos")
-    title = models.CharField(_("Title"), max_length=128, blank=True, help_text=_("Photo title"))
-    credits = models.CharField(_("Credits"), max_length=64, blank=True, help_text=_("Photo credits"))
-
-    def create_path(self, filename):
-        try:
-            folder_path = os.path.join(settings.MEDIA_PHOTOGALLERY_ROOT, unicode(self.photogallery.pk))
-            hash_code = uuid.uuid4().hex
-            photo_name = hash_code + ".png"
-
-            try:
-                photo_list = os.listdir(folder_path)
-            except Exception, e:
-                logger.error(str(e))
-            else:
-                while True:
-                    if not (photo_name) in photo_list:
-                        break
-
-                    hash_code = uuid.uuid4().hex
-                    photo_name = hash_code + ".png"
-            finally:
-                return os.path.join(folder_path, photo_name)
-        except Exception, e:
-            logger.error(str(e))
-
-    photo = ImageField(upload_to=create_path, max_length=256, validators=[validate_photo], help_text=_("Photo"))
+    title = models.CharField(_("Title"), max_length=128, help_text=_("Photo title"))
+    photo = ImageField(upload_to=settings.MEDIA_PHOTOGALLERY_ROOT, max_length=256, validators=[validate_photo], help_text=_("Photo"))
+    photographer = models.ForeignKey(Photographer, verbose_name=_("Photographer"), help_text=_("Notice photographer"), related_name="photo_photographer")
 
     class Meta:
         verbose_name = _("Photo")
@@ -344,20 +329,10 @@ class Photo(models.Model):
 
 
     def photo_tag(self):
-        return "<img src=\"%s\"/>" % (self.photo)
+        return "<img width='300' src='%s'>" % (self.photo.url)
 
     photo_tag.short_description = _("Current photo")
     photo_tag.allow_tags = True
-
-@receiver(signals.pre_save, sender=Photo)
-def photo_edit_decorator(sender, instance, **kwargs):
-    try:
-        photo = Photo.objects.get(pk=instance.pk).photo
-    except Exception, e:
-        logger.info(str(e))
-    else:
-        if photo != instance.photo:
-            delete_photos(photo)
 
 class VideoLibrary(Post):
     editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), help_text=_("Video library editorial"))
@@ -386,32 +361,7 @@ class VideoLibrary(Post):
 
 class Video(models.Model):
     video_library = models.ForeignKey(VideoLibrary, related_name="videos")
-
-    def create_path(self, filename):
-        try:
-            folder_path = os.path.join(settings.MEDIA_VIDEO_LIBRARY_ROOT, unicode(self.video_library.pk))
-            hash_code = uuid.uuid4().hex
-            extension = filename.split(".")[1]
-            video_name = hash_code + "." + extension
-
-            try:
-                video_list = os.listdir(folder_path)
-            except Exception, e:
-                logger.error(str(e))
-            else:
-                while True:
-                    if not (video_name) in video_list:
-                        break
-
-                    hash_code = uuid.uuid4().hex
-                    extension = filename.split(".")[1]
-                    video_name = hash_code + "." + extension
-            finally:
-                return os.path.join(folder_path, video_name)
-        except Exception, e:
-            logger.error(str(e))
-
-    file = models.FileField(upload_to=create_path, max_length=256, blank=True, validators=[validate_video], help_text=_("Video"))
+    file = models.FileField(upload_to=settings.MEDIA_VIDEO_LIBRARY_ROOT, max_length=256, blank=True, validators=[validate_video], help_text=_("Video"))
     youtube = models.CharField(_("Youtube code"), max_length=32, blank=True, help_text=_("Ex: umMIcZODm2k of http://www.youtube.com/embed/umMIcZODm2k"))
     vimeo = models.CharField(_("Vimeo code"), max_length=32, blank=True, help_text=_("Ex: 85228844 of http://player.vimeo.com/video/85228844"))
 

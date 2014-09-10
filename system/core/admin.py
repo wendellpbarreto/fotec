@@ -137,6 +137,54 @@ class EditorialAdmin(admin.ModelAdmin):
 
 admin.site.register(Editorial, EditorialAdmin)
 
+class AuthorAdmin(admin.ModelAdmin):
+    model = Author
+    form = AuthorAdminForm
+    classes = ("grp-collapse grp-open",)
+    inline_classes = ("grp-collapse grp-open",)
+    fieldsets = (
+        (
+            _("Informations"), {
+                "fields" : (
+                    ("photo", "photo_tag"),
+                    ("name",),
+                    ("email", "phone",),
+                    ("about",),
+                )
+            }
+        ),
+    )
+    list_display = ("name", "email", "phone",)
+    search_fields = ("name", "email",)
+    ordering = ("name",)
+    readonly_fields = ("photo_tag",)
+
+admin.site.register(Author, AuthorAdmin)
+
+class PhotographerAdmin(admin.ModelAdmin):
+    model = Photographer
+    form = PhotographerAdminForm
+    classes = ("grp-collapse grp-open",)
+    inline_classes = ("grp-collapse grp-open",)
+    fieldsets = (
+        (
+            _("Informations"), {
+                "fields" : (
+                    ("photo", "photo_tag"),
+                    ("name",),
+                    ("email", "phone",),
+                    ("about",),
+                )
+            }
+        ),
+    )
+    list_display = ("name", "email", "phone",)
+    search_fields = ("name", "email",)
+    ordering = ("name",)
+    readonly_fields = ("photo_tag",)
+
+admin.site.register(Photographer, PhotographerAdmin)
+
 class NoticeAdmin(admin.ModelAdmin):
     model = Notice
     form = NoticeAdminForm
@@ -155,6 +203,7 @@ class NoticeAdmin(admin.ModelAdmin):
                 "fields" : (
                     ("date", "active", "featured"),
                     ("editorial", "discipline", "curricular_practice"),
+                    "author",
                 )
             }
         ),
@@ -165,6 +214,7 @@ class NoticeAdmin(admin.ModelAdmin):
                     "subtitle",
                     "body",
                     ("photo", "photo_tag",),
+                    "photographer",
                 )
             }
         ),

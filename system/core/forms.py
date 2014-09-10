@@ -12,6 +12,8 @@ from .models import (
     Photogallery,
     VideoLibrary,
     Member,
+    Author,
+    Photographer,
     About,
 )
 
@@ -25,6 +27,20 @@ class AboutAdminForm(forms.ModelForm):
 class MemberAdminForm(forms.ModelForm):
     class Meta:
         model = Member
+        widgets = {
+            "about": RedactorEditor(),
+        }
+
+class AuthorAdminForm(forms.ModelForm):
+    class Meta:
+        model = Author
+        widgets = {
+            "about": RedactorEditor(),
+        }
+
+class PhotographerAdminForm(forms.ModelForm):
+    class Meta:
+        model = Photographer
         widgets = {
             "about": RedactorEditor(),
         }
@@ -64,5 +80,5 @@ class EventAdminForm(forms.ModelForm):
             models.ManyToManyField: {"widget": forms.CheckboxSelectMultiple},
         }
         widgets = {
-            "description": RedactorEditor(),
+            "body": RedactorEditor(),
         }

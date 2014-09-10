@@ -31,6 +31,8 @@ class CustomIndexDashboard(Dashboard):
                 'system.core.models.About',
                 'system.core.models.Role',
                 'system.core.models.Member',
+                'system.core.models.Author',
+                'system.core.models.Photographer',
                 'system.core.models.Editorial',
                 'system.core.models.Discipline',
             ),
@@ -53,6 +55,8 @@ class CustomIndexDashboard(Dashboard):
                         'system.core.models.About',
                         'system.core.models.Role',
                         'system.core.models.Member',
+                        'system.core.models.Author',
+                        'system.core.models.Photographer',
                     ),
                 ),
                 modules.AppList(
