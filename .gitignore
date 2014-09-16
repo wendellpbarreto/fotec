@@ -54,10 +54,10 @@ docs/_build/
 target/
 
 # Node modules
-node_modules
+node_modules/*
 
 # Bower components
-bower_components
+bower_components/*
 
 # Sass cache
 .sass_cache
