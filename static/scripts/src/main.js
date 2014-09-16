@@ -42,3 +42,25 @@ $(document).ready(function() {
 $('.dropdown .dropdown').hover(function() {
   return $(this).closest('.has-dropdown').find('a').eq(0).toggleClass("active");
 });
+
+
+$('.carousel__video').owlCarousel({
+    items:1,
+    merge:true,
+    loop:true,
+    margin:10,
+    video:true,
+    lazyLoad:true,
+    center:true,
+    videoWidth: 700,
+    videoHeight: 394,
+    autoplay: true,
+    responsive:{
+        480:{
+            items:2
+        },
+        600:{
+            items:4
+        }
+    }
+})

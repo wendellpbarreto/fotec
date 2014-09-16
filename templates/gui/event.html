@@ -12,11 +12,8 @@
 
 {% block container %}
     <div id="container" class="row">
-        <!-- -  -   -    -     -      -      -       -        -        Aside -->
-        {% include "gui/partials/aside.html" %}
-
         <!-- -  -   -    -     -      -      -       -        -        Content -->
-        <div class="content large-14 columns">
+        <div class="content column">
             <section class="event">
                 {% if event %}
                     <article class="row event post">
@@ -24,7 +21,7 @@
                             <div class="line"></div>
                             <i class="icon-star"></i>
                         </div>
-                        <header class="column">
+                        <header>
                             <h2>
                                 <a href="{{ BASE_URL }}/event/{{ event.pk }}">{{ event.title|capfirst }}</a>
                             </h2>
@@ -35,15 +32,25 @@
                                 <li>{{ event.views }} VISUALIZAÇÕES</li>
                             </ul>
                         </header>
-                        <div class="description column">
+                        <div class="description">
                             <p class="text-justify">{{ event.body|striptags|capfirst }}</p>
                         </div>
                         <div class="library">
-                            {% for video in event.video_libraries.all.0.videos.all %}
-                                <div class="video">
-                                    {{ video.video|safe }}
-                                </div><!-- div class='video' -->
+                            <div class="carousel__video">
+                            {% for video in event.all_videos %}
+                                {% if video.get.youtube %}
+                                    <div class="item-video" data-merge="1">
+                                        <a class="owl-video" href="https://www.youtube.com/watch?v={{ video.get.youtube }}"></a>
+                                    </div>
+                                {% elif video.get.vimeo %}
+                                    <div class="item-video" data-merge="3">
+                                        <a class="owl-video" href="http://vimeo.com/{{ video.get.vimeo }}"></a>
+                                    </div>
+                                {% else %}
+                                    <div class="item-video" data-merge="1">{{ video.get.youtube }}</div>
+                                {% endif %}
                             {% endfor %}
+                            </div>
                         </div><!-- div class='library' -->
                         <div
                            class="fb-comments column"

@@ -361,7 +361,6 @@ class VideoLibrary(Post):
 
 class Video(models.Model):
     video_library = models.ForeignKey(VideoLibrary, related_name="videos")
-    file = models.FileField(upload_to=settings.MEDIA_VIDEO_LIBRARY_ROOT, max_length=256, blank=True, validators=[validate_video], help_text=_("Video"))
     youtube = models.CharField(_("Youtube code"), max_length=32, blank=True, help_text=_("Ex: umMIcZODm2k of http://www.youtube.com/embed/umMIcZODm2k"))
     vimeo = models.CharField(_("Vimeo code"), max_length=32, blank=True, help_text=_("Ex: 85228844 of http://player.vimeo.com/video/85228844"))
 
@@ -375,28 +374,12 @@ class Video(models.Model):
     def video(self):
         result = None
 
-        if self.file:
-            file_name = self.file.url.rsplit("fotec", 1)[1]
-            result = u"<iframe src=\"%s\">" % file_name
-        elif self.youtube:
+        if self.youtube:
             result = u"<iframe class=\"youtube-player\" src=\"http://www.youtube.com/embed/%s?showinfo=0\" frameborder=\"0\" allowfullscreen></iframe>" % self.youtube
         elif self.vimeo:
             result = u"<iframe class=\"vimeo-player\" src=\"//player.vimeo.com/video/%s?badge=0&amp;byline=0&amp;portrait=0&amp;title=0\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>" % self.vimeo
-
-        return result
-
-    video.allow_tags = True
-
-    def image(self):
-        result = None
-
-        if self.file:
-            file_name = self.file.url.rsplit("fotec", 1)[1]
-            result = u"<iframe src=\"%s\">" % file_name
-        elif self.youtube:
-            result = u"<img src=\"http://img.youtube.com/vi/%s/0.jpg\">" % self.youtube
-        elif self.vimeo:
-            result = u"<iframe src=\"//player.vimeo.com/video/%s\"></iframe>" % self.vimeo
+        else:
+            result = u"Vídeo inválido"
 
         return result
 
@@ -432,5 +415,8 @@ class Event(Post):
     def save(self, *args, **kwargs):
         self.type = EVENT
         super(Event, self).save(*args, **kwargs)
+
+    def all_videos(self):
+        return [video_library.get_videos() for video_library in self.video_libraries.all()]
 
 
