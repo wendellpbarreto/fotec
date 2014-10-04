@@ -482,3 +482,15 @@ DETAIL:  Failing row contains (4, 3, null, umMIcZODm2k, ).
 
 [10/Sep/2014 22:09:50] INFO [system.core.generic_view:171] Template loaded: gui/event.html
 [10/Sep/2014 22:40:49] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[03/Oct/2014 23:52:42] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[04/Oct/2014 18:58:54] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[04/Oct/2014 18:58:55] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[04/Oct/2014 19:05:06] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[04/Oct/2014 19:06:07] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[04/Oct/2014 19:06:26] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[04/Oct/2014 19:06:29] INFO [system.core.generic_view:171] Template loaded: gui/notices.html
+[04/Oct/2014 19:06:30] INFO [system.core.generic_view:171] Template loaded: gui/photogalleries.html
+[04/Oct/2014 19:06:32] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[04/Oct/2014 19:06:33] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[04/Oct/2014 19:06:36] WARNING [django.request:143] Not Found: /home/admin
+[04/Oct/2014 19:06:36] WARNING [django.request:143] Not Found: /favicon.ico
