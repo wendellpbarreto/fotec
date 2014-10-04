@@ -125,7 +125,7 @@ class Address(models.Model):
         return "%s" % (self.name.capitalize())
 
 class About(models.Model):
-    body = models.TextField(_("Body"), max_length=1024, help_text=_("About body"))
+    body = models.TextField(_("Body"), max_length=5120, help_text=_("About body"))
 
     class Meta:
         verbose_name = _("About")
