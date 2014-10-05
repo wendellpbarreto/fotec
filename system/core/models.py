@@ -259,7 +259,7 @@ class Post(models.Model):
     date_modified = models.DateTimeField(_("Last modified"), auto_now=True)
     title = models.CharField(_("Title"), max_length=64, help_text=_("Title"))
     subtitle = models.CharField(_("Subtitle"), max_length=128, help_text=_("Subtitle"))
-    body = models.TextField(_("Body"), max_length=1024, help_text=_("Body"))
+    body = models.TextField(_("Body"), max_length=10240, help_text=_("Body"))
 
     class Meta:
         abstract = True
