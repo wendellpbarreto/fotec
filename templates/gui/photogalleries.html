@@ -37,7 +37,7 @@
                                     <a href="{{ BASE_URL }}/photogallery/{{ photogallery.pk }}">{{ photogallery.title|capfirst }}</a>
                                 </h2>
                                 <ul class="no-bullet meta row">
-                                    <li>POSTADO POR: <a href="#">ADMIN</a></li>
+                                   <li>POSTADO POR: <a href="{{ BASE_URL }}/posts/?author={{ photogallery.author.pk }}">{{ photogallery.author.name }}</a></li>
                                     <li>{{ photogallery.date }}</li>
                                     <li>EM <a href="{{ BASE_URL }}/posts/?editorial={{ photogallery.editorial.pk }}">{{ photogallery.editorial.name|upper }}</a></li>
                                     <li>{{ photogallery.views }} VISUALIZAÇÕES</li>

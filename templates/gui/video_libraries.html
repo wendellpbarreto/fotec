@@ -35,7 +35,7 @@
                                     <a href="{{ BASE_URL }}/video_library/{{ video_library.pk }}">{{ video_library.title|capfirst }}</a>
                                 </h2>
                                 <ul class="no-bullet meta row">
-                                    <li>POSTADO POR: <a href="#">ADMIN</a></li>
+                                    <li>POSTADO POR: <a href="{{ BASE_URL }}/posts/?author={{ video_library.author.pk }}">{{ video_library.author.name }}</a></li>
                                     <li>{{ video_library.date }}</li>
                                     <li>EM <a href="{{ BASE_URL }}/posts/?editorial={{ video_libray.editorial.pk }}">{{ video_library.editorial.name|upper }}</a></li>
                                     {% if video_library.is_videoteca %}

@@ -50,7 +50,7 @@ $font-smoothing: antialiased;
 // $default-float: left;
 
 // We use these as default colors throughout
-$primary-color: #199CD8;
+$primary-color: #0072c0;
 $secondary-color: #e7e7e7;
 $alert-color: #f04124;
 $success-color: #43AC6A;
@@ -1017,7 +1017,7 @@ $topbar-bg: initial;
 
 // Height and margin
 $topbar-height: 105px;
-$topbar-margin-bottom: 40px;
+$topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
 $topbar-title-weight: normal;
@@ -1033,7 +1033,7 @@ $topbar-dropdown-toggle-color: #fff;
 $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-$topbar-link-color: #199CD8;
+$topbar-link-color: #0072c0;
 $topbar-link-color-hover: #fff;
 $topbar-link-color-active: #fff;
 $topbar-link-weight: normal;
@@ -1056,8 +1056,8 @@ $topbar-dropdown-label-bg: initial;
 $topbar-menu-link-transform: uppercase;
 $topbar-menu-link-font-size: rem-calc(13);
 $topbar-menu-link-weight: bold;
-$topbar-menu-link-color: #199CD8;
-$topbar-menu-icon-color: #199CD8;
+$topbar-menu-link-color: #0072c0;
+$topbar-menu-icon-color: #0072c0;
 $topbar-menu-link-color-toggled: #888;
 $topbar-menu-icon-color-toggled: #888;
 

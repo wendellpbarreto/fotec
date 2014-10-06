@@ -36,7 +36,7 @@
                                     <a href="{{ BASE_URL }}/notice/{{ notice.pk }}">{{ notice.title|capfirst }}</a>
                                 </h2>
                                 <ul class="no-bullet meta row">
-                                    <li>POSTADO POR: <a href="#">ADMIN</a></li>
+                                    <li>POSTADO POR: <a href="{{ BASE_URL }}/posts/?author={{ notice.author.pk }}">{{ notice.author.name }}</a></li>
                                     <li>{{ notice.date }}</li>
                                     <li>EM <a href="{{ BASE_URL }}/posts/?editorial={{ notice.editorial.pk }}">{{ notice.editorial.name|upper }}</a></li>
                                     <li>{{ notice.views }} VISUALIZAÇÕES</li>

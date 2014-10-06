@@ -12,13 +12,19 @@ getQuerystring = function(key) {
 
 initCarousel = function() {
   $('.tabs-carousel').owlCarousel({
-    navigation: false,
-    singleItem: true,
-    pagination: false
+    items: 1,
+    lazyLoad: true,
+    animateOut: 'fadeOut',
+    animateIn: 'fadeIn'
   });
   return $('.banner-carousel').owlCarousel({
-    navigation: false,
-    singleItem: true
+    items: 1,
+    lazyLoad: true,
+    autoplay: true,
+    loop: true,
+    animateOut: 'fadeOut',
+    animateIn: 'fadeIn',
+    dots: true
   });
 };
 
@@ -64,3 +70,20 @@ $('.carousel__video').owlCarousel({
         }
     }
 })
+
+var scrollHandler = function() {
+    var scrollTop = $(window).scrollTop();
+    var heroHeight = $('#header').outerHeight();
+
+    if (scrollTop > heroHeight) {
+        classie.remove(document.getElementById('header-fixed'), 'fadeOutUp');
+        classie.add(document.getElementById('header-fixed'), 'appeared');
+        classie.add(document.getElementById('header-fixed'), 'show');
+        classie.add(document.getElementById('header-fixed'), 'fadeInDown');
+    } else if (scrollTop < heroHeight) {
+        classie.add(document.getElementById('header-fixed'), 'fadeOutUp');
+        classie.remove(document.getElementById('header-fixed'), 'fadeInDown');
+    }
+};
+
+$(window).scroll(scrollHandler);

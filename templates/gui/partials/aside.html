@@ -37,7 +37,7 @@
                 <ul class="no-bullet popular">
                     {% for popular in populars %}
                         <li class="row collapse">
-                            <a href="#" class="large-7 columns">
+                            <a href="{{ BASE_URL }}/notice/{{ popular.pk }}" class="large-7 columns">
                                 {% thumbnail popular.photo "90x90" crop="center" as im %}
                                     <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                 {% endthumbnail %}
@@ -60,7 +60,7 @@
                 <ul class="no-bullet recent">
                     {% for recent in recents %}
                         <li class="row collapse">
-                            <a href="#" class="large-7 columns">
+                            <a href="{{ BASE_URL }}/notice/{{ recent.pk }}" class="large-7 columns">
                                 {% thumbnail recent.photo "90x90" crop="center" as im %}
                                     <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                 {% endthumbnail %}
@@ -83,7 +83,7 @@
                 <ul class="no-bullet commenteds">
                     {% for commented in commenteds %}
                         <li class="row collapse">
-                            <a href="#" class="large-7 columns">
+                            <a href="{{ BASE_URL }}/notice/{{ commented.pk }}" class="large-7 columns">
                                 {% thumbnail commented.photo "90x90" crop="center" as im %}
                                     <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                 {% endthumbnail %}
