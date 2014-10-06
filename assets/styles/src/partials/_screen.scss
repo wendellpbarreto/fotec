@@ -47,6 +47,10 @@ body {
         }
     }
 
+    .appeared {
+        display: initial !important;
+    }
+
     .button {
         background-color: $blue;
         border: 0;
@@ -147,6 +151,9 @@ body {
 
                     &.icon-youtube {
                         background-color: $youtube;
+                    }
+                    &.icon-instagram {
+                        background-color: $instagram;
                     }
                     &:hover {
                         color: $white;

@@ -258,7 +258,7 @@ class Post(models.Model):
     date = models.DateField(_("Date"), help_text=_("Date"))
     date_modified = models.DateTimeField(_("Last modified"), auto_now=True)
     title = models.CharField(_("Title"), max_length=64, help_text=_("Title"))
-    subtitle = models.CharField(_("Subtitle"), max_length=128, help_text=_("Subtitle"))
+    subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("Subtitle"))
     body = models.TextField(_("Body"), max_length=10240, help_text=_("Body"))
 
     class Meta:
@@ -277,7 +277,7 @@ class Notice(Post):
         verbose_name_plural = _("Notices")
 
     def __unicode__(self):
-        return "%s" % (self.title.capitalize())
+        return "%s" % (self.title.title())
 
     def save(self, *args, **kwargs):
         self.type = NOTICE
