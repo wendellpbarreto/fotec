@@ -93,3 +93,5 @@
 [05/Oct/2014 23:18:09] INFO [system.core.generic_view:171] Template loaded: gui/home.html
 [05/Oct/2014 23:18:15] INFO [system.core.generic_view:171] Template loaded: gui/notices.html
 [05/Oct/2014 23:18:23] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[05/Oct/2014 23:29:20] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[05/Oct/2014 23:29:24] INFO [system.core.generic_view:171] Template loaded: gui/home.html
