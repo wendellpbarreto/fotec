@@ -57,11 +57,5 @@ target/
 # DS Store
 .DS_Store
 
-# Node modules
-node_modules/*
-
-# Bower components
-bower_components/*
-
 # Sass cache
 .sass_cache
