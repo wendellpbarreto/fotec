@@ -211,3 +211,7 @@ LINE 1: ... FROM "core_notice" INNER JOIN "core_author" ON ( "core_noti...
 [05/Oct/2014 23:21:27] INFO [system.core.generic_view:171] Template loaded: gui/home.html
 [05/Oct/2014 23:27:01] INFO [system.core.generic_view:171] Template loaded: gui/home.html
 [05/Oct/2014 23:27:05] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[05/Oct/2014 23:28:25] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[05/Oct/2014 23:28:55] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[05/Oct/2014 23:29:18] INFO [system.core.generic_view:171] Template loaded: gui/home.html
+[05/Oct/2014 23:29:30] INFO [system.core.generic_view:171] Template loaded: gui/home.html
