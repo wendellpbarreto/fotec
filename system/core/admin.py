@@ -122,7 +122,7 @@ class CurricularPracticeInline(admin.StackedInline):
     model = CurricularPractice
     extra = 1
     can_delete = True
-    max_num = 8
+    max_num = 1024
     classes = ("grp-collapse grp-open",)
     inline_classes = ("grp-collapse grp-open",)
 
@@ -236,7 +236,7 @@ class PhotoInline(admin.StackedInline):
     model = Photo
     extra = 1
     can_delete = True
-    max_num = 8
+    max_num = 1024
     classes = ("grp-collapse grp-open",)
     inline_classes = ("grp-collapse grp-open",)
     readonly_fields = ("photo_tag",)
@@ -260,6 +260,7 @@ class PhotogalleryAdmin(admin.ModelAdmin):
                 "fields" : (
                     ("date", "active",),
                     ("editorial", "discipline", "curricular_practice"),
+                    "author",
                 )
             }
         ),
@@ -291,7 +292,7 @@ class VideoInline(admin.StackedInline):
     model = Video
     extra = 1
     can_delete = True
-    max_num = 8
+    max_num = 1024
     classes = ("grp-collapse grp-open",)
     inline_classes = ("grp-collapse grp-open",)
 

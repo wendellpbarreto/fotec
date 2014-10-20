@@ -26,7 +26,7 @@
                             <i class="icon-video-camera"></i>
                         </div>
                         {% if not video_library.is_videoteca %}
-                            {{ video_library.videos.0.video|safe }}
+                            {{ video_library.get_videos.0.video|safe }}
                         {% endif %}
                         <header class="column">
                             <h2>

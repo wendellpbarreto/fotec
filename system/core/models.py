@@ -265,7 +265,7 @@ class Post(models.Model):
         abstract = True
 
 class Notice(Post):
-    author = models.ForeignKey(Author, verbose_name=_("Author"), help_text=_("Notice author"))
+    author = models.ForeignKey(Author, verbose_name=_("Author"), help_text=_("Author"))
     editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), help_text=_("Notice editorial"))
     discipline = models.ForeignKey(Discipline, verbose_name=_("Discipline"), null=True, blank=True, help_text=_("Notice discipline"))
     curricular_practice = models.ForeignKey(CurricularPractice, verbose_name=_("Curricular practice"), null=True, blank=True, help_text=_("Notice curricular practice"))

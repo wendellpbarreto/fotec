@@ -15,8 +15,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^grappelli/', include('grappelli.urls')),
-    url(r'^redactor/', include('redactor.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^redactor/', include('redactor.urls')),
 
     url(r'^$', RedirectView.as_view(url='/home/')),
 

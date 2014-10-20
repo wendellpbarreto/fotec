@@ -171,7 +171,7 @@ class GUI(GenericView):
 
     def notices(self, request):
         data = None
-        notices = Notice.objects.filter(active=True).order_by('-date')[:5]
+        notices = Notice.objects.filter(active=True).order_by('-date')
 
         data = {
             'template' : {
@@ -217,6 +217,7 @@ class GUI(GenericView):
 
     def photogalleries(self, request):
         data = None
+        photogalleries = Photogallery.objects.filter(active=True).order_by('-date')
 
         data = {
             'template' : {
@@ -230,7 +231,6 @@ class GUI(GenericView):
                 'photogalleries' : photogalleries,
             }
         }
-
         return data
 
     def photogallery(self, request):
@@ -262,7 +262,7 @@ class GUI(GenericView):
 
     def video_libraries(self, request):
         data = None
-        video_libraries = VideoLibrary.objects.filter(active=True).order_by('-date')[:5]
+        video_libraries = VideoLibrary.objects.filter(active=True).order_by('-date')
 
         data = {
             'template' : {
@@ -308,7 +308,7 @@ class GUI(GenericView):
 
     def events(self, request):
         data = None
-        events = Event.objects.filter(active=True).order_by('-date')[:5]
+        events = Event.objects.filter(active=True).order_by('-date')
 
         data = {
             'template' : {
