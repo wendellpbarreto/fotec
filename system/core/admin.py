@@ -315,6 +315,7 @@ class VideoLibraryAdmin(admin.ModelAdmin):
                 "fields" : (
                     ("date", "active",),
                     ("editorial", "discipline", "curricular_practice"),
+                    "aluno",
                 )
             }
         ),
@@ -400,6 +401,7 @@ class EventAdmin(admin.ModelAdmin):
             _("Informations"), {
                 "fields" : (
                     ("date", "active",),
+                    "author",
                 )
             }
         ),
