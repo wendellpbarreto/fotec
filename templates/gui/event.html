@@ -15,7 +15,7 @@
         <!-- -  -   -    -     -      -      -       -        -        Content -->
         <div class="content column">
             <section class="event">
-                {% if event %}
+                {% if event.active %}
                     <article class="row event post">
                         <div class="ribbon">
                             <div class="line"></div>
@@ -57,6 +57,10 @@
                            data-href="{{ request.build_absolute_uri }}"
                            data-numevents="10"
                            data-width="800"></div>
+                    </article>
+                {% else %}
+                    <article class="row post">
+                        <h3 class="text-center">Evento não existe ou foi desativado!</h3>
                     </article>
                 {% endif %}
             </section>

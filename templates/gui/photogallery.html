@@ -15,7 +15,7 @@
         <!-- -  -   -    -     -      -      -       -        -        Content -->
         <div class="content column">
             <section class="photogallery">
-                {% if photogallery %}
+                {% if photogallery.active %}
                    <article class="row post photogallery">
                         <div class="ribbon">
                             <div class="line"></div>
@@ -37,10 +37,10 @@
                                 <li><a href="{{ BASE_URL }}/photogallery/{{ photogallery.pk }}"><i class="icon-picture-o"></i> {{ photogallery.get_amount }}</a></li>
                             </ul>
                         </header>
-                        <div class="description column">
+                        <div class="description column clearfix">
                             <p>{{ photogallery.body|safe }}</p>
                         </div>
-                        <div class="gallery">
+                        <div class="gallery clearfix">
                             {% for photo in photogallery.photos.all %}
                                 <div class="photo">
                                 {% thumbnail photo.photo "1200x675" crop="center" as im %}
@@ -48,7 +48,7 @@
                                 {% endthumbnail %}
                                     <div class="photo__meta">
                                         <p class="photo__meta-title">{{ photo.title }}</p><!-- p class='photo__meta-title' -->
-                                        <p class="photo__meta-credits">Créditos: {{ photo.credits }}</p><!-- p class='photo__meta-credits' -->
+                                        <p class="photo__meta-credits">Créditos: {{ photo.photographer.name }}</p><!-- p class='photo__meta-credits' -->
                                     </div><!-- div class='photo__meta' -->
                                 </div><!-- div class='photo' -->
                             {% endfor %}
@@ -58,6 +58,10 @@
                            data-href="{{ request.build_absolute_uri }}"
                            data-numposts="10"
                            data-width="800"></div>
+                    </article>
+                {% else %}
+                    <article class="row post">
+                        <h3 class="text-center">Galeria de fotos não existe ou foi desativada!</h3>
                     </article>
                 {% endif %}
             </section>

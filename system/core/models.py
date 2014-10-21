@@ -122,7 +122,7 @@ class Address(models.Model):
         verbose_name_plural = _("Addresses")
 
     def __unicode__(self):
-        return "%s" % (self.name.capitalize())
+        return u"Endereço %s" % (self.pk)
 
 class About(models.Model):
     body = models.TextField(_("Body"), max_length=5120, help_text=_("About body"))
@@ -132,7 +132,7 @@ class About(models.Model):
         verbose_name_plural = _("Abouts")
 
     def __unicode__(self):
-        return "%s" % self.pk
+        return "Sobre %s" % (self.pk)
 
 class Role(models.Model):
     name = models.CharField(_("Role"), max_length=64, help_text=_("Role name"))
@@ -198,9 +198,9 @@ class Editorial(models.Model):
         return "%s" % (self.name.capitalize())
 
     def get_amount(self):
-        return len(Notice.objects.filter(editorial=self)) \
-            + len(Photogallery.objects.filter(editorial=self)) \
-            + len(VideoLibrary.objects.filter(editorial=self))
+        return len(Notice.objects.filter(editorial=self, active=True)) \
+            + len(Photogallery.objects.filter(editorial=self, active=True)) \
+            + len(VideoLibrary.objects.filter(editorial=self, active=True))
 
 class Author(models.Model):
     name = models.CharField(_("Name"), max_length=64, help_text=_("Author name"))
@@ -214,7 +214,7 @@ class Author(models.Model):
         verbose_name_plural = _("Authors")
 
     def __unicode__(self):
-        return "%s" % (self.name.capitalize())
+        return "%s" % (self.name.title())
 
     def photo_tag(self):
         return "<img width='300' src='%s'>" % (self.photo.url)
@@ -257,6 +257,7 @@ class Post(models.Model):
     featured = models.BooleanField(_("Featured"), default=True, help_text=_("Is this in featured session?"))
     date = models.DateField(_("Date"), help_text=_("Date"))
     date_modified = models.DateTimeField(_("Last modified"), auto_now=True)
+    author = models.ForeignKey(Author, verbose_name=_("Author"), help_text=_("Author"))
     title = models.CharField(_("Title"), max_length=64, help_text=_("Title"))
     subtitle = models.CharField(_("Subtitle"), max_length=128, blank=True, help_text=_("Subtitle"))
     body = models.TextField(_("Body"), max_length=10240, help_text=_("Body"))
@@ -265,7 +266,6 @@ class Post(models.Model):
         abstract = True
 
 class Notice(Post):
-    author = models.ForeignKey(Author, verbose_name=_("Author"), help_text=_("Author"))
     editorial = models.ForeignKey(Editorial, verbose_name=_("Editorial"), help_text=_("Notice editorial"))
     discipline = models.ForeignKey(Discipline, verbose_name=_("Discipline"), null=True, blank=True, help_text=_("Notice discipline"))
     curricular_practice = models.ForeignKey(CurricularPractice, verbose_name=_("Curricular practice"), null=True, blank=True, help_text=_("Notice curricular practice"))
