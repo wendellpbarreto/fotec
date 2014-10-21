@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
+import operator
 
 from django.shortcuts import render
 from itertools import chain
@@ -37,14 +38,14 @@ class GUI(GenericView):
         self.social_networks = SocialNetwork.objects.all()
 
     def home(self, request):
-        notices = Notice.objects.filter(active=True).order_by('-date')[:5]
-        photogalleries = Photogallery.objects.filter(active=True).order_by('-date')[:5]
-        video_libraries = VideoLibrary.objects.filter(active=True).order_by('-date')[:5]
-        podcasts = Podcast.objects.filter(active=True).order_by('-date')[:5]
-        events = Event.objects.filter(active=True).order_by('-date')[:5]
+        notices = Notice.objects.filter(active=True).order_by('-date')
+        photogalleries = Photogallery.objects.filter(active=True).order_by('-date')
+        video_libraries = VideoLibrary.objects.filter(active=True).order_by('-date')
+        podcasts = Podcast.objects.filter(active=True).order_by('-date')
+        events = Event.objects.filter(active=True).order_by('-date')
 
         posts = list(chain(notices, photogalleries, video_libraries, podcasts, events))
-
+        posts = sorted(posts, key=operator.attrgetter('date'), reverse=True)
         #         try:
         #     r = requests.get("https://graph.facebook.com/?ids=http://fotec.wendellpbarreto.com/")
         #     notice.comments = r.json()["http://fotec.wendellpbarreto.com/"]["comments"]
@@ -154,6 +155,7 @@ class GUI(GenericView):
                 video_libraries = VideoLibrary.objects.filter(active=True).order_by('-date')
 
         posts = list(chain(notices, photogalleries, video_libraries))
+        posts = sorted(posts, key=operator.attrgetter('date'), reverse=True)
 
         return {
             'template' : {
