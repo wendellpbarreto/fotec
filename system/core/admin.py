@@ -359,6 +359,7 @@ class PodcastAdmin(admin.ModelAdmin):
             _("Informations"), {
                 "fields" : (
                     ("date", "active",),
+                    "author"
                 )
             }
         ),
