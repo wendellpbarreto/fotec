@@ -17,7 +17,7 @@
             {% if notices %}
                 <section class="banner">
                     <ul class="banner-carousel">
-                        {% for notice in notices %}
+                        {% for notice in notices|slice:":6" %}
                             <li>
                                 <a href="{{ BASE_URL }}/notice/{{ notice.pk }}">
                                     {% thumbnail notice.photo "1200x675" crop="center" as im %}

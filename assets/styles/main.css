@@ -12919,12 +12919,12 @@ meta.foundation-mq-topbar {
       z-index: 99; }
     .fixed.expanded:not(.top-bar) .top-bar-section {
       z-index: 98;
-      margin-top: 105px; }
+      margin-top: 70px; }
 
 .top-bar {
   overflow: hidden;
-  height: 105px;
-  line-height: 105px;
+  height: 70px;
+  line-height: 70px;
   position: relative;
   background: initial;
   margin-bottom: 0; }
@@ -12953,11 +12953,11 @@ meta.foundation-mq-topbar {
     position: relative;
     margin: 0; }
   .top-bar .name {
-    height: 105px;
+    height: 70px;
     margin: 0;
     font-size: 16px; }
     .top-bar .name h1 {
-      line-height: 105px;
+      line-height: 70px;
       font-size: 1.0625rem;
       margin: 0; }
       .top-bar .name h1 a {
@@ -12965,7 +12965,7 @@ meta.foundation-mq-topbar {
         color: #0072c0;
         width: 75%;
         display: block;
-        padding: 0 35px; }
+        padding: 0 23.33333px; }
   .top-bar .toggle-topbar {
     position: absolute;
     right: 0;
@@ -12977,16 +12977,16 @@ meta.foundation-mq-topbar {
       font-weight: bold;
       position: relative;
       display: block;
-      padding: 0 35px;
-      height: 105px;
-      line-height: 105px; }
+      padding: 0 23.33333px;
+      height: 70px;
+      line-height: 70px; }
     .top-bar .toggle-topbar.menu-icon {
       top: 50%;
       margin-top: -16px; }
       .top-bar .toggle-topbar.menu-icon a {
         height: 34px;
         line-height: 33px;
-        padding: 0 60px 0 35px;
+        padding: 0 48.33333px 0 23.33333px;
         color: #0072c0;
         position: relative; }
         .top-bar .toggle-topbar.menu-icon a span::after {
@@ -12996,7 +12996,7 @@ meta.foundation-mq-topbar {
           height: 0;
           top: 50%;
           margin-top: -8px;
-          right: 35px;
+          right: 23.33333px;
           -webkit-box-shadow: 0 0px 0 1px #0072c0, 0 7px 0 1px #0072c0, 0 14px 0 1px #0072c0;
              -moz-box-shadow: 0 0px 0 1px #0072c0, 0 7px 0 1px #0072c0, 0 14px 0 1px #0072c0;
                   box-shadow: 0 0px 0 1px #0072c0, 0 7px 0 1px #0072c0, 0 14px 0 1px #0072c0;
@@ -13044,15 +13044,15 @@ meta.foundation-mq-topbar {
       width: 100%;
       color: #0072c0;
       padding: 12px 0 12px 0;
-      padding-left: 35px;
+      padding-left: 23.33333px;
       font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
       font-size: 0.8125rem;
       font-weight: normal;
       text-transform: none; }
       .top-bar-section ul li > a.button {
         font-size: 0.8125rem;
-        padding-right: 35px;
-        padding-left: 35px;
+        padding-right: 23.33333px;
+        padding-left: 23.33333px;
         background-color: #0072c0;
         border-color: #005c9a;
         color: #FFFFFF; }
@@ -13086,8 +13086,8 @@ meta.foundation-mq-topbar {
           color: #FFFFFF; }
     .top-bar-section ul li > button {
       font-size: 0.8125rem;
-      padding-right: 35px;
-      padding-left: 35px;
+      padding-right: 23.33333px;
+      padding-left: 23.33333px;
       background-color: #0072c0;
       border-color: #005c9a;
       color: #FFFFFF; }
@@ -13130,7 +13130,7 @@ meta.foundation-mq-topbar {
         background: 0;
         color: #FFFFFF; }
   .top-bar-section .has-form {
-    padding: 35px; }
+    padding: 23.33333px; }
   .top-bar-section .has-dropdown {
     position: relative; }
     .top-bar-section .has-dropdown > a:after {
@@ -13141,7 +13141,7 @@ meta.foundation-mq-topbar {
       border: inset 5px;
       border-color: transparent transparent transparent rgba(255, 255, 255, 0.4);
       border-left-style: solid;
-      margin-right: 35px;
+      margin-right: 23.33333px;
       margin-top: -4.5px;
       position: absolute;
       top: 50%;
@@ -13176,7 +13176,7 @@ meta.foundation-mq-topbar {
       height: auto; }
       .top-bar-section .dropdown li a {
         font-weight: normal;
-        padding: 8px 35px; }
+        padding: 8px 23.33333px; }
         .top-bar-section .dropdown li a.parent-link {
           font-weight: normal; }
       .top-bar-section .dropdown li.title h5, .top-bar-section .dropdown li.parent-link {
@@ -13189,11 +13189,11 @@ meta.foundation-mq-topbar {
           .top-bar-section .dropdown li.title h5 a:hover, .top-bar-section .dropdown li.parent-link a:hover {
             background: none; }
       .top-bar-section .dropdown li.has-form {
-        padding: 8px 35px; }
+        padding: 8px 23.33333px; }
       .top-bar-section .dropdown li .button, .top-bar-section .dropdown li button {
         top: auto; }
     .top-bar-section .dropdown label {
-      padding: 8px 35px 2px;
+      padding: 8px 23.33333px 2px;
       margin-bottom: 0;
       text-transform: uppercase;
       color: initial;
@@ -13247,22 +13247,22 @@ meta.foundation-mq-topbar {
       background: initial;
       color: #fff; }
     .top-bar-section li:not(.has-form) a:not(.button) {
-      padding: 0 35px;
-      line-height: 105px;
+      padding: 0 23.33333px;
+      line-height: 70px;
       background: initial; }
       .top-bar-section li:not(.has-form) a:not(.button):hover {
         background-color: #555555;
         background: initial; }
     .top-bar-section li.active:not(.has-form) a:not(.button) {
-      padding: 0 35px;
-      line-height: 105px;
+      padding: 0 23.33333px;
+      line-height: 70px;
       color: #fff;
       background: initial; }
       .top-bar-section li.active:not(.has-form) a:not(.button):hover {
         background: 0;
         color: #FFFFFF; }
     .top-bar-section .has-dropdown > a {
-      padding-right: 55px !important; }
+      padding-right: 43.33333px !important; }
       .top-bar-section .has-dropdown > a:after {
         content: "";
         display: block;
@@ -13272,7 +13272,7 @@ meta.foundation-mq-topbar {
         border-color: rgba(255, 255, 255, 0.4) transparent transparent transparent;
         border-top-style: solid;
         margin-top: -2.5px;
-        top: 52.5px; }
+        top: 35px; }
     .top-bar-section .has-dropdown.moved {
       position: relative; }
       .top-bar-section .has-dropdown.moved > .dropdown {
@@ -13312,9 +13312,9 @@ meta.foundation-mq-topbar {
       min-width: 100%; }
       .top-bar-section .dropdown li a {
         color: #fff;
-        line-height: 105px;
+        line-height: 70px;
         white-space: nowrap;
-        padding: 12px 35px;
+        padding: 12px 23.33333px;
         background: initial; }
       .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
         color: #fff;
@@ -13334,12 +13334,12 @@ meta.foundation-mq-topbar {
       border-top: none;
       border-right: initial;
       clear: none;
-      height: 105px;
+      height: 70px;
       width: 0; }
     .top-bar-section .has-form {
       background: initial;
-      padding: 0 35px;
-      height: 105px; }
+      padding: 0 23.33333px;
+      height: 70px; }
     .top-bar-section .right li .dropdown {
       left: auto;
       right: 0; }
@@ -15509,7 +15509,7 @@ body {
   opacity: 0.9;
   display: none; }
   #header-fixed .navbar {
-    margin-top: 45px; }
+    margin-top: 30px; }
 
 #container > aside a, #container > aside i {
   color: #474747;
