@@ -15276,7 +15276,7 @@ body {
       background-color: #f9f9f9;
       border-color: #f0f0f0; }
   body .appeared {
-    display: initial !important; }
+    display: initial; }
   body .button {
     background-color: #0072c0;
     border: 0;
