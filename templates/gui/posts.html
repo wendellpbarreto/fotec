@@ -17,7 +17,13 @@
             {% if posts %}
                 <section class="posts">
                     <header class="posts-header">
-                        <h3 class="posts-header-title">{% if editorial %}{{ editorial }}{% endif %}</h3>
+                        <h3 class="posts-header-title">
+                            {% if author %}
+                                {{ author }}
+                            {% elif editorial %}
+                                {{ editorial }}
+                            {% endif %}
+                        </h3>
                     </header><!-- header class='posts-header' -->
                     {% for post in posts %}
                         {% if post.type == "notice" %}
@@ -158,6 +164,7 @@
                         </article>
                     {% endfor %}
                 </section>
+                {% include "gui/partials/load_more.html" with objects=posts only %}
             {% endif %}
         </div>
 

@@ -23,6 +23,7 @@ from .models import (
     VideoLibrary,
     Podcast,
     Event,
+    Author,
 )
 
 logger = logging.getLogger(__name__)
@@ -46,12 +47,13 @@ class GUI(GenericView):
 
         posts = list(chain(notices, photogalleries, video_libraries, podcasts, events))
         posts = sorted(posts, key=operator.attrgetter('date'), reverse=True)
-        #         try:
-        #     r = requests.get("https://graph.facebook.com/?ids=http://fotec.wendellpbarreto.com/")
-        #     notice.comments = r.json()["http://fotec.wendellpbarreto.com/"]["comments"]
-        # except Exception, e:
-        #     logger.warning(str(e))
-        #     notice.comments = 0
+
+        try:
+            page = int(request.GET['page'])
+        except:
+            page = 1
+        finally:
+            posts = self.paginate(obj=posts, page=page, num_per_page=5)
 
         return {
             'template' : {
@@ -95,18 +97,22 @@ class GUI(GenericView):
         notices, photogalleries, video_libraries = None, None, None
         discipline, curricular_practice, editorial = None, None, None
 
+
         try:
             discipline = Discipline.objects.get(pk=request.GET['discipline'])
         except Exception, e:
+            discipline = None
             logger.error(str(e))
         else:
             notices = Notice.objects.filter(active=True, discipline=discipline).order_by('-date')
             photogalleries = Photogallery.objects.filter(active=True, discipline=discipline).order_by('-date')
             video_libraries = VideoLibrary.objects.filter(active=True, discipline=discipline).order_by('-date')
 
+
         try:
             curricular_practice = CurricularPractice.objects.get(pk=request.GET['curricular_practice'])
         except Exception, e:
+            curricular_practice = None
             logger.error(str(e))
         else:
             if notices and photogalleries and video_libraries:
@@ -118,9 +124,11 @@ class GUI(GenericView):
                 photogalleries = Photogallery.objects.filter(active=True, curricular_practice=curricular_practice).order_by('-date')
                 video_libraries = VideoLibrary.objects.filter(active=True, curricular_practice=curricular_practice).order_by('-date')
 
+
         try:
             editorial = Editorial.objects.get(pk=request.GET['editorial'])
         except Exception, e:
+            editorial = None
             logger.error(str(e))
         else:
             if notices and photogalleries and video_libraries:
@@ -132,12 +140,27 @@ class GUI(GenericView):
                 photogalleries = Photogallery.objects.filter(active=True, editorial=editorial).order_by('-date')
                 video_libraries = VideoLibrary.objects.filter(active=True, editorial=editorial).order_by('-date')
 
+
+        try:
+            author = Author.objects.get(pk=request.GET['author'])
+        except Exception, e:
+            author = None
+            logger.error(str(e))
+        else:
+            if notices and photogalleries and video_libraries:
+                notices = notices.filter(author=author).order_by('-date')
+                photogalleries = photogalleries.filter(author=author).order_by('-date')
+                video_libraries = video_libraries.filter(author=author).order_by('-date')
+            else:
+                notices = Notice.objects.filter(active=True, author=author).order_by('-date')
+                photogalleries = Photogallery.objects.filter(active=True, author=author).order_by('-date')
+                video_libraries = VideoLibrary.objects.filter(active=True, author=author).order_by('-date')
+
+
         try:
             keywords = request.GET['keywords'].split()
-            print '*' * 20
-            print keywords
-            print '*' * 20
         except Exception, e:
+            keywords = None
             logger.error(str(e))
         else:
             if keywords:
@@ -149,13 +172,25 @@ class GUI(GenericView):
                     notices = Notice.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]), active=True).order_by('-date')
                     photogalleries = Photogallery.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]), active=True).order_by('-date')
                     video_libraries = VideoLibrary.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=unicode(keyword)) for keyword in keywords]), active=True).order_by('-date')
-            elif (not discipline) and (not curricular_practice) and (not editorial):
+            elif (not discipline) and (not curricular_practice) and (not editorial) and (not author):
+                notices = Notice.objects.filter(active=True).order_by('-date')
+                photogalleries = Photogallery.objects.filter(active=True).order_by('-date')
+                video_libraries = VideoLibrary.objects.filter(active=True).order_by('-date')
+        finally:
+            if (not discipline) and (not curricular_practice) and (not editorial) and (not author):
                 notices = Notice.objects.filter(active=True).order_by('-date')
                 photogalleries = Photogallery.objects.filter(active=True).order_by('-date')
                 video_libraries = VideoLibrary.objects.filter(active=True).order_by('-date')
 
         posts = list(chain(notices, photogalleries, video_libraries))
         posts = sorted(posts, key=operator.attrgetter('date'), reverse=True)
+
+        try:
+            page = int(request.GET['page'])
+        except:
+            page = 1
+        finally:
+            posts = self.paginate(obj=posts, page=page, num_per_page=5)
 
         return {
             'template' : {
@@ -168,6 +203,7 @@ class GUI(GenericView):
                 'social_networks' : self.social_networks,
                 'posts' : posts,
                 'editorial' : editorial,
+                'author' : author,
             }
         }
 

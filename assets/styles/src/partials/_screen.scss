@@ -1,3 +1,18 @@
+    @-moz-keyframes spin {
+        from { -moz-transform: rotate(0deg); }
+        to { -moz-transform: rotate(360deg); }
+    }
+
+    @-webkit-keyframes spin {
+        from { -webkit-transform: rotate(0deg); }
+        to { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+        from {transform:rotate(0deg);}
+        to {transform:rotate(360deg);}
+    }
+
 body {
 
     word-wrap: break-word;
@@ -48,7 +63,7 @@ body {
     }
 
     .appeared {
-        display: initial;
+        display: initial !important;
     }
 
     .button {
@@ -72,6 +87,39 @@ body {
         transition: all 0.2s ease-in-out;
         box-shadow: inset 0 -3px 0 rgba(0,0,0,0.2);
         margin: 0;
+    }
+
+    .loading {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border: solid 2px transparent;
+        border-top-color: $white;
+        border-left-color: $white;
+        border-radius: 10px;
+        -webkit-animation: spin 400ms linear infinite;
+        -moz-animation: spin 400ms linear infinite;
+        -ms-animation: spin 400ms linear infinite;
+        -o-animation: spin 400ms linear infinite;
+        animation: spin 400ms linear infinite;
+    }
+
+    #load-more {
+        text-align: center;
+        .load-more__anchor {
+            text-transform: uppercase;
+            padding: 10px 30px;
+            display: block;
+            font-weight: 600;
+            width: 100%;
+        }
+        .load-more__loader {
+            display: none;
+            padding: 10px 40px;
+        }
+        .load-more__end {
+            display: none;
+        }
     }
 
     .box {

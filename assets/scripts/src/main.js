@@ -31,6 +31,8 @@ initCarousel = function() {
 initEditorialLabel = function() {
   if (getQuerystring('editorial')) {
     return $('.posts-header .posts-header-title').show();
+  } else if (getQuerystring('author')) {
+    return $('.posts-header .posts-header-title').show();
   }
 };
 

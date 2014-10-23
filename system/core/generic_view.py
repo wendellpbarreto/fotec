@@ -21,7 +21,7 @@ class GenericView(View):
     """
     Generic view to render all system requests
     """
-    def render_to_json(request, template, context_data):
+    def render_to_json(self, request, template, context_data):
         """
         Dumps json objects to string template
         """
@@ -43,7 +43,8 @@ class GenericView(View):
             leftover_data = None
 
         try:
-            response["template"] = render_to_string(template, template_data, context_instance=RequestContext(request))
+            response = render_to_string(template, template_data, context_instance=RequestContext(request))
+            # response["template"] = render_to_string(template, template_data, context_instance=RequestContext(request))
         except Exception, e:
             pass
 
@@ -57,13 +58,14 @@ class GenericView(View):
             pass
 
         try:
-            return HttpResponse(json.dumps(response), mimetype="application/json")
+            return HttpResponse(response)
+            # return HttpResponse(json.dumps(response))
         except Exception, e:
             logger.error(str(e))
 
             return None
 
-    def load_json(request):
+    def load_json(self, request):
         """
         Load json objects from request
         """
@@ -78,7 +80,7 @@ class GenericView(View):
 
         if request.is_ajax():
 
-            return render_to_json(request, self.get_template_name(request), self.get_context_data(request))
+            return self.render_to_json(request, self.get_template_name(request), self.get_context_data(request))
         else:
             context_data = self.get_context_data(request)
 
@@ -176,7 +178,7 @@ class GenericView(View):
 
             return "404.html"
 
-    def paginate(obj, page, num_per_page):
+    def paginate(self, obj, page, num_per_page):
         paginator = Paginator(obj, num_per_page)
 
         try:
@@ -213,6 +215,7 @@ class GenericView(View):
             pass
 
         obj.page = page
+        obj.num_pages = paginator.num_pages
 
         try:
             paginator.page(page + 2)

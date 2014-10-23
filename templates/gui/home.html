@@ -181,8 +181,10 @@
                         </article>
                     {% endfor %}
                 </section>
+                {% include "gui/partials/load_more.html" with objects=posts only %}
             {% endif %}
         </div>
+
 
         <!-- -  -   -    -     -      -      -       -        -        Aside -->
         {% include "gui/partials/aside.html" %}
