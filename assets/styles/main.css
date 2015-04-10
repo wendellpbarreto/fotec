@@ -96,7 +96,7 @@ select {
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
-  max-width: 75rem; }
+  max-width: 81.25rem; }
   .row:before, .row:after {
     content: " ";
     display: table; }
@@ -6932,7 +6932,7 @@ select {
   @media only screen and (min-width:40.063em) {
     .reveal-modal {
       width: 80%;
-      max-width: 75rem;
+      max-width: 81.25rem;
       left: 0;
       right: 0;
       margin: 0 auto; } }
@@ -6952,35 +6952,35 @@ select {
   @media only screen and (min-width:40.063em) {
     .reveal-modal.tiny {
       width: 30%;
-      max-width: 75rem;
+      max-width: 81.25rem;
       left: 0;
       right: 0;
       margin: 0 auto; } }
   @media only screen and (min-width:40.063em) {
     .reveal-modal.small {
       width: 40%;
-      max-width: 75rem;
+      max-width: 81.25rem;
       left: 0;
       right: 0;
       margin: 0 auto; } }
   @media only screen and (min-width:40.063em) {
     .reveal-modal.medium {
       width: 60%;
-      max-width: 75rem;
+      max-width: 81.25rem;
       left: 0;
       right: 0;
       margin: 0 auto; } }
   @media only screen and (min-width:40.063em) {
     .reveal-modal.large {
       width: 70%;
-      max-width: 75rem;
+      max-width: 81.25rem;
       left: 0;
       right: 0;
       margin: 0 auto; } }
   @media only screen and (min-width:40.063em) {
     .reveal-modal.xlarge {
       width: 95%;
-      max-width: 75rem;
+      max-width: 81.25rem;
       left: 0;
       right: 0;
       margin: 0 auto; } }
@@ -6994,7 +6994,7 @@ select {
     @media only screen and (min-width:40.063em) {
       .reveal-modal.full {
         width: 100vw;
-        max-width: 75rem;
+        max-width: 81.25rem;
         left: 0;
         right: 0;
         margin: 0 auto; } }
@@ -8417,7 +8417,7 @@ select {
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
-  max-width: 75rem; }
+  max-width: 81.25rem; }
   .row:before, .row:after {
     content: " ";
     display: table; }
@@ -10625,7 +10625,7 @@ select {
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
-  max-width: 75rem; }
+  max-width: 81.25rem; }
   .row:before, .row:after {
     content: " ";
     display: table; }
@@ -13225,7 +13225,7 @@ meta.foundation-mq-topbar {
     .top-bar.expanded {
       background: initial; }
   .contain-to-grid .top-bar {
-    max-width: 75rem;
+    max-width: 81.25rem;
     margin: 0 auto;
     margin-bottom: 0; }
   .top-bar-section {
